@@ -11,6 +11,30 @@
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
+});*/
+
+Route::group(['middleware' => ['web']], function () {
+ 
+    Route::get('/', function () {
+    	return view('welcome');
+
+	});
+	
+	Auth::routes();
+
+    /*Route::get('/', function () {
+    	return view('');
+	
+	});*/
+	/*Route::post('/register', [
+		'uses' => 'UserController@',
+		'as' =>'register']
+
+	);*/
 });
+
+
+
+/*Route::get('/home', 'HomeController@index');*/

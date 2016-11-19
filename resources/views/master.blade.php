@@ -20,6 +20,7 @@
     <body>
     
     <div class="container">
+        
         <div class="header">
             @yield('pageHeader')
 
@@ -33,7 +34,7 @@
 
         <div class="footer">
             <!--  @yield('footer') -->
-             @include('templates.footerContent')
+            <!--  @include('templates.footerContent') -->
         </div>
     </div>
 

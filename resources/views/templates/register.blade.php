@@ -1,15 +1,18 @@
 <!-- <div class="container"> -->
 	<div class="row">
-		<div class="col-md-6">
+		<div class="col-md-8">
 		<form class="form-horizontal">
-			<div class="panel panel-primary">
+			<fieldset>
+    		<legend>Register</legend>
+
+			<!-- <div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
 						Panel title
 					</h3>
 				</div>
-				<div class="panel-body">
-				<!--	<form class="form-horizontal"> -->
+				<div class="panel-body"> -->
+					<form class="form-horizontal"> 
 				
 						
 						<div class="form-group">
@@ -198,8 +201,8 @@
 						  
 				<!--	</form> -->
 
-				</div>
-				<div class="panel-footer">
+				<!-- </div> -->
+				<!-- <div class="panel-footer"> -->
 					<div class="form-group">
 						     <div class="col-md-4  pull-right">
 						         <input type="submit" name="submit" value="submit" class="btn btn-default">
@@ -208,11 +211,13 @@
 						     <!--<div class="col-md-6">
 						         <input type="submit" name="cancel" value="cancel" class="btn btn-default">
 						     </div>-->
-					</div>
+					<!-- </div> -->
 
 				</div>
+				</fieldset>
 			</form>
 			</div>
+			<div class="col-md-4"></div>
 		</div>
-	</div>
+	<!-- </div> -->
 <!--</div> -->
