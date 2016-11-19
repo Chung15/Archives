@@ -18,20 +18,24 @@
         
     </head>
     <body>
-    <div class="header">
-      @yield('header')
-    </div>
-    <div class="content">
+    
+    <div class="container">
+        <div class="header">
+            @yield('pageHeader')
+
+        </div>
+
         @yield('content')
+
+        <div class="aside_content">
+            @yield('aside_content')
+        </div>
+
+        <div class="footer">
+            <!--  @yield('footer') -->
+             @include('templates.footerContent')
+        </div>
     </div>
-    <div class="aside_content">
-        @yield('aside_content')
-    </div>
-   
-    <div class="footer">
-     @yield('footer')
-    </div>
-   
 
    
     <script src="js/jquery.min.js"></script>

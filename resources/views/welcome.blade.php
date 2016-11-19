@@ -4,6 +4,14 @@
      Archives
     @endsection
 
+
+
     @section('content')
-        <h1> Welcome to laravel </h1>
+    	@section('pageHeader')
+    		 @include('templates.header')
+    		 @include('templates.register')
+    	@endsection
+
+      	@include('templates.mainContent')
     @endsection
+
