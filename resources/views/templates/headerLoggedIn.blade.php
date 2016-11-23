@@ -12,10 +12,17 @@
 				<div class="col-md-4">
 					<ul class="list-inline">
 						<li>
-							Welcome loggedIn User
+							Welcome {{ Auth::User()->firstname }}
 						</li>
 						<li>
-							|Logout
+							<a href="{{ url('logout') }}"
+                                onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">|Logout
+                            </a>
+
+                            <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+                                {{ csrf_field() }}
+                            </form>
 						</li>
 						<li>
 							|Help

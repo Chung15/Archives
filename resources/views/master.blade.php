@@ -10,7 +10,7 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
 
-        <link href="css/style.css" rel="stylesheet">
+       <!--  <link href="css/style.css" rel="stylesheet"> -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
@@ -34,13 +34,13 @@
 
         <div class="footer">
             <!--  @yield('footer') -->
-            <!--  @include('templates.footerContent') -->
+             @include('templates.footerContent')
         </div>
     </div>
 
    
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+  <!--   <script src="js/scripts.js"></script> -->
     </body>
 </html>

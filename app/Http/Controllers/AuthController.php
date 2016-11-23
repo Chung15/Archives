@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-//use Illuminate\Http\Request;
-//added
-use Request;
+use Illuminate\Http\Request;
+use App\Http\Requests\UserRequest;
+//use App\User;
 
-class UserController extends Controller
+class AuthController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -23,9 +23,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function showProfile()
+    public function create()
     {
-        return view('templates.user.userProfile');
+        //
     }
 
     /**
@@ -36,12 +36,7 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //added
-        $inputs = Request::all();
-        return $inputs;
-       // return redirect('welcome');
-
-
+        //
     }
 
     /**
@@ -87,6 +82,49 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+    /**
+    * returns the login form
+    */
+    public function loginView()
+    {
+        return view('templates.login');
+    }
+
+    public function processLogin(Request $request)
+    {
+        $this->validate($request, User::$validationRules);
+        $loginData = $request->only('email', 'password');
+       if (\Auth::attempt($loginData)) {
+        
+            return redirect()->intended('profile');
+        }
+        return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
+    }
+
+    public function logout(){
+        \Auth::logout();
+        return redirect()->route('login');
+    }
+    // register form methods
+
+    public function registerView()
+    {
+        return view('templates.register');
+    }
+
+    public function processRegister(UserRequest $request)
+    {
+        
+        $data = $request->all();
+        return $data;
+
+
+      /* if (\Auth::attempt($data)) {
+        
+            return redirect()->intended('profile');
+        }
+        return back()->withInput()->withErrors(['email' =>'email or password is invalid']);*/
     }
 
 }

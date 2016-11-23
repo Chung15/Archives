@@ -1,4 +1,10 @@
- <div class="container-fluid">
+ @extends('master')
+
+ @section('pageHeader')
+ 	@include('templates.header')
+ @endsection
+ <!-- <div class="container"> -->
+@section('content')
 	<div class="row">
 	<div class="col-md-3"></div>
 		<div class="col-md-6">
@@ -9,14 +15,17 @@
 					</h3>
 				</div>
 				<div class="panel-body">
-					<form>
+					<form method="POST" action="{{ url('processLogin') }}">
+					{{ csrf_field() }}
+					
 					  <div class="form-group">
-					    <label for="exampleInputEmail1">Email address</label>
-					    <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+					    <label for="email">Email address</label>
+					    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
+
 					  </div>
 					  <div class="form-group">
-					    <label for="exampleInputPassword1">Password</label>
-					    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+					    <label for="password">Password</label>
+					    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
 					  </div>
 					  <div class="checkbox">
 					    <label>
@@ -24,6 +33,18 @@
 					    </label>
 					  </div>
   						<button type="submit" class="btn btn-default">Submit</button>
+
+  						@if (count($errors))
+						<div class="alert alert-danger">
+					     	<ul>
+					     		@foreach($errors->all() as $error)
+					     		<li>
+					     			{{ $error }}
+					     		</li>
+					     		@endforeach
+					     	</ul>
+					     	</div>
+					    @endif
 
 					</form>
 
@@ -39,4 +60,5 @@
 		</div>
 	<div class="col-md-3"></div>
 	</div>
-</div>
+	@endsection
+<!-- </div> -->

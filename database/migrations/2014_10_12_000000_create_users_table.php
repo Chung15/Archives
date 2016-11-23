@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('INN');
             $table->string('title');
             $table->string('grade');
-            $table->date('dateOfBirth');
+           // $table->date('dateOfBirth');
             $table->string('gender');
             $table->string('maritalStatus');
            // $table->binary('picture');//path/link images in the DB

@@ -12,10 +12,15 @@
 				<div class="col-md-4">
 					<ul class="list-inline">
 						<li>
-							Login
+							<a href="{{ url('login') }}">|Login
+                            </a>
+
+                           
 						</li>
+
 						<li>
-							|Register
+							<a href="{{ url('register') }}">|Register
+                            </a>
 						</li>
 						<li>
 							|Help
