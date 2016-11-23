@@ -149,10 +149,9 @@
 						        <div class="col-md-5">
 						          <select class="form-control" name="maritalStatus">
 
-						           <!--  <option value="{!! $type->type !!}">{!! $type->type !!}</option>
- -->
-						             <option selected value="{{ 'Single' }}">Single</option>
-						             <option value="1">Married</option>
+						           
+						             <option selected value="0">Single</option>
+						             <option value="1" name="married">Married</option>
 						             <option value="2">Divorced</option>
 						             <option value="3">Widow(er)</option>
 						          </select>
