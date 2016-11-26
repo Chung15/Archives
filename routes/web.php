@@ -31,7 +31,7 @@ Route::group(['middleware' => ['web']], function () {
 	Route::get('/profile', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
 
 	Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
-	Route::post('/processRegister', ['as' => 'processRegister', 'uses' =>'AuthController@processRegister']);// execute la 
+	Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
 
 
     /*Route::get('/', function () {

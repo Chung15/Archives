@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->string('patronymic');
             $table->integer('INN');
-            $table->string('title');
+            $table->string('title');// change to enum all selected box
             $table->string('grade');
            // $table->date('dateOfBirth');
             $table->string('gender');

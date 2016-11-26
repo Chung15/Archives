@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
-//use App\User;
+use App\User;
 
 class AuthController extends Controller
 {
@@ -113,18 +113,32 @@ class AuthController extends Controller
         return view('templates.register');
     }
 
-    public function processRegister(UserRequest $request)
+   /* public function processRegister(UserRequest $request)
     {
         
-        $data = $request->all();
-        return $data;
+       $data = $request->all();
+       $user = return User::create([
+            'firstname' => $data['firstname'],
+            'lastname' => $data['lastname'],
+            'patronymic' => $data['patronymic'],
+            'INN' => $data['INN'],
+            'title' => $data['title'],
+            'grade' => $data['grade'],
+            'gender' => $data['gender'],
+            'maritalStatus' => $data['maritalStatus'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'terms' => $data['terms'],
+        ]);
 
+        //return $data;
 
-      /* if (\Auth::attempt($data)) {
+      /* if (\Auth::attempt($data))// authentifier si le user existe dans la base de donnees
+       {
         
             return redirect()->intended('profile');
         }
-        return back()->withInput()->withErrors(['email' =>'email or password is invalid']);*/
-    }
+        return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
+    }*/
 
 }

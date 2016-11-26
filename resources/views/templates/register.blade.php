@@ -23,7 +23,7 @@
 				<div class="panel-body"> -->
 					<!-- <form class="form-horizontal" >  -->
 				
-		<form class="form-horizontal" role="form" method="POST" action="{{ url('processRegister') }}">
+		<form class="form-horizontal" role="form" method="POST" action="{{ url('store') }}">
 		{{ csrf_field() }}
 						
 						<div class="form-group {{ $errors->has('firstname') ? ' has-error' : '' }}">
@@ -83,9 +83,9 @@
 						        <div class="col-md-5">
 						          <select class="form-control" name="title">
 						            
-						             <option selected value="">Lecturer</option>
-						             <option value="">Doctor</option>
-						             <option value="">Professor</option>
+						             <option selected value="lecturer">Lecturer</option>
+						             <option value="doctor">Doctor</option>
+						             <option value="professor">Professor</option>
 						          </select>
 						        </div>
 						        <div class="col-md-3">
@@ -104,9 +104,9 @@
 						        <div class="col-md-5">
 						          <select class="form-control" name="grade">
 						            
-						             <option selected value="">Junior</option>
-						             <option value="">Assistant</option>
-						             <option value="">Senior</option>
+						             <option selected value="junior">Junior</option>
+						             <option value="assistant">Assistant</option>
+						             <option value="senior">Senior</option>
 						          </select>
 						        </div>
 						        <div class="col-md-3">
@@ -133,11 +133,11 @@
 						        Gender</label>
 						     <div class="col-md-8 ">
 						       <label>
-						          <input type="radio" name="gender" value="{{ old('male') }}">
+						          <input type="radio" name="gender" value="male" checked="true">
 						             Male
 						          </label>
 						       <label>
-						          <input type="radio" name="gender" value="{{ old('female') }}">
+						          <input type="radio" name="gender" value="female">
 						          Female
 						       </label>
 						     </div>
@@ -147,13 +147,11 @@
 						    <div class="col-md-8">
 						      <div class="row">
 						        <div class="col-md-5">
-						          <select class="form-control" name="maritalStatus">
-
-						           
-						             <option selected value="0">Single</option>
-						             <option value="1" name="married">Married</option>
-						             <option value="2">Divorced</option>
-						             <option value="3">Widow(er)</option>
+						          <select class="form-control" name="maritalStatus" id="maritalStatus">
+						             <option selected value="single">Single</option>
+						             <option value="married">Married</option>
+						             <option value="divorced">Divorced</option>
+						             <option value="widow">Widow(er)</option>
 						          </select>
 						        </div>
 						        <div class="col-md-3">
@@ -237,7 +235,7 @@
 						     <label for="password" class="col-md-4 control-label">
 						        Password</label>
 						     <div class="col-md-8">
-						        <input type="password" name="password" class="form-control" value="{{ old('password') }}" required>
+						        <input type="password" name="password" class="form-control" id="password" value="{{ old('password') }}" required>
 						         @if ($errors->has('password'))
 						        	    <span class="help-block">
 						        	        <strong>{{ $errors->first('password') }}</strong>
@@ -266,7 +264,7 @@
 						   <div class="col-md-8">
 						        <div class="checkbox">
 						          <label>
-						             <input type="checkbox" value="0" name="terms">
+						             <input type="checkbox" value="1" name="terms" id="terms" required>
 						             I agree to the Terms of Use
 						          </label>
 						        </div>
@@ -280,7 +278,7 @@
 				<!-- <div class="panel-footer"> -->
 					<div class="form-group">
 						     <div class="col-md-4  pull-right">
-						         <input type="submit" name="submit" value="submit" class="btn btn-default">
+						         <input type="submit" name="submit" value="submit" class="btn btn-default" id="reg_submit">
 						          <input type="submit" name="cancel" value="cancel" class="btn btn-default">
 						     </div>
 						     <!--<div class="col-md-6">

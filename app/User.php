@@ -31,4 +31,10 @@ class User extends Authenticatable
             'email' => 'required|email|max:255|exists:users',
             'password' => 'required|min:6',
         ];
+
+
+     public function adress() {
+        return $this->hasMAny('App\Adress');
+    }
 }
+
