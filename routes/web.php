@@ -17,14 +17,12 @@
 
 Route::group(['middleware' => ['web']], function () {
  
-    Route::get('/', function () {
-    	return view('welcome');
-    });
+    Route::get('/', 'UserController@index');
 	
    /* Route::post('/', 'UserController@store');*/
 
 	//Auth::routes();
-	Route::get('/home', 'HomeController@index');
+	//Route::get('/home', 'HomeController@index');
 	Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);// appelle le formulaire pour se connecter
 	Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);// execute la connection
 	Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);

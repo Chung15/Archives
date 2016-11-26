@@ -23,7 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('grade');
            // $table->date('dateOfBirth');
             $table->string('gender');
-            $table->string('maritalStatus');
+            $table->enum('maritalStatus',['single', 'married', 'divorced','widow']);
            // $table->binary('picture');//path/link images in the DB
             $table->string('email')->unique();
             $table->string('password');

@@ -1,41 +1,16 @@
 <div class="row">
 		<div class="col-md-8">
 			<h2>
-				Heading
+				Teachers
 			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p>
-			<h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p>
-			<h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p>
-			<h2>
-				Heading
-			</h2>
-			<p>
-				Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-			</p>
-			<p>
-				<a class="btn" href="#">View details »</a>
-			</p>
+			@foreach($users as $user)
+		    	<div>
+		    		{{ $user->lastname }}
+		    	</div>
+				<p>
+					<a class="btn" href="#">View details »</a>
+				</p>
+	    	@endforeach
 		</div>
 
 		<!-- AsideContent-->

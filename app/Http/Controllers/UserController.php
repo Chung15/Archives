@@ -17,7 +17,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+       $users = User::all();
+       return view('welcome', compact('users'));
     }
 
     /**
@@ -53,13 +54,12 @@ class UserController extends Controller
                     'title' => $data['title'],
                     'grade' => $data['grade'],
                     'gender' => $data['gender'],
-                    'maritalStatus' =>'test',
+                    'maritalStatus' =>$data['maritalStatus'],
                     'email' => $data['email'],
                     'password' => bcrypt($data['password']),
                     'terms' => $data['terms'],
                 ]);
-
-                // $newUser->maritalStatus =$data['maritalStatus'];
+        
                 // Validate, then create if valid
                 $newAdress = $newUser->adress()->create( [
                     'city'   => $data['city'],
@@ -107,8 +107,8 @@ class UserController extends Controller
         // Commit the queries!
         DB::commit();
 
-        //return redirect()->route('login');
-        return $data;
+        return redirect()->route('login');
+        //return $data;
     }
 
     /**

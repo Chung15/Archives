@@ -4,8 +4,6 @@
      Archives
     @endsection
 
-
-
     @section('content')
     	@section('pageHeader')
     		 @include('templates.header')

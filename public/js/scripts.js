@@ -4,12 +4,12 @@ $(document).ready(function() {
 	var gender = $('input[name=gender]:checked').val();
 	console.log("GENDER = ", gender);
 
-	//$('#reg_username').blur(validateFields);
-    //$('#reg_email').blur(validateFields);
+	/*$('#lastname').blur(validateFields());
+    $('#email').blur(validateFields());
 
     $('#password').keyup(validateFields());
-    $('#password-confirm').keyup(validateFields());
-    $('#terms').change(validateFields());
+    $('#password-confirm').keyup(validateFields());*/
+   // $('#terms').change(validateFields());
 
 
 
@@ -20,7 +20,7 @@ $(document).ready(function() {
 	 		$("#terms").val("1");
 			console.log("CHECKED");
 		}else{
-			$("#terms").val("0");
+			$("#terms").val('0');
 			//alert("please accept terms of use");
 		}
 	 //console.log("Terms checked = ", checked);
@@ -31,33 +31,48 @@ $(document).ready(function() {
 
 });
 
-validateFields = function(){
-	var isValid = true;
+function validateFields(){
+	var isValid = true,
 
-	var email = $("#email").val();
+		email = $("#email").val(),
 
-	var password      = $("#password").val();
-	var password_confirm = $("#password-confirm").val();
+		password      = $("#password").val(),
+		password_confirm = $("#password-confirm").val(),
 
-	if(password !== $password_confirm){
+		status  = ['single', 'married', 'divorced','widow'],
+		selected_status = $('input[name=maritalStatus]:selected').val(),
+		lastname = $('#lastname').val(),
+		terms = $('#terms').val();
+
+		 console.log('isValid before = ',isValid);
+
+
+	if (lastname === '' || email === '' || password === '' || password_confirm === '') {
+            isValid = false;
+    }
+
+	/*else if(password !== password_confirm) {
 		isValid = false;
 	}
+	else {
+		isValid= true;
+	}*/
 
-	if (!($('#terms').is(':checked'))) {
-		isValid = false;
-	}
-
-	var status  = ['single', 'married', 'divorced','widow'];
-	var selected_status = $('input[name=maritalStatus]:selected').val();
+/*
 	if(!(isInArray(status, selected_status))){
 		isValid = false;
 	}
 
+	if(!($('#terms').is(':checked'))) {
+		isValid = false;
+	}*/
+
 	if (isValid) {
          $('#reg_submit[type="submit"]').prop('disabled', false);
-        } else {
+    } else {
          $('#reg_submit[type="submit"]').prop('disabled', true);
      }
+     console.log('isValid after= ',isValid);
 
 }
 

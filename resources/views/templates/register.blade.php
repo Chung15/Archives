@@ -30,7 +30,7 @@
 						     <label for="firstname" class="col-md-4 control-label" required>
 						       First Name</label>
 						     <div class="col-md-8">
-						          <input type="text" class="form-control" name="firstname" id="inputfirstname" placeholder="Enter First Name..." value="{{ old('firstname') }}" required autofocus />
+						          <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter First Name..." value="{{ old('firstname') }}" required autofocus />
 						          @if ($errors->has('firstname'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('firstname') }}</strong>
@@ -147,7 +147,7 @@
 						    <div class="col-md-8">
 						      <div class="row">
 						        <div class="col-md-5">
-						          <select class="form-control" name="maritalStatus" id="maritalStatus">
+						          <select class="form-control" name="maritalStatus">
 						             <option selected value="single">Single</option>
 						             <option value="married">Married</option>
 						             <option value="divorced">Divorced</option>

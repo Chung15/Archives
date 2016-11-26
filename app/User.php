@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname', 'patronymic', 'INN', 'title','grade', 'gender','maritalSatus','email', 'password', 'terms',
+        'firstname','lastname', 'patronymic', 'INN', 'title','grade', 'gender','maritalStatus','email', 'password', 'terms',
     ];
 
     /**
@@ -36,5 +36,7 @@ class User extends Authenticatable
      public function adress() {
         return $this->hasMAny('App\Adress');
     }
+
 }
+
 

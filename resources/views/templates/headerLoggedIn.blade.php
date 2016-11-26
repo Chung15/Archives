@@ -32,12 +32,12 @@
 			</div>
 			<ul class="nav nav-tabs">
 				<li class="active">
-					<a href="#">Home</a>
+					<a href=" {{  url('/') }}" > Home </a>
 				</li>
 				<li>
 					<a href="#">Profile</a>
 				</li>
-				<li class="disabled">
+				<li class="">
 					<a href="#">Archives</a>
 				</li>
 				<li class="dropdown pull-right">
