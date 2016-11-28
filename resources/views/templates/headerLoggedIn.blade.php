@@ -41,21 +41,27 @@
 					<a href="#">Archives</a>
 				</li>
 				<li class="dropdown pull-right">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Dropdown<strong class="caret"></strong></a>
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="#">Action</a>
+							<a href="{{  url('education') }}">Education</a>
 						</li>
 						<li>
-							<a href="#">Another action</a>
+							<a href="{{  url('children') }}">Children</a>
 						</li>
 						<li>
-							<a href="#">Something else here</a>
+							<a href="{{  url('training') }}">Qualification(training)</a>
+						</li>
+						<li>
+							<a href="{{  url('publications') }}">Publications</a>
+						</li>
+						<li>
+							<a href="{{  url('topics') }}">Thesis_topics</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
-							<a href="#">Separated link</a>
+							<a href="{{  url('other') }}">Other </a>
 						</li>
 					</ul>
 				</li>

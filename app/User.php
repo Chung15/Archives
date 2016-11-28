@@ -37,6 +37,29 @@ class User extends Authenticatable
         return $this->hasMAny('App\Adress');
     }
 
+    public function education() {
+        return $this->hasMAny('App\Education');
+    }
+
+    public function children() {
+        return $this->hasMAny('App\Children');
+    }
+
+    public function trainings() {
+        return $this->hasMAny('App\Trainings');
+    }
+
+    public function thesisTopic() {
+        return $this->hasMAny('App\thesisTopic');
+    }
+
+    public function publications() {
+        return $this->hasMAny('App\Publications');
+    }
+    public function other() {
+        return $this->hasMAny('App\Other');
+    }
+
 }
 
 

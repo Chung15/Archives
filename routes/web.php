@@ -11,14 +11,21 @@
 |
 */
 
-/*Route::get('/', function () {
-    return view('welcome');
-});*/
 
 Route::group(['middleware' => ['web']], function () {
  
     Route::get('/', 'UserController@index');
-	
+
+ route::group(['middleware' => 'auth'], function () {
+   /*---------forms routes---------*/
+   Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@index']);
+   Route::get('/education',['as' =>'education','uses' => 'EducationController@index']);
+   Route::get('/children', ['as' => 'children','uses' => 'ChildrenController@index']);
+   Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationsController@index']);
+   Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@index']);
+   Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@index']);
+/*-------------------------------------*/
+	});
    /* Route::post('/', 'UserController@store');*/
 
 	//Auth::routes();
