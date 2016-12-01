@@ -47,7 +47,7 @@
 							<a href="{{  url('education') }}">Education</a>
 						</li>
 						<li>
-							<a href="{{  url('children') }}">Children</a>
+							<a href="{{  url('child') }}">Children</a>
 						</li>
 						<li>
 							<a href="{{  url('training') }}">Qualification(training)</a>

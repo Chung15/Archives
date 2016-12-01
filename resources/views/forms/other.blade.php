@@ -6,7 +6,7 @@
 
 	@section('content')
 
-		{{ Form::open() }}
+		{{ Form::open(['url' => 'processOther']) }}
 
 			<div>Add an other information</div>
 				<hr/>
@@ -20,9 +20,9 @@
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>
-					        {{ Form:: label('desc', 'Description:') }}
+					        {{ Form:: label('description', 'Description:') }}
 					    
-					        {{ Form:: textarea('desc', null, ['class'=> 'form-control']) }}
+					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 				        </div>
 				        <div>
 							{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

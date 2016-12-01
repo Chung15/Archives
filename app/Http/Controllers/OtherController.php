@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Other;
 
 class OtherController extends Controller
 {
@@ -13,7 +14,8 @@ class OtherController extends Controller
      */
     public function index()
     {
-        return view('forms.other');
+        $others = Other::all();
+        return view('layouts.newOther',compact('others'));
     }
 
     /**
@@ -23,7 +25,7 @@ class OtherController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.other');
     }
 
     /**
@@ -34,7 +36,15 @@ class OtherController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $data = $request->all();
+        $user = \Auth::User();
+        $newOther = $user->other()->create( [
+                    'name'   => $data['name'],
+                    'description' => $data['description'],
+
+                    ] );
+
+        return redirect('processOther');
     }
 
     /**

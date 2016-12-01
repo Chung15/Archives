@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Publications extends Model
+class Child extends Model
 {
     /*public $table = 'adress';*/
     
@@ -14,7 +14,7 @@ class Publications extends Model
      * @var array
      */
     protected $fillable = [
-        'title','date', 'specialisation', 'description',
+        'firstname','lastname', 'patronymic',
     ];
 
     /**
@@ -24,18 +24,14 @@ class Publications extends Model
      */
 
     public static $validationRules = [
-            'title' => 'required',
-            'date' => 'required',
-            'specialisation' => 'required',
-            'description' => 'required',
+            'firstname' => 'required|min:6',
+            'lastname' => 'required|min:6',
+            'patronymic' => 'required|min:6',
+            //'dateOfBirth' => 'required',
 
         ];
+
     public function user() {
         return $this->belongsTo('App\User');
     }
-
-    /* public function options() {
-
-        return $this->belongsToMany('App\User', '');
-    }*/
 }

@@ -5,7 +5,8 @@
 	@endsection
 	@section('content')
 
-		{{ Form::open() }}
+<!-- array('action' => 'ChildController@create') -->
+		{{ Form::open(['url' => 'children']) }}
 			<div><strong>Children</strong></div>
 			<hr/>
 			<div class = "row">
@@ -21,28 +22,36 @@
 
 		   		<div class = "col-md-6">
 		   			<div class = 'form-group'>
-					    {{ Form:: label('name', 'Firstame:') }}
+					    {{ Form:: label('firstname', 'Firstame:') }}
 
-					    {{ Form:: text('name', null, ['class'=> 'form-control']) }}
+					    {{ Form:: text('firstname', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	<div class = 'form-group'>
-					    {{ Form:: label('name', 'Lastame:') }}
+					    {{ Form:: label('lastname', 'Lastname:') }}
 
-					    {{ Form:: text('name', null, ['class'=> 'form-control']) }}
+					    {{ Form:: text('lastname', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	<div class = 'form-group'>
-					    {{ Form:: label('name', 'Patronymic:') }}
+					    {{ Form:: label('patronymic', 'Patronymic:') }}
 
-					    {{ Form:: text('name', null, ['class'=> 'form-control']) }}
+					    {{ Form:: text('patronymic', null, ['class'=> 'form-control']) }}
 			    	</div>
-			    	<div class = 'form-group control-panel'>
-				        {{ Form:: label('desc', 'Birth date:') }}
+			    	<!-- <div class = 'form-group control-panel'>
+				        {{ Form:: label('dateOfBirth', 'Birth date:') }}
 				    
-				        {{ Form:: date('date', \Carbon\Carbon::now()) }}
+				        {{ Form:: date('dateOfBirth', \Carbon\Carbon::now()) }}
+
+			        </div> -->
+
+
+			       <!--  <hr/>
+			        <div>leaves</div>
+			        <hr/>
+			        <div class = 'form-group control-panel'>
+				        {{ Form:: label('desc', 'Type:') }}
+				    
+				        {{ Form:: select('leave_type',['child care', 'maternity leave'], [ 'class' => 'form-control', 'multiple']) }}
 			        </div>
-			        <hr/>
-			        <div>child care leave</div>
-			        <hr/>
 			        <div class = 'form-group control-panel'>
 				        {{ Form:: label('desc', 'start:') }}
 				    
@@ -52,22 +61,13 @@
 				        {{ Form:: label('desc', 'End:') }}
 				    
 				        {{ Form:: date('date', \Carbon\Carbon::now()) }}
-			        </div>
+			        </div> -->
 
-			        <hr/>
-			        <div>maternity leave</div>
-			        <hr/>
-			        <div class = 'form-group control-panel'>
-				        {{ Form:: label('desc', 'start:') }}
-				    
-				        {{ Form:: date('date', \Carbon\Carbon::now()) }}
-			        </div>
-				        <div class = 'form-group control-panel'>
-				        {{ Form:: label('desc', 'End:') }}
-				    
-				        {{ Form:: date('date', \Carbon\Carbon::now()) }}
+			        <div class= 'form-group control-panel'>
+			        	{{ Form::submit('Save child', ['class' => 'btn']) }}
 			        </div>
 			    @endsection
+
 
 	
 			{{ Form::close() }}

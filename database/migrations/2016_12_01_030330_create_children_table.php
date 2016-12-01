@@ -19,12 +19,12 @@ class CreateChildrenTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('patronymic');
-            $table->date('birthDate');
 
-             $table->foreign('user_id')
+              $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

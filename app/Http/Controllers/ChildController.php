@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-/*use Illuminate\Support\Facades\Input;*/
-use App\Publications;
+use App\Http\Requests\UserRequest;
+use App\User;
+use App\Child;
 
-class PublicationsController extends Controller
+class ChildController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,10 +16,10 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        $pubs = Publications::all();
-       // $options = Options::pluck('name','id');
-        return view('layouts.newPublication', compact('pubs'));
+        $children = Child::all();
+        return view('children.children', compact('children'));
     }
+         
 
     /**
      * Show the form for creating a new resource.
@@ -27,7 +28,7 @@ class PublicationsController extends Controller
      */
     public function create()
     {
-        return view('forms.publications');
+        return view('forms.children');
     }
 
     /**
@@ -38,18 +39,17 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-         $data = $request->all();
-        $user = \Auth::User();
-        $newPub= $user->publication()->create( [
-                    'type'   => $data['type'],
-                    'name' => $data['name'],
-                    'place' => $data['place'],
-                    'specialisation '    => $data['specialisation'],
-                    'description'  => $data['description'],
+        $data = $request->all();
+        $parent = \Auth::User();
+        $newChild = $parent->child()->create( [
+                    'firstname'   => $data['firstname'],
+                    'lastname' => $data['lastname'],
+                    'patronymic'    => $data['patronymic'],
+                    /*'dateOfBirth'  => $data['dateOfBirth'],*/
                     ] );
      
 
-        return redirect('processPub');
+        return redirect('children');
     }
 
     /**

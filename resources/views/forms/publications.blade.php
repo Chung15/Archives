@@ -6,7 +6,7 @@
 
 	@section('content')
 
-		{{ Form::open() }}
+		{{ Form::open(['url'=>'processPub']) }}
 
 			<div><strong>Publications</strong></div>
 				<hr/>
@@ -14,26 +14,37 @@
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
 						<div class = 'form-group'>
+						    {{ Form:: label('type', 'Type:') }}
+
+						    {{ Form:: select('type', ['Article','Monograph','Tutorial','Teach. manual','Methodical development','Abstracts'], null, ['class'=> 'form-control']) }}
+				    	</div>
+						<div class = 'form-group'>
 						    {{ Form:: label('name', 'Name:') }}
 
 						    {{ Form:: text('name', null, ['class'=> 'form-control']) }}
 				    	</div>
 
-				   		<div class = 'form-group control-panel'>
+				   		<!-- <div class = 'form-group control-panel'>
 					        {{ Form:: label('desc', 'Date:') }}
 					    
 					        {{ Form:: date('date', \Carbon\Carbon::now()) }}
-				        </div>
+				        </div> -->
+				        <div class = 'form-group'>
+						    {{ Form:: label('place', 'place:') }}
+
+						    {{ Form:: text('place', null, ['class'=> 'form-control']) }}
+				    	</div>
+
 
 				        <div class = 'form-group'>
-						    {{ Form:: label('spec', 'Field of specialisation:') }}
+						    {{ Form:: label('specialisation', 'Field of specialisation:') }}
 
-						    {{ Form:: text('spec', null, ['class'=> 'form-control']) }}
+						    {{ Form:: text('specialisation', null, ['class'=> 'form-control']) }}
 				    	</div>
 				    	<div class = 'form-group control-panel'>
-					        {{ Form:: label('desc', 'Description:') }}
+					        {{ Form:: label('description', 'Description:') }}
 					    
-					        {{ Form:: textarea('desc', null, ['class'=> 'form-control']) }}
+					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 				        </div>
 
 				        <div>

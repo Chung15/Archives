@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateOtherTable extends Migration
+class CreatePublicationsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,19 +13,24 @@ class CreateOtherTable extends Migration
      */
     public function up()
     {
-        Schema::create('other', function (Blueprint $table) {
-            $table->increments('id');
+        Schema::create('publications', function (Blueprint $table) {
+             $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->string('type');
             $table->string('name');
+            $table->string('place');
+            $table->string('specialisation');
             $table->string('description');
 
-              $table->foreign('user_id')
+
+            $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-            
+
             $table->timestamps();
         });
+           
     }
 
     /**
@@ -35,6 +40,6 @@ class CreateOtherTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('other');
+        Schema::dropIfExists('publications');
     }
 }

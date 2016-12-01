@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Children extends Model
+class Leaves extends Model
 {
-    /*public $table = 'adress';*/
+     /*public $table = 'adress';*/
     
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class Children extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname', 'patronymic', 'birthDate',
+        'leave_type','start_date', 'end_date',
     ];
 
     /**
@@ -24,14 +24,17 @@ class Children extends Model
      */
 
     public static $validationRules = [
-            'firstname' => 'required|min:6',
-            'lastname' => 'required|min:6',
-            'patronymic' => 'required|min:6',
-            'birthDate' => 'required',
+            'leave_type' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
 
+            
         ];
-
     public function user() {
         return $this->belongsTo('App\User');
+    }
+
+     public function children() {
+        return $this->belongsTo('App\Children');
     }
 }

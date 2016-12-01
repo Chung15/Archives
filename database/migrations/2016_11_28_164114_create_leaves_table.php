@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBibliographyTable extends Migration
+class CreateLeavesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,20 +13,18 @@ class CreateBibliographyTable extends Migration
      */
     public function up()
     {
-        Schema::create('bibliography', function (Blueprint $table) {
+        Schema::create('leaves', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('title');
-            $table->date('date');
-            $table->string('specialisation');
-            $table->string('description');
-
+            $table->string('leave_type');
+            $table->date('start_date');
+            $table->date('end_date');
 
             $table->foreign('user_id')
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-
+            
             $table->timestamps();
         });
     }
@@ -38,6 +36,6 @@ class CreateBibliographyTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bibliography');
+        Schema::dropIfExists('leaves');
     }
 }

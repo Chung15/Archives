@@ -34,30 +34,34 @@ class User extends Authenticatable
 
 
      public function adress() {
-        return $this->hasMAny('App\Adress');
+        return $this->hasMany('App\Adress');
     }
 
     public function education() {
-        return $this->hasMAny('App\Education');
+        return $this->hasMany('App\Education');
     }
 
-    public function children() {
-        return $this->hasMAny('App\Children');
+    public function child() {
+        return $this->hasMany('App\Child');
     }
 
-    public function trainings() {
-        return $this->hasMAny('App\Trainings');
+    public function training() {
+        return $this->hasMany('App\Trainings');
     }
 
     public function thesisTopic() {
-        return $this->hasMAny('App\thesisTopic');
+        return $this->hasMany('App\thesisTopic');
     }
 
-    public function publications() {
-        return $this->hasMAny('App\Publications');
+    public function publication() {
+        return $this->hasMany('App\Publications');
     }
     public function other() {
-        return $this->hasMAny('App\Other');
+        return $this->hasMany('App\Other');
+    }
+
+    public function leave() {
+        return $this->hasMany('App\Leaves');
     }
 
 }

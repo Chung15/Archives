@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class ChildrenController extends Controller
+class LeavesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +13,9 @@ class ChildrenController extends Controller
      */
     public function index()
     {
-        return view('forms.children');
+         public function storeAdress (Request $request) {
+        $data = $request->all();
+
     }
 
     /**
@@ -34,7 +36,8 @@ class ChildrenController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+
     }
 
     /**

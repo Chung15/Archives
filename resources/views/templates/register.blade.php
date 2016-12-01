@@ -22,7 +22,7 @@
 				</div>
 				<div class="panel-body"> -->
 					<!-- <form class="form-horizontal" >  -->
-				
+		<!-- echo Form::open(array('action' => 'Controller@method'))	 -->	
 		<form class="form-horizontal" role="form" method="POST" action="{{ url('store') }}">
 		{{ csrf_field() }}
 						
