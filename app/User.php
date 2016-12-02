@@ -37,8 +37,8 @@ class User extends Authenticatable
         return $this->hasMany('App\Adress');
     }
 
-    public function education() {
-        return $this->hasMany('App\Education');
+    public function diploma() {
+        return $this->hasMany('App\Diploma');
     }
 
     public function child() {

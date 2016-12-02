@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Education extends Model
+class Diploma extends Model
 {
      /*public $table = 'adress';*/
     
@@ -14,7 +14,7 @@ class Education extends Model
      * @var array
      */
     protected $fillable = [
-        'name','serie_number', 'specialisation', 'year',
+        'diploma_type','seria_number','thesis_topic', 'specialization','department','university', 'year',
     ];
 
     /**
@@ -24,9 +24,10 @@ class Education extends Model
      */
 
     public static $validationRules = [
-            'name' => 'required|min:6',
-            'serie_number' => 'required|min:',
-            'specialisation' => 'required',
+            'diploma_type' => 'required',
+            'seria_number' => 'required',
+            'specialization' => 'required',
+            'university' => 'required',
             'year' => 'required',
 
         ];

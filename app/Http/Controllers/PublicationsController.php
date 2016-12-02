@@ -51,8 +51,8 @@ class PublicationsController extends Controller
                     'description'  => $data['description'],
                     ] );
      
-dd($newPub);
-       // return redirect('processPub');
+//dd($newPub);
+       return redirect('processPub');
     }
 
     /**

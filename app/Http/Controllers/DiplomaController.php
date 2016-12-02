@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Diploma;
+use App\User;
 
-class EducationController extends Controller
+class DiplomaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,9 @@ class EducationController extends Controller
      */
     public function index()
     {
-        
+        $diplomas = Diploma::all();
+       // $options = Options::pluck('name','id');
+        return view('layouts.diplomas', compact('diplomas'));
     }
 
     /**
@@ -23,7 +27,7 @@ class EducationController extends Controller
      */
     public function create()
     {
-        return view('forms.education');
+        return view('forms.diploma');
     }
 
     /**
@@ -34,7 +38,21 @@ class EducationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         /*$this->validate($request, Diploma::$validationRules);
+        $data = $request->only('diploma_type', 'seria_number', 'thesis_topic','specialization','department','university','year');*/
+         $data = $request->all();
+      // dd($data);
+        $user = \Auth::User();
+        $newDiploma= $user->diploma()->create( [
+                    'diploma_type' => $data['diploma_type'],
+                    'seria_number' => $data['seria_number'],
+                    'thesis_topic' => $data['thesis_topic'],
+                    'specialization' => $data['specialization'],
+                    'department' => $data['department'],
+                    'university' => $data['university'],
+                    'year' => $data['year'],
+                    ] );
+        return redirect('processDiploma');
     }
 
     /**

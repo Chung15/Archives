@@ -19,7 +19,7 @@ Route::group(['middleware' => ['web']], function () {
  route::group(['middleware' => 'auth'], function () {
    /*---------forms routes---------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
-   Route::get('/education',['as' =>'education','uses' => 'EducationController@create']);
+   Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
    Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationsController@create']);
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
@@ -39,6 +39,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
     Route::get('/processTopic', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+
+    Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
+    Route::get('/processDiploma', ['as' => 'processDiploma','uses' => 'DiplomaController@index']);
+
 
 
 	});

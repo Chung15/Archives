@@ -44,7 +44,7 @@
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{  url('education') }}">Education</a>
+							<a href="{{  url('diploma') }}">Diploma</a>
 						</li>
 						<li>
 							<a href="{{  url('child') }}">Children</a>
