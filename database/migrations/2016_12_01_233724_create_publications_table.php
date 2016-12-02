@@ -14,12 +14,12 @@ class CreatePublicationsTable extends Migration
     public function up()
     {
         Schema::create('publications', function (Blueprint $table) {
-             $table->increments('id');
+           $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('type');
+           // $table->string('type');
             $table->string('name');
             $table->string('place');
-            $table->string('specialisation');
+            $table->string('specialisation')->default('');
             $table->string('description');
 
 
@@ -30,7 +30,6 @@ class CreatePublicationsTable extends Migration
 
             $table->timestamps();
         });
-           
     }
 
     /**

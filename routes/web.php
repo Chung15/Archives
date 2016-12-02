@@ -19,10 +19,10 @@ Route::group(['middleware' => ['web']], function () {
  route::group(['middleware' => 'auth'], function () {
    /*---------forms routes---------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
-   Route::get('/education',['as' =>'education','uses' => 'EducationController@index']);
+   Route::get('/education',['as' =>'education','uses' => 'EducationController@create']);
    Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationsController@create']);
-   Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@index']);
-   Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@index']);
+   Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
+   Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
 /*-------------------------------------*/
     Route::post('/children', ['as' => 'children','uses' => 'ChildController@store']);
@@ -33,6 +33,13 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@store']);
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
+
+    Route::post('/processTraining', ['as' => 'processTraining','uses' => 'TrainingController@store']);
+    Route::get('/processTraining', ['as' => 'processTraining','uses' => 'TrainingController@index']);
+
+    Route::post('/processTopic', ['as' => 'processTopic','uses' => 'TopicsController@store']);
+    Route::get('/processTopic', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+
 
 	});
 

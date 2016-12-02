@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\User;
+use App\Training;
 
 class TrainingController extends Controller
 {
@@ -13,7 +15,8 @@ class TrainingController extends Controller
      */
     public function index()
     {
-        return view('forms.qualification');
+         $trainings = Training::all();
+        return view('layouts.newTraining', compact('trainings'));
     }
 
     /**
@@ -23,7 +26,8 @@ class TrainingController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.training');
+    
     }
 
     /**
@@ -34,7 +38,17 @@ class TrainingController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         $data = $request->all();
+        $user = \Auth::User();
+        $newTraining = $user->training()->create( [
+                    'topic'   => $data['topic'],
+                    'description' => $data['description'],
+                    'start_date'    => $data['start_date'],
+                    'end_date'  => $data['end_date'],
+                    ] );
+     
+
+        return redirect('processTraining');
     }
 
     /**

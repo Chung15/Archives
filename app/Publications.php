@@ -14,7 +14,7 @@ class Publications extends Model
      * @var array
      */
     protected $fillable = [
-        'title','date', 'specialisation', 'description',
+        'name','place', 'specialisation', 'description',
     ];
 
     /**
@@ -24,8 +24,8 @@ class Publications extends Model
      */
 
     public static $validationRules = [
-            'title' => 'required',
-            'date' => 'required',
+            'name' => 'required',
+            'place' => 'required',
             'specialisation' => 'required',
             'description' => 'required',
 

@@ -13,11 +13,11 @@
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
-						<div class = 'form-group'>
+						<!-- <div class = 'form-group'>
 						    {{ Form:: label('type', 'Type:') }}
 
 						    {{ Form:: select('type', ['Article','Monograph','Tutorial','Teach. manual','Methodical development','Abstracts'], null, ['class'=> 'form-control']) }}
-				    	</div>
+				    	</div> -->
 						<div class = 'form-group'>
 						    {{ Form:: label('name', 'Name:') }}
 
@@ -37,10 +37,11 @@
 
 
 				        <div class = 'form-group'>
-						    {{ Form:: label('specialisation', 'Field of specialisation:') }}
+						    {{ Form:: label('specialisation',  'Specialisation:') }}
 
 						    {{ Form:: text('specialisation', null, ['class'=> 'form-control']) }}
 				    	</div>
+				    	
 				    	<div class = 'form-group control-panel'>
 					        {{ Form:: label('description', 'Description:') }}
 					    

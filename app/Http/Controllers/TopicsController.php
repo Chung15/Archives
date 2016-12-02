@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ThesisTopic;
 
 class TopicsController extends Controller
 {
@@ -13,7 +14,9 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        return view('forms.thesis_topics');
+        
+        $topics = ThesisTopic::all();
+        return view('layouts.newTopic', compact('topics'));
     }
 
     /**
@@ -23,7 +26,7 @@ class TopicsController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.thesis_topics');
     }
 
     /**
@@ -34,7 +37,17 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $user = \Auth::User();
+        $newTopic = $user->ThesisTopic()->create( [
+                    'title'   => $data['title'],
+                    'student_name' => $data['student_name'],
+                    'student_group'    => $data['student_group'],
+                    'academic_year'  => $data['academic_year'],
+
+                    ] );
+
+         return redirect('processTopic');
     }
 
     /**

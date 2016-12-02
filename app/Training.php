@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Trainings extends Model
+class Training extends Model
 {
     /*public $table = 'adress';*/
     
@@ -14,7 +14,7 @@ class Trainings extends Model
      * @var array
      */
     protected $fillable = [
-        'topic', 'description','starting_date','end_date', 
+        'topic', 'description','start_date','end_date', 
     ];
 
     /**
@@ -24,10 +24,10 @@ class Trainings extends Model
      */
 
     public static $validationRules = [
-            'zip' => 'required|zip|',
-            'phone' => 'required|min:',
-            'street' => 'required',
-            'city' => 'required',
+            'topic' => 'required|topic',
+            'description' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
 
         ];
     public function user() {

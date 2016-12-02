@@ -13,7 +13,7 @@ class EducationController extends Controller
      */
     public function index()
     {
-        return view('forms.education');
+        
     }
 
     /**
@@ -23,7 +23,7 @@ class EducationController extends Controller
      */
     public function create()
     {
-        //
+        return view('forms.education');
     }
 
     /**

@@ -16,11 +16,11 @@ class CreateThesisTopicsTable extends Migration
         Schema::create('thesis_topics', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('type');
+           // $table->string('type');
             $table->string('title');
             $table->string('student_name');
-            $table->string('student_number');
-            $table->date('academic_year');
+            $table->string('student_group');
+            $table->integer('academic_year');
             
             $table->foreign('user_id')
             ->references('id')

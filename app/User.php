@@ -46,7 +46,7 @@ class User extends Authenticatable
     }
 
     public function training() {
-        return $this->hasMany('App\Trainings');
+        return $this->hasMany('App\Training');
     }
 
     public function thesisTopic() {

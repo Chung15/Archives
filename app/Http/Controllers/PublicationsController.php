@@ -41,15 +41,15 @@ class PublicationsController extends Controller
          $data = $request->all();
         $user = \Auth::User();
         $newPub= $user->publication()->create( [
-                    'type'   => $data['type'],
+                    //'type'   => $data['type'],
                     'name' => $data['name'],
                     'place' => $data['place'],
-                    'specialisation '    => $data['specialisation'],
+                    'specialisation ' => $data['specialisation'],
                     'description'  => $data['description'],
                     ] );
      
-
-        return redirect('processPub');
+dd($newPub);
+       // return redirect('processPub');
     }
 
     /**

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class ThesisTopics extends Model
+class ThesisTopic extends Model
 {
-    use Notifiable;
+
 
     /**
      * The attributes that are mass assignable.
@@ -14,7 +14,7 @@ class ThesisTopics extends Model
      * @var array
      */
     protected $fillable = [
-        'type','title', 'student_name', 'student_number', 'academic_year',
+        'type','title', 'student_name', 'student_group', 'academic_year',
     ];
 
    
@@ -23,13 +23,11 @@ class ThesisTopics extends Model
             'type' => 'required',
             'title' => 'required',
             'student_name' => 'required',
-            'student_number' => 'required',
+            'student_group' => 'required',
             'academic_year' => 'required',
         ];
         
     public function user() {
         return $this->belongsTo('App\User');
     }
-
 }
-
