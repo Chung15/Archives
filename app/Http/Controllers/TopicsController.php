@@ -40,10 +40,10 @@ class TopicsController extends Controller
         $data = $request->all();
         $user = \Auth::User();
         $newTopic = $user->ThesisTopic()->create( [
-                    'title'   => $data['title'],
+                    'title' => $data['title'],
                     'student_name' => $data['student_name'],
-                    'student_group'    => $data['student_group'],
-                    'academic_year'  => $data['academic_year'],
+                    'student_group' => $data['student_group'],
+                    'academic_year' => $data['academic_year'],
 
                     ] );
 

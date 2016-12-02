@@ -6,7 +6,7 @@
 
 	@section('content')
 
-		{{ Form::open(['url' => 'processTopic']) }}
+		{{ Form::open(['url' => 'saveTopic']) }}
 		
 			<div><strong>Thesis Topics</strong></div>
 				<hr/>

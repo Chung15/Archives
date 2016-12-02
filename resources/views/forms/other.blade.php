@@ -6,7 +6,7 @@
 
 	@section('content')
 
-		{{ Form::open(['url' => 'processOther']) }}
+		{{ Form::open(['url' => 'saveOther']) }}
 
 			<div>Add an other information</div>
 				<hr/>

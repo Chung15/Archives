@@ -19,7 +19,7 @@ class CreatePublicationsTable extends Migration
            // $table->string('type');
             $table->string('name');
             $table->string('place');
-            $table->string('specialisation')->default('');
+            $table->string('specialisation');
             $table->string('description');
 
 

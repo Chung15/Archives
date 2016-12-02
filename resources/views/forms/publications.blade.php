@@ -6,7 +6,7 @@
 
 	@section('content')
 
-		{{ Form::open(['url'=>'processPub']) }}
+		{{ Form::open(['url'=>'savePub']) }}
 
 			<div><strong>Publications</strong></div>
 				<hr/>

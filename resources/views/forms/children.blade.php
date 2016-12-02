@@ -6,7 +6,7 @@
 	@section('content')
 
 <!-- array('action' => 'ChildController@create') -->
-		{{ Form::open(['url' => 'children']) }}
+		{{ Form::open(['url' => 'saveChildren']) }}
 			<div><strong>Children</strong></div>
 			<hr/>
 			<div class = "row">

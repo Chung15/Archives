@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Publications extends Model
+class Publication extends Model
 {
     /*public $table = 'adress';*/
     

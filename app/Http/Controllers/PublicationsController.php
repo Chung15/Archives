@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 /*use Illuminate\Support\Facades\Input;*/
-use App\Publications;
+use App\Publication;
 
 class PublicationsController extends Controller
 {
@@ -15,7 +15,7 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        $pubs = Publications::all();
+        $pubs = Publication::all();
        // $options = Options::pluck('name','id');
         return view('layouts.newPublication', compact('pubs'));
     }
@@ -38,13 +38,16 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-         $data = $request->all();
+        $this->validate($request, Publication::$validationRules);
+        $data = $request->only('name', 'place', 'specialisation','description');
+         //$data = $request->all();
+       // dd($data);
         $user = \Auth::User();
         $newPub= $user->publication()->create( [
                     //'type'   => $data['type'],
                     'name' => $data['name'],
                     'place' => $data['place'],
-                    'specialisation ' => $data['specialisation'],
+                    'specialisation' => $data['specialisation'],
                     'description'  => $data['description'],
                     ] );
      

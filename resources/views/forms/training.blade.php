@@ -7,7 +7,7 @@
 	@section('content')
 
 
-		{{ Form::open(['url' => 'processTraining']) }}
+		{{ Form::open(['url' => 'saveTraining']) }}
 
 			<div> <strong>Qualification(training)</strong></div>
 				<hr/>

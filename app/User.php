@@ -54,7 +54,7 @@ class User extends Authenticatable
     }
 
     public function publication() {
-        return $this->hasMany('App\Publications');
+        return $this->hasMany('App\Publication');
     }
     public function other() {
         return $this->hasMany('App\Other');
