@@ -7,16 +7,16 @@
       @section('content')
 
                       
-                        {{ Form::open(['url' => 'saveTitle']) }}
-                              <div><strong>Title</strong></div>
+                        {{ Form::open(['url' => 'saveDegree']) }}
+                              <div><strong>Degree</strong></div>
                                     <div class="row">
                                           <div class = "col-md-2"></div>
                                           <div class="col-md-4">
 
                                                  <div class = 'form-group control-panel'>
-                                                              {{ Form:: label('academic_title',  'Учетное звание:') }}
+                                                              {{ Form:: label('academic_degree',  'Учетное звание:') }}
                                                           
-                                                              {{ Form:: select('academic_title', ['Доцент'=> 'Доцент', 'Профессор' => 'Профессор', 'старший научный сотрудник' =>'старший научный сотрудник'], ['class'=> 'form-control','multiple']) }}
+                                                              {{ Form:: select('academic_degree', ['кандидат тех. наук'=> 'кандидат тех. наук', 'Доктор тех. наук' => 'Доктор тех. наук', 'phD' =>'phD'], ['class'=> 'form-control','multiple']) }}
                                                   </div>
                                                   <div class = 'form-group control-panel'>
                                                               {{ Form:: label('seria_number',  'Serie/N:') }}

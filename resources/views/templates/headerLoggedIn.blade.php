@@ -65,6 +65,9 @@
 						<li>
 							<a href="{{  url('academicTitle') }}">Academic title</a>
 						</li>
+						<li>
+							<a href="{{  url('academicDegree') }}">Academic degree</a>
+						</li>
 
 						<li>
 							<a href="{{  url('child') }}">Children</a>

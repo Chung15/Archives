@@ -21,6 +21,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
    Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
    Route::get('/academicTitle',['as' =>'academicTitle','uses' => 'AcademicTitleController@create']);
+   Route::get('/academicDegree',['as' =>'academicDegree','uses' => 'AcademicDegreeController@create']);
    Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationsController@create']);
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
@@ -46,6 +47,9 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
     Route::get('/processTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
+
+    Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
+    Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
 
 
 

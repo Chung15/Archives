@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use App\AcademicTitle;
+use App\AcademicDegree;
 
-class AcademicTitleController extends Controller
+class AcademicDegreeController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,8 @@ class AcademicTitleController extends Controller
      */
     public function index()
     {
-         $titles = AcademicTitle::all();
-        return view('layouts.titles', compact('titles'));
+        $degrees = AcademicDegree::all();
+        return view('layouts.degrees', compact('degrees'));
     }
 
     /**
@@ -26,7 +26,7 @@ class AcademicTitleController extends Controller
      */
     public function create()
     {
-        return view('forms.academic_title');
+        return view('forms.academic_degree');
     }
 
     /**
@@ -37,17 +37,17 @@ class AcademicTitleController extends Controller
      */
     public function store(Request $request)
     {
-         $data = $request->all();
+        $data = $request->all();
       // dd($data);
         $user = \Auth::User();
-        $newTitle= $user->title()->create( [
-                    'academic_title' => $data['academic_title'],
+        $newDegree= $user->degree()->create( [
+                    'academic_degree' => $data['academic_degree'],
                     'seria_number' => $data['seria_number'],
                     'thesis_topic' => $data['thesis_topic'],
                     'specialization' => $data['specialization'],
                     'year' => $data['year'],
                     ] );
-        return redirect('processTitle');
+        return redirect('processDegree');
     }
 
     /**
