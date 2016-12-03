@@ -64,6 +64,10 @@ class User extends Authenticatable
         return $this->hasMany('App\Leaves');
     }
 
+    public function title() {
+        return $this->hasMany('App\AcademicTitle');
+    }
+
 }
 
 

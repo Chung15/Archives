@@ -43,9 +43,29 @@
 				<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
+						<!-- <li class="dropdown">
+							<a href="#" data-toggle="dropdown pull-right" class="dropdown-toggle">Education<strong class="caret"></strong></a>
+								<ul class="dropdown-menu pull-right">
+									<li>
+										<a href="{{  url('diploma') }}">Diploma</a>
+									</li>
+									<li>
+										<a href="{{  url('title') }}">Academic title</a>
+									</li>
+									<li>
+										<a href="{{  url('degree') }}">Academic degree</a>
+									</li>
+								</ul>
+						</li>
+						<li class="divider">
+						</li> -->
 						<li>
 							<a href="{{  url('diploma') }}">Diploma</a>
 						</li>
+						<li>
+							<a href="{{  url('academicTitle') }}">Academic title</a>
+						</li>
+
 						<li>
 							<a href="{{  url('child') }}">Children</a>
 						</li>
