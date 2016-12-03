@@ -13,6 +13,9 @@
        <!--  <link href="css/style.css" rel="stylesheet"> -->
         <link href="css/bootstrap.css" rel="stylesheet">
         <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/jquery-ui.css" rel="stylesheet">
+        <link href="css/jquery-ui.theme.css" rel="stylesheet">
+        <link href="css/jquery-ui.structure.css" rel="stylesheet">
 
         <!-- Styles -->
         
@@ -40,6 +43,7 @@
 
    
     <script src="js/jquery.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/scripts.js"></script>
     </body>

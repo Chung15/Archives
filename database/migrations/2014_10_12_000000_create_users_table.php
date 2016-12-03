@@ -21,7 +21,7 @@ class CreateUsersTable extends Migration
             $table->integer('INN');
             $table->string('title');// change to enum all selected box
             $table->string('grade');
-           // $table->date('dateOfBirth');
+            $table->date('dateOfBirth');
             $table->string('gender');
             $table->enum('maritalStatus',['single', 'married', 'divorced','widow']);
            // $table->binary('picture');//path/link images in the DB

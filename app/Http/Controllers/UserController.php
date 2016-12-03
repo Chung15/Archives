@@ -43,6 +43,8 @@ class UserController extends Controller
 
       // Start DB transaction!
          DB::beginTransaction();
+        $dateOfBirth = date_create($data['dateOfBirth']);
+        $dateOfBirth = date_format($dateOfBirth,"Y-m-d");
 
             try {
 
@@ -53,6 +55,7 @@ class UserController extends Controller
                     'INN' => $data['INN'],
                     'title' => $data['title'],
                     'grade' => $data['grade'],
+                    'dateOfBirth' => $dateOfBirth,
                     'gender' => $data['gender'],
                     'maritalStatus' =>$data['maritalStatus'],
                     'email' => $data['email'],

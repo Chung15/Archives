@@ -120,14 +120,20 @@
 						 </div>
 						
     					
-    					<!-- <div class="form-group  {{ $errors->has('dateOfBirth') ? ' has-error' : '' }}">
+    					<div class="form-group  {{ $errors->has('dateOfBirth') ? ' has-error' : '' }}">
 						     <label for="dateOfBirth" class="col-md-4 control-label">
 						       Date of Birth</label>
 						     <div class="col-md-8">
-						          <input type="date" class="form-control" name="dateOfBirth" id="dateOfBirth" placeholder="Enter birth date..."  value="{{ old('dateOfBirth') }}" />
-						     </div>
+						     	<div class="row">
+						        	<div class="col-md-5">
+						          		<input type="text" class="form-control" name="dateOfBirth" id="datepicker" placeholder="Enter birth date..."  value="{{ old('dateOfBirth') }}" />
+						     		</div>
+						     		<div class="col-md-3"></div>
+						     		<div class="col-md-4"></div>
+	    						</div>
+	    					</div>
     					</div>
-    					 -->
+    					
 						 <div class="form-group {{ $errors->has('gender') ? ' has-error' : '' }}">
 						     <label for="gender" class="col-md-4 control-label">
 						        Gender</label>

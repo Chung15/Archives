@@ -1,6 +1,15 @@
 
 $(document).ready(function() {
 
+    $( "#datepicker" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "dd/mm/yy"
+    });
+
+
+ 
+
 	var gender = $('input[name=gender]:checked').val();
 	console.log("GENDER = ", gender);
 
