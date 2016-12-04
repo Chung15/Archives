@@ -149,7 +149,7 @@ function addInputField() {
 	var input ='<br id="author_br"/> <div class="row author_data'+counter+'">'+
 						'<div  class="col-md-10">'+
 							'<div class = "form-group control-panel">'+
- 								'<input type="text" name = "name" class = "form-control" id="author-name'+counter+'"/>'+
+ 								'<input type="text" name = "authors[]" class = "form-control" id="author-name'+counter+'"/>'+
 							 '</div>'+
 						 '</div>'+
 						'<div  class="col-md-2">'+

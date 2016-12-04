@@ -30,7 +30,7 @@
 						      <div class="panel-body">
 						      <div class= "row">
 						        		<div class="col-md-12">
-										        {{ Form:: label('name', 'name:',  ['id' =>'authorLabel']) }}
+										        {{ Form:: label('name', 'name:', ['id' =>'authorLabel']) }}
 						      			</div>
 						       </div>
 						      		<div class="row author_data" id="basicInput">

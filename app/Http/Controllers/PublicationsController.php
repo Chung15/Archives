@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 /*use Illuminate\Support\Facades\Input;*/
 use App\Publication;
 use Carbon\Carbon;
+use App\Author;
 
 class PublicationsController extends Controller
 {
@@ -39,12 +40,18 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, Publication::$validationRules);
-        $data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on');
+        /*$this->validate($request, Publication::$validationRules);
+        $data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on');*/
+         $data = $request->all();
         $pub = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
-         //$data = $request->all();
-       // dd($data);
-        $user = \Auth::User();
+        $authors = $data['authors']; 
+        foreach($authors as $author) {
+                echo $author.'<br/>';
+        }
+        //dd($authors);
+        //$authors = Author::pluck('name', 'id');
+
+        /*$user = \Auth::User();
         $newPub= $user->publication()->create( [
                     'type' => $data['type'],
                     'authors' => $data['authors'],
@@ -53,9 +60,9 @@ class PublicationsController extends Controller
                     'description'  => $data['description'],
                     'journal' => $data['journal'],
                     'published_on' => $pub,
-                    ] );
-     
-       return redirect('processPub');
+                    ] );*/
+     //return $data;
+       //return redirect('processPub');
     }
 
     /**

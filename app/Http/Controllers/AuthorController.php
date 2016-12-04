@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Author;
 
 class AuthorController extends Controller
 {
@@ -23,7 +24,7 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+         $authors = Author::pluck('name', 'id');
     }
 
     /**
@@ -34,8 +35,14 @@ class AuthorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = Request::all();
+        $newAuthor = Author::publications()->create( [
+                    'name' => $data['name'],
+    
+                    ] );
+        return $newAuthor;
     }
+
 
     /**
      * Display the specified resource.
