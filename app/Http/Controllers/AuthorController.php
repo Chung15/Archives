@@ -3,11 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-/*use Illuminate\Support\Facades\Input;*/
-use App\Publication;
-use Carbon\Carbon;
 
-class PublicationsController extends Controller
+class AuthorController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +13,7 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        $pubs = Publication::all();
-       // $options = Options::pluck('name','id');
-        return view('layouts.newPublication', compact('pubs'));
+        
     }
 
     /**
@@ -28,7 +23,7 @@ class PublicationsController extends Controller
      */
     public function create()
     {
-        return view('forms.publications');
+        //
     }
 
     /**
@@ -39,23 +34,7 @@ class PublicationsController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, Publication::$validationRules);
-        $data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on');
-        $pub = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
-         //$data = $request->all();
-       // dd($data);
-        $user = \Auth::User();
-        $newPub= $user->publication()->create( [
-                    'type' => $data['type'],
-                    'authors' => $data['authors'],
-                    'title' => $data['title'],
-                    'specialisation' => $data['specialisation'],
-                    'description'  => $data['description'],
-                    'journal' => $data['journal'],
-                    'published_on' => $pub,
-                    ] );
-     
-       return redirect('processPub');
+        //
     }
 
     /**

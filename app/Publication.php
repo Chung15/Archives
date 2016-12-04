@@ -14,7 +14,7 @@ class Publication extends Model
      * @var array
      */
     protected $fillable = [
-       'type', 'authors', 'name',  'specialisation', 'description', 'place', 'published_on',
+       'type', 'authors', 'title',  'specialisation', 'description', 'journal', 'published_on',
     ];
 
     /**
@@ -26,15 +26,19 @@ class Publication extends Model
     public static $validationRules = [
             'type' => 'required',
             'authors' => 'required',
-            'name' => 'required',
+            'title' => 'required',
             'specialisation' => 'required',
             'description' => 'required',
-            'place' => 'required',
+            'journal' => 'required',
             'published_on' => 'required',
 
         ];
     public function user() {
         return $this->belongsTo('App\User');
+    }
+
+    public function authors () {
+        return $this->hasmany('App\Author');
     }
 
     /* public function options() {

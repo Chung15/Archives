@@ -50,6 +50,31 @@ $(document).ready(function() {
 	//$( "input[type=checkbox]" ).on( "click", isChecked );
 	//isChecked();
 
+	/*addInputField = function () {
+	console.log('i am there');
+	var input ='<div class="row" id="author_data">\
+						<div  class="col-md-10">\
+							<div class = "form-group control-panel">\
+ 								{{ Form:: text("name", null, ["class"=> "form-control"]) }} \
+							 </div>\
+						 </div>\
+						<div  class="col-md-2">\
+						      <button type="button" class="btn btn-primary fa fa-minus-circle pull-right" onclick="removeInputField()"> </button>\						        			 
+						</div>\
+					</div>';
+
+
+
+	$(input).insertAfter('.author_data');*/
+//}
+	
+	//$("#addBtn").on('click', addInputField());
+
+
+	 //$('.removebtn').click(function () {
+       // $(this).remove();   
+ 	//});
+
 });
 
 function validateFields(){
@@ -110,3 +135,48 @@ isInArray = function (itemList, item){
 	}
 	return found;
 }
+
+var counter = 0;
+
+function addInputField() {
+	console.log('i am there');
+	var button_id ="removebtn"+counter; 
+	console.log('Button ID = ', button_id);
+
+	var re = /(\d$)/g;
+	var id = button_id.match(re);
+	
+	var input ='<br id="author_br"/> <div class="row author_data'+counter+'">'+
+						'<div  class="col-md-10">'+
+							'<div class = "form-group control-panel">'+
+ 								'<input type="text" name = "name" class = "form-control" id="author-name'+counter+'"/>'+
+							 '</div>'+
+						 '</div>'+
+						'<div  class="col-md-2">'+
+						      '<button type="button" class="btn btn-primary fa fa-minus-circle pull-right removebtn" id="'+button_id+'" onclick="removeInputField(this)"> </button>'+						        			 
+						'</div>'+
+					'</div>';
+	if(counter <= 0){
+		$(input).insertAfter('.author_data'); 
+	}else{
+		$(input).insertAfter('.author_data'+(counter - 1));
+	}				
+
+	 counter++;
+}
+
+//
+function removeInputField(element) {
+
+	var button_id = $(element).attr("id");
+	var re = /(\d$)/g;
+	var id = parseInt(button_id.match(re));
+	
+	
+		$('.author_data'+id).remove();
+		$('#author_br').remove();
+		counter--;
+	
+    
+}
+

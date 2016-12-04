@@ -16,6 +16,8 @@
         <link href="css/jquery-ui.css" rel="stylesheet">
         <link href="css/jquery-ui.theme.css" rel="stylesheet">
         <link href="css/jquery-ui.structure.css" rel="stylesheet">
+        <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
 
         <!-- Styles -->
         

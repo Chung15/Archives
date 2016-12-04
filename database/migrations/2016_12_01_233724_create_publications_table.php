@@ -16,12 +16,13 @@ class CreatePublicationsTable extends Migration
         Schema::create('publications', function (Blueprint $table) {
            $table->increments('id');
             $table->integer('user_id')->unsigned();
+            $table->integer('author_id')->unsigned();
             $table->string('type');//select box
             $table->string('authors');
-            $table->string('name');
+            $table->string('title');
             $table->string('specialisation');
             $table->string('description');
-            $table->string('place');
+            $table->string('journal');
             $table->string('published_on');
 
 
@@ -29,6 +30,11 @@ class CreatePublicationsTable extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
+
+            $table->foreign('author_id')
+            ->references('id')
+            ->on('authors')
+            ->onDelete('no action');
 
             $table->timestamps();
         });
