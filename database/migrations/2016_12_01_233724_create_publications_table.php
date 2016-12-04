@@ -16,11 +16,13 @@ class CreatePublicationsTable extends Migration
         Schema::create('publications', function (Blueprint $table) {
            $table->increments('id');
             $table->integer('user_id')->unsigned();
-           // $table->string('type');
+            $table->string('type');//select box
+            $table->string('authors');
             $table->string('name');
-            $table->string('place');
             $table->string('specialisation');
             $table->string('description');
+            $table->string('place');
+            $table->string('published_on');
 
 
             $table->foreign('user_id')

@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\Training;
-
+use Carbon\Carbon;
 class TrainingController extends Controller
 {
     /**
@@ -39,12 +39,18 @@ class TrainingController extends Controller
     public function store(Request $request)
     {
          $data = $request->all();
-        $user = \Auth::User();
-        $newTraining = $user->training()->create( [
-                    'topic'   => $data['topic'],
+
+         $start_date = Carbon::createFromFormat('d/m/Y',$data['start_date'])->format('Y-m-d');
+
+         $end_date = Carbon::createFromFormat('d/m/Y',$data['end_date'])->format('Y-m-d');
+         
+
+         $user = \Auth::User();
+         $newTraining = $user->training()->create( [
+                    'topic' => $data['topic'],
                     'description' => $data['description'],
-                    'start_date'    => $data['start_date'],
-                    'end_date'  => $data['end_date'],
+                    'start_date' => $start_date,
+                    'end_date' => $end_date,
                     ] );
      
 

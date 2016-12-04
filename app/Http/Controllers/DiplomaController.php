@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Diploma;
 use App\User;
-
+use Carbon\Carbon;
 class DiplomaController extends Controller
 {
     /**
@@ -40,7 +40,9 @@ class DiplomaController extends Controller
     {
          /*$this->validate($request, Diploma::$validationRules);
         $data = $request->only('diploma_type', 'seria_number', 'thesis_topic','specialization','department','university','year');*/
-         $data = $request->all();
+        $data = $request->all();
+        $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
+         
       // dd($data);
         $user = \Auth::User();
         $newDiploma= $user->diploma()->create( [
@@ -50,7 +52,7 @@ class DiplomaController extends Controller
                     'specialization' => $data['specialization'],
                     'department' => $data['department'],
                     'university' => $data['university'],
-                    'year' => $data['year'],
+                    'year' => $year,
                     ] );
         return redirect('processDiploma');
     }

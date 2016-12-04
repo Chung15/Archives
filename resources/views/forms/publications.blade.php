@@ -13,26 +13,21 @@
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
-						<!-- <div class = 'form-group'>
+						<div class = 'form-group'>
 						    {{ Form:: label('type', 'Type:') }}
 
-						    {{ Form:: select('type', ['Article','Monograph','Tutorial','Teach. manual','Methodical development','Abstracts'], null, ['class'=> 'form-control']) }}
-				    	</div> -->
+						    {{ Form:: select('type', ['стаття ' => 'стаття' ,'монографія ' => 'монографія','підручник' => 'підручник','навч. посібник' => 'навч. посібник','методична розробка' =>'методична розробка','тези доповіді' =>'тези доповіді'], ['class'=> 'form-control']) }}
+				    	</div>
+
+				        <div class = 'form-group control-panel'>
+					        {{ Form:: label('authors', 'authors:') }}
+					    
+					        {{ Form:: text('authors', null, ['class'=> 'form-control']) }}
+				        </div>
 						<div class = 'form-group'>
 						    {{ Form:: label('name', 'Name:') }}
 
 						    {{ Form:: text('name', null, ['class'=> 'form-control']) }}
-				    	</div>
-
-				   		<!-- <div class = 'form-group control-panel'>
-					        {{ Form:: label('desc', 'Date:') }}
-					    
-					        {{ Form:: date('date', \Carbon\Carbon::now()) }}
-				        </div> -->
-				        <div class = 'form-group'>
-						    {{ Form:: label('place', 'place:') }}
-
-						    {{ Form:: text('place', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 
@@ -46,6 +41,17 @@
 					        {{ Form:: label('description', 'Description:') }}
 					    
 					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
+				        </div>
+				        <div class = 'form-group'>
+						    {{ Form:: label('place', 'place:') }}
+
+						    {{ Form:: text('place', null, ['class'=> 'form-control']) }}
+				    	</div>
+
+				   		<div class = 'form-group control-panel'>
+					        {{ Form:: label('published-on', 'Published on:') }}
+					    
+					        {{ Form:: text('published_on', null, ['class'=> 'form-control', 'id' => 'month'])  }}
 				        </div>
 
 				        <div>

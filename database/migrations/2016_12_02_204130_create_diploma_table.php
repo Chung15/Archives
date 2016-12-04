@@ -22,7 +22,7 @@ class CreateDiplomaTable extends Migration
             $table->string('specialization');
             $table->string('department')->nullable();
             $table->string('university');
-            $table->date('year');
+            $table->string('year');
 
              $table->foreign('user_id')
             ->references('id')

@@ -1,10 +1,22 @@
 
 $(document).ready(function() {
 
-    $( "#datepicker" ).datepicker({
+    $( ".date" ).datepicker({
       changeMonth: true,
       changeYear: true,
       dateFormat: "dd/mm/yy"
+    });
+
+    $( ".year" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "yy"
+    });
+
+    $( "#month" ).datepicker({
+      changeMonth: true,
+      changeYear: true,
+      dateFormat: "mm/yy"
     });
 
 

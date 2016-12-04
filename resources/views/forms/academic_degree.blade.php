@@ -36,7 +36,7 @@
                                                   <div class = 'form-group control-panel'>
                                                               {{ Form:: label('year',  'year:') }}
                                                           
-                                                              {{ Form:: date('year', \Carbon\Carbon::now()) }}
+                                                              {{ Form:: text('year', null, ['class' => 'form-control year']) }}
                                                   </div>
                                                    <div class = 'form-group control-panel' >
                                                                   {{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

@@ -28,12 +28,12 @@
 				   		<div class = 'form-group control-panel'>
 					        {{ Form:: label('start_date', 'Start:') }}
 					    
-					        {{ Form:: date('start_date', \Carbon\Carbon::now()) }}
+					        {{ Form:: text('start_date', null, ['class' => 'date']) }}
 				        </div>
 				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('end_date', 'End:') }}
 					    
-					        {{ Form:: date('end_date', \Carbon\Carbon::now()) }}
+					        {{ Form:: text('end_date', null, ['class' => 'date']) }}
 				        </div>
 
 

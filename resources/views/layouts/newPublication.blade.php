@@ -13,7 +13,7 @@
 			<div class="col-md-8">
 				<h2>Other
 				</h2>
-				@foreach($publications as $publication)
+				@foreach($pubs as $publication)
 			    	<div>
 			    		{{ $publication->name }}
 			    	</div>

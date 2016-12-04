@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ThesisTopic;
+use Carbon\Carbon;
 
 class TopicsController extends Controller
 {
@@ -38,13 +39,14 @@ class TopicsController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
+        $year = Carbon::createFromFormat('Y', $data['academic_year'])->format('Y');
         $user = \Auth::User();
         $newTopic = $user->ThesisTopic()->create( [
                     'type' => $data['type'],
                     'title' => $data['title'],
                     'student_name' => $data['student_name'],
                     'student_group' => $data['student_group'],
-                    'academic_year' => $data['academic_year'],
+                    'academic_year' => $year,
 
                     ] );
 

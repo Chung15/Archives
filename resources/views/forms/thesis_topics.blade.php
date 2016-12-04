@@ -37,7 +37,7 @@
 				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('academic_year', 'Academic year:') }}
 					    
-					        {{ Form:: text('academic_year', null, ['class'=> 'form-control']) }}
+					        {{ Form:: text('academic_year', null, ['class'=> 'form-control year']) }}
 				        </div>
 
 				        <div>

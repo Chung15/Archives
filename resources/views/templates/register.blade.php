@@ -126,7 +126,7 @@
 						     <div class="col-md-8">
 						     	<div class="row">
 						        	<div class="col-md-5">
-						          		<input type="text" class="form-control" name="dateOfBirth" id="datepicker" placeholder="Enter birth date..."  value="{{ old('dateOfBirth') }}" />
+						          		<input type="text" class="form-control date" name="dateOfBirth" id="datepicker" placeholder="Enter birth date..."  value="{{ old('dateOfBirth') }}" />
 						     		</div>
 						     		<div class="col-md-3"></div>
 						     		<div class="col-md-4"></div>

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\User;
 use App\AcademicDegree;
+use Carbon\Carbon;
 
 class AcademicDegreeController extends Controller
 {
@@ -38,14 +39,14 @@ class AcademicDegreeController extends Controller
     public function store(Request $request)
     {
         $data = $request->all();
-      // dd($data);
+      $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
         $user = \Auth::User();
         $newDegree= $user->degree()->create( [
                     'academic_degree' => $data['academic_degree'],
                     'seria_number' => $data['seria_number'],
                     'thesis_topic' => $data['thesis_topic'],
                     'specialization' => $data['specialization'],
-                    'year' => $data['year'],
+                    'year' => $year,
                     ] );
         return redirect('processDegree');
     }

@@ -20,7 +20,7 @@ class CreateAcademicTitlesTable extends Migration
             $table->string('seria_number')->unique();
             $table->string('thesis_topic')->nullable();
             $table->string('specialization');
-            $table->date('year');
+            $table->string('year');
 
              $table->foreign('user_id')
             ->references('id')

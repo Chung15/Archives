@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 /*use Illuminate\Support\Facades\Input;*/
 use App\Publication;
+use Carbon\Carbon;
 
 class PublicationsController extends Controller
 {
@@ -39,19 +40,21 @@ class PublicationsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Publication::$validationRules);
-        $data = $request->only('name', 'place', 'specialisation','description');
+        $data = $request->only('type','authors', 'name', 'specialisation','description', 'place', 'published_on');
+        $pub = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
          //$data = $request->all();
        // dd($data);
         $user = \Auth::User();
         $newPub= $user->publication()->create( [
-                    //'type'   => $data['type'],
+                    'type' => $data['type'],
+                    'authors' => $data['authors'],
                     'name' => $data['name'],
-                    'place' => $data['place'],
                     'specialisation' => $data['specialisation'],
                     'description'  => $data['description'],
+                    'place' => $data['place'],
+                    'published_on' => $pub,
                     ] );
      
-//dd($newPub);
        return redirect('processPub');
     }
 
