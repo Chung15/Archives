@@ -1,3 +1,6 @@
 #authorLabel{
  	clear:both;
 }
+.table-user-information > tbody > tr {
+    border-top: 1px solid rgb(221, 221, 221);
+}

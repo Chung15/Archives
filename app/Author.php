@@ -28,6 +28,6 @@ class Author extends Model
         ];
         
     public function publications () {
-    	return $this->hasmany('App\Publication');
+    	return $this->belongsToMany('App\Publication', 'publication_author');
     }
 }

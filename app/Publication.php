@@ -38,7 +38,7 @@ class Publication extends Model
     }
 
     public function authors () {
-        return $this->hasmany('App\Author');
+        return $this->belongsToMany('App\Author', 'publication_author');
     }
 
     /* public function options() {

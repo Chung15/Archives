@@ -5,9 +5,6 @@
     @endsection
 
     @section('content')
-    	@section('pageHeader')
-    		 @include('templates.headerLoggedIn')
-    	@endsection
     	
 		<div class="row">
 			<div class="col-md-8">

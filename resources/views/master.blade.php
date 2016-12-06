@@ -27,7 +27,8 @@
     <div class="container">
         
         <div class="header">
-            @yield('pageHeader')
+            <!-- @yield('pageHeader') -->
+            @include('templates.header')
 
         </div>
 

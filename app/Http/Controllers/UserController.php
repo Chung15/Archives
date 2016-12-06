@@ -28,7 +28,9 @@ class UserController extends Controller
      */
     public function showProfile()
     {
-        return view('templates.user.userProfile');
+        $user = \Auth::User();
+
+        return view('templates.user.userProfile',compact('user'));
     }
 
     /**
@@ -105,7 +107,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::findOrFail($id);   
+        return view('templates.user.userProfile', compact('user'));
     }
 
     /**

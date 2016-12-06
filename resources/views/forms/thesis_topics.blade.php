@@ -1,8 +1,4 @@
 @extends('master')
-	
-	@section('pageHeader')
-		@include('templates.headerLoggedIn')
-	@endsection
 
 	@section('content')
 

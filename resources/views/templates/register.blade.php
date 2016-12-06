@@ -1,11 +1,5 @@
 @extends('master')
 
-
-	@section('pageHeader')
-
-		@include('templates.header')
-		
-	@endsection
 @section('content')
 
 <!-- <div class="container"> -->

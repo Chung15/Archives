@@ -1,9 +1,5 @@
 @extends('master')
 
-	@section('pageHeader')
-		@include('templates.headerLoggedIn')
-	@endsection
-
 	@section('content')
 
 		{{ Form::open(['url'=>'savePub']) }}
@@ -100,9 +96,9 @@
 					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 				        </div>
 				        <div class = 'form-group'>
-						    {{ Form:: label('place', 'place:') }}
+						    {{ Form:: label('journal', 'journal:') }}
 
-						    {{ Form:: text('place', null, ['class'=> 'form-control']) }}
+						    {{ Form:: text('journal', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>

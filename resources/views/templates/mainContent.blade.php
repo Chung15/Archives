@@ -3,14 +3,19 @@
 			<h2>
 				Teachers
 			</h2>
-			@foreach($users as $user)
-		    	<div>
-		    		{{ $user->lastname }}
-		    	</div>
-				<p>
-					<a class="btn" href="#">View details »</a>
-				</p>
-	    	@endforeach
+			<table class="table table-striped table-hover">
+
+				@foreach($users as $user)
+			    	<tr>
+
+			    		<td>
+			    		 	<a href="{{ action('UserController@show', [$user->id]) }}">{{ $user->lastname }}</a>
+			    		 </td>
+			    	</tr>
+		    	@endforeach
+
+	    	</table>
+
 		</div>
 
 		<!-- AsideContent-->
