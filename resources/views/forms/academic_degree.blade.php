@@ -3,11 +3,11 @@
       @section('content')
 
                       
+                    <div class="row">
                         {{ Form::open(['url' => 'saveDegree']) }}
                               <div><strong>Degree</strong></div>
-                                    <div class="row">
                                           <div class = "col-md-2"></div>
-                                          <div class="col-md-4">
+                                              <div class="col-md-4">
 
                                                  <div class = 'form-group control-panel'>
                                                               {{ Form:: label('academic_degree',  'Учетное звание:') }}
@@ -40,11 +40,9 @@
                                                       </div>
                                         </div>
 
-                              </div>
-                  {{ Form:: close() }}
-                          </div>
+                                           <div class = "col-md-2"></div>
                   </div>
-                    <div class = "col-md-2"></div>
-      </div>
+                  {{ Form:: close() }}
+                         
 
                  @endsection

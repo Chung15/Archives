@@ -7,5 +7,7 @@
     @section('content')
 
       	@include('templates.mainContent')
+
+		
     @endsection
 

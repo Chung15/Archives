@@ -24,30 +24,32 @@
     </head>
     <body>
     
-    <div class="container">
-        
-        <div class="header">
-            <!-- @yield('pageHeader') -->
-            @include('templates.header')
+        <div class="container">
+            <div class="row">
+               <!--  <div class="col-md-12"> -->
+                    <div class="row header">
+                        @include('templates.header')
 
+                    </div>
+
+                    <div class="row">
+                        @yield('content')
+
+                    </div> 
+
+               <!--  </div> -->
+
+            </div>
+                    <div class="row footer">
+                        @include('templates.footerContent')
+                    </div>
         </div>
+       
 
-        @yield('content')
-
-        <div class="aside_content">
-            @yield('aside_content')
-        </div>
-
-        <div class="footer">
-            <!--  @yield('footer') -->
-             @include('templates.footerContent')
-        </div>
-    </div>
-
-   
-    <script src="js/jquery.min.js"></script>
-    <script src="js/jquery-ui.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/scripts.js"></script>
+       
+        <script src="js/jquery.min.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/scripts.js"></script>
     </body>
 </html>

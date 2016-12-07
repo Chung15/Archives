@@ -3,18 +3,14 @@
 	@section('content')
 
 		
-		<!-- <div class = "row">
-			<div class = "col-md-2"></div>
-				<div class = 'form-group control-panel'>
-					<div class = "col-md-8"> -->
-				{{ Form::open(['url' => 'saveDiploma']) }}
-					<div><strong>Diploma</strong></div>
-						<div class="row">
+				<div class="row">
+					{{ Form::open(['url' => 'saveDiploma']) }}
+						<div><strong>Diploma</strong></div>
 							<div class = "col-md-2"></div>
-							<div class="col-md-4">
+							<div class="col-md-6">
 
+									        {{ Form:: label('diploma_type',  'Diploma type:'), ['class' => 'control-label'] }}
 					        		 <div class = 'form-group control-panel'>
-									        {{ Form:: label('diploma_type',  'Diploma type:') }}
 									    
 									        {{ Form:: select('diploma_type', ['Bachelor'=> 'Bachelor', 'Master' => 'Master', 'Doctorat' =>'Doctorat'], ['class'=> 'form-control','multiple']) }}
 							        </div>
@@ -54,11 +50,8 @@
 									</div>
 						    </div>
 
-				    	</div>
-	        	{{ Form:: close() }}
-			        </div>
-	        	</div>
-		        <div class = "col-md-2"></div>
-    	</div>
-
+					        <div class = "col-md-4"></div>
+		        	{{ Form:: close() }}
+		    	</div>
+			        
 		     @endsection

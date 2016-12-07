@@ -3,9 +3,9 @@
       @section('content')
 
                       
-                        {{ Form::open(['url' => 'saveTitle']) }}
-                              <div><strong>Title</strong></div>
-                                    <div class="row">
+                        <div class="row">
+                              {{ Form::open(['url' => 'saveTitle']) }}
+                                  <div><strong>Title</strong></div>
                                           <div class = "col-md-2"></div>
                                           <div class="col-md-4">
 
@@ -40,11 +40,8 @@
                                                       </div>
                                         </div>
 
-                              </div>
-                  {{ Form:: close() }}
-                          </div>
-                  </div>
-                    <div class = "col-md-2"></div>
-      </div>
-
+                                         <div class = "col-md-2"></div>
+                                {{ Form:: close() }}
+                            </div>
+                        
                  @endsection

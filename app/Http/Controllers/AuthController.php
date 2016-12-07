@@ -96,8 +96,8 @@ class AuthController extends Controller
         $this->validate($request, User::$validationRules);
         $loginData = $request->only('email', 'password');
        if (\Auth::attempt($loginData)) {
-        
-            return redirect()->intended('profile');
+             $user = \Auth::User();
+            return redirect()->intended($user->id);
         }
         return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
     }

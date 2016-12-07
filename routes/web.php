@@ -15,6 +15,11 @@
 Route::group(['middleware' => ['web']], function () {
  
     Route::get('/', 'UserController@index');
+  Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);// appelle le formulaire pour se connecter
+  Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);// execute la connection
+
+  Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
+  Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
 
  route::group(['middleware' => 'auth'], function () {
    /*---------forms routes---------*/
@@ -52,22 +57,17 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
 
 
+  Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
+  Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
 
 
-	});
+  });
 
    /* Route::post('/', 'UserController@store');*/
 
-	//Auth::routes();
-	//Route::get('/home', 'HomeController@index');
-	Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);// appelle le formulaire pour se connecter
-	Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);// execute la connection
-	Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
-	Route::get('/profile', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
-  Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
-
-	Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
-	Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
+  //Auth::routes();
+   Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
+  //Route::get('/home', 'HomeController@index');
 
 
 	/*Route::post('/register', [

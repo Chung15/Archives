@@ -54,7 +54,8 @@
 					<a href="{{  url('/') }}">Home</a>
 				</li>
 				@if(Auth::check())
-					<li> <a href="{{  url('profile') }}">Profile</a> </li>
+					
+					<li> <a href="{{  url(Auth::user()->id) }}">Profile</a> </li>
 					<li class="">
 						<a href="#">Archives</a>
 					</li>
