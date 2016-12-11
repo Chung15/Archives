@@ -21,7 +21,7 @@
 
     function getCarousel() {
         $images = getCarousselImages("images/carousel_images");
-        $result = '<div class="col-md-8">';
+        $result = '<div class="col-md-6">';
         $result .= '<div class="row">';
         $result .= '<section>';
         $result .= '<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">';

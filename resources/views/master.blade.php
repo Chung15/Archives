@@ -26,7 +26,7 @@
     
         <div class="container">
             <div class="row">
-               <!--  <div class="col-md-12"> -->
+                <div class="col-md-12">
                     <div class="row header">
                         @include('templates.header')
 
@@ -37,7 +37,7 @@
 
                     </div> 
 
-               <!--  </div> -->
+                </div>
 
             </div>
                     <div class="row footer">
