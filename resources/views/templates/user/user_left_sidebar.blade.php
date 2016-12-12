@@ -24,7 +24,7 @@
                 <td>49010</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>
-                <td>PhFour</td>
+                <td>Phone</td>
                 <td>00000000</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>

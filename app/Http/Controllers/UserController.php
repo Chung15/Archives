@@ -33,6 +33,13 @@ class UserController extends Controller
         return view('templates.user.userProfile',compact('user'));
     }
 
+    public function showArchives() 
+    {
+
+        return view('templates.user.archives.archives');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

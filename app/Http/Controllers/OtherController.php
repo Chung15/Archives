@@ -65,8 +65,11 @@ class OtherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {
-        //
+    {/*
+         $other = Other::findOrFail($id);
+        $other->edit($request->all());
+
+        return view('edit_other');*/
     }
 
     /**
@@ -78,7 +81,11 @@ class OtherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        /*$other = Other::findOrFail($id);
+        $other->update($request->all());
+
+        return redirect('other');*/
+
     }
 
     /**

@@ -31,7 +31,8 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
-/*-------------------------------------*/
+
+/*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
     Route::get('/children', ['as' => 'children','uses' => 'ChildController@index']);
 
@@ -56,16 +57,17 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
     Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
 
-
+  Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
   Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
   Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
 
+  //////////////////////////edit forms routes/////////////////////
 
   });
 
    /* Route::post('/', 'UserController@store');*/
 
-  //Auth::routes();
+   //we don't have to be connected to see a  teacher's profile when click on his name
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
   //Route::get('/home', 'HomeController@index');
 
@@ -77,7 +79,4 @@ Route::group(['middleware' => ['web']], function () {
 	);*/
 });
 
-
-
-/*Route::get('/home', 'HomeController@index');*/
 
