@@ -36,7 +36,11 @@ class OtherController extends Controller
      */
     public function store(Request $request)
     {
+        //validation
+        $this->validate($request, Other::$validationRules);
          $data = $request->all();
+          $data = $request->only('name','description');
+
         $user = \Auth::User();
         $newOther = $user->other()->create( [
                     'name'   => $data['name'],
@@ -55,7 +59,8 @@ class OtherController extends Controller
      */
     public function show($id)
     {
-        //
+        $other = Other::findOrFail($id);   
+        return view('other.single_other', compact('other'));
     }
 
     /**
@@ -65,11 +70,9 @@ class OtherController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
-    {/*
+    {
          $other = Other::findOrFail($id);
-        $other->edit($request->all());
-
-        return view('edit_other');*/
+        return view('forms.edit_forms.edit_other', compact('other'));
     }
 
     /**
@@ -81,10 +84,16 @@ class OtherController extends Controller
      */
     public function update(Request $request, $id)
     {
-        /*$other = Other::findOrFail($id);
+        //validation
+        $this->validate($request, Other::$validationRules);
+
+        $other = Other::findOrFail($id);
         $other->update($request->all());
 
-        return redirect('other');*/
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('processOther');
+        
 
     }
 
@@ -96,6 +105,9 @@ class OtherController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $other = Other::findOrFail($id);
+         $other->delete();
+
+         return \Redirect::to('/archives/other');
     }
 }

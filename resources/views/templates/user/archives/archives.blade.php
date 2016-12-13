@@ -2,7 +2,9 @@
 
 	@section('content')
 
-		<h1>this is your archives page</h1>
+		<h2> your archives</h2>
+		
+		@include('templates.user.archives.archives_main_content')
 
 	@endsection
 

@@ -36,8 +36,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
     Route::get('/children', ['as' => 'children','uses' => 'ChildController@index']);
 
-    Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
     Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
+    Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
+    Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
+    Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
+    Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
+    //Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationsController@store']);
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
@@ -57,11 +61,19 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
     Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
 
+  //archives links
+// alias not working?
+    Route::get('/archives/other', [ 'uses' => 'OtherController@index']);
+
+  
+ 
   Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
   Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
   Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
 
   //////////////////////////edit forms routes/////////////////////
+  
+
 
   });
 
@@ -69,6 +81,7 @@ Route::group(['middleware' => ['web']], function () {
 
    //we don't have to be connected to see a  teacher's profile when click on his name
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
+   Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
   //Route::get('/home', 'HomeController@index');
 
 

@@ -1,12 +1,11 @@
 @extends('master')
 
-	@section('content')
-		
+@section('content')
 
-			{{ Form::open(['url' => 'saveOther']) }}
+    <!-- <h1>Edit: {{ $other->name }}</h1> -->
 
-				<div>Add an other information</div>
-					<hr/>
+    {{ Form::model( $other,['method'=>'PATCH', 'action' => ['OtherController@update', $other->id]]) }}
+    
 					<div class = "row">
 						<div class = "col-md-3"></div>
 						<div class = "col-md-6">
@@ -22,14 +21,17 @@
 						        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 					        </div>
 					        <div>
-								{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}
+								{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+				   
+							</div>
+							<div>
+								{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 							</div>
 						</div>
 						<div class = "col-md-3"></div>
 					</div>
-		
 
+{{ Form::close() }}
 
-			{{ Form::close() }}
-	@endsection
+@stop

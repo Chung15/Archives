@@ -21,7 +21,6 @@
 			</div>
 
 			<!-- AsideContent-->
-			@include('templates.asideContent')
 			<!-- End-AsideContent-->
 		</div>
 
