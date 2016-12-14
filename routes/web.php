@@ -38,10 +38,10 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
-    Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
-    Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
-    Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
-    //Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
+   // Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
+    //Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
+    //Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
+    Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationsController@store']);
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
