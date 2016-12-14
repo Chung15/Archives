@@ -72,7 +72,6 @@ class OtherController extends Controller
     public function edit($id)
     {
          $other = Other::findOrFail($id);
-       // return view('forms.edit_forms.edit_other', compact('other'));
          return view('forms.other', compact('other'));
     }
 

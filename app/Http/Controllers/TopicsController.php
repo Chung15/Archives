@@ -51,7 +51,7 @@ class TopicsController extends Controller
 
                     ] );
 
-         return redirect('processTopic');
+         return redirect('/archives/topics');
     }
 
     /**
@@ -62,7 +62,8 @@ class TopicsController extends Controller
      */
     public function show($id)
     {
-        //
+        $topic = ThesisTopic::findOrFail($id);   
+        return view('other.single_topic', compact('topic'));
     }
 
     /**
@@ -73,7 +74,8 @@ class TopicsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $topic = ThesisTopic::findOrFail($id);
+         return view('forms.thesis_topics', compact('topic'));
     }
 
     /**
@@ -85,7 +87,14 @@ class TopicsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, ThesisTopic::$validationRules);
+
+        $topic = ThesisTopic::findOrFail($id);
+        $topic->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/topics');
     }
 
     /**
@@ -96,6 +105,9 @@ class TopicsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $topic = ThesisTopic::findOrFail($id);
+         $topic->delete();
+
+         return \Redirect::to('/archives/topics');
     }
 }

@@ -17,7 +17,7 @@
 			<a href="{{ url('/archives/children') }}"> Children </a>
 		</div>
 		<div class="col-md-2">
-			<a href="{{ url('/archives/thesis') }}"> Thesis-topics </a>
+			<a href="{{ url('/archives/topics') }}"> Thesis-topics </a>
 		</div>
 
 		<div class="col-md-2">

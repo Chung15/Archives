@@ -37,7 +37,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/archives/children', ['as' => 'children','uses' => 'ChildController@index']);
     Route::resource('/child', 'ChildController', ['only' => ['edit', 'update', 'destroy']]);
 
-    //Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
+    
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
    // Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
     //Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
@@ -52,7 +52,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/processTraining', ['as' => 'processTraining','uses' => 'TrainingController@index']);
 
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
-    Route::get('/processTopic', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+    Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+    Route::resource('/topic', 'TopicsController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
    // Route::get('/processDiploma', ['as' => 'processDiploma','uses' => 'DiplomaController@index']);
@@ -71,6 +72,11 @@ Route::group(['middleware' => ['web']], function () {
 
   //archives links
 // alias not working?
+Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
+   Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
+   Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
+    Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
+    Route::get('/archives/topics/{id}', ['uses' =>'TopicsController@show']);
 
   
  
@@ -89,10 +95,7 @@ Route::group(['middleware' => ['web']], function () {
 
    //we don't have to be connected to see a  teacher's profile when click on his name
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
-   Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
-   Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
-   Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
-    Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
+   
 
 
 
