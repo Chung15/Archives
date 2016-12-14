@@ -24,9 +24,9 @@ class Child extends Model
      */
 
     public static $validationRules = [
-            'firstname' => 'required|min:6',
-            'lastname' => 'required|min:6',
-            'patronymic' => 'required|min:6',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'patronymic' => 'required',
             //'dateOfBirth' => 'required',
 
         ];

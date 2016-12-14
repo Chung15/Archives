@@ -39,6 +39,7 @@ class ChildController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, Child::$validationRules);
         $data = $request->all();
         $parent = \Auth::User();
         $newChild = $parent->child()->create( [
@@ -49,7 +50,7 @@ class ChildController extends Controller
                     ] );
      
 
-        return redirect('children');
+        return redirect('/archives/children');
     }
 
     /**
@@ -60,7 +61,8 @@ class ChildController extends Controller
      */
     public function show($id)
     {
-        //
+         $child = Child::findOrFail($id);   
+        return view('other.single_child', compact('child'));
     }
 
     /**
@@ -71,7 +73,8 @@ class ChildController extends Controller
      */
     public function edit($id)
     {
-        //
+        $child = Child::findOrFail($id);   
+        return view('forms.children', compact('child'));
     }
 
     /**
@@ -83,7 +86,14 @@ class ChildController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Child::$validationRules);
+
+        $child = Child::findOrFail($id);
+        $child->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/children');
     }
 
     /**
@@ -94,6 +104,9 @@ class ChildController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $child = Child::findOrFail($id);
+         $child->delete();
+
+         return \Redirect::to('/archives/children');
     }
 }

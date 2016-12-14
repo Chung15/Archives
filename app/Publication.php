@@ -25,7 +25,7 @@ class Publication extends Model
 
     public static $validationRules = [
             'type' => 'required',
-            'authors' => 'required',
+            //'authors' => 'required',
             'title' => 'required',
             'specialisation' => 'required',
             'description' => 'required',

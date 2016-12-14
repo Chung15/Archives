@@ -34,7 +34,8 @@ Route::group(['middleware' => ['web']], function () {
 
 /*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
-    Route::get('/children', ['as' => 'children','uses' => 'ChildController@index']);
+    Route::get('/archives/children', ['as' => 'children','uses' => 'ChildController@index']);
+    Route::resource('/child', 'ChildController', ['only' => ['edit', 'update', 'destroy']]);
 
     //Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
@@ -91,6 +92,8 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
    Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
    Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
+    Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
+
 
 
   //Route::get('/home', 'HomeController@index');

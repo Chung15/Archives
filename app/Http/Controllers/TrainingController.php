@@ -38,6 +38,7 @@ class TrainingController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, Training::$validationRules);
          $data = $request->all();
 
          $start_date = Carbon::createFromFormat('d/m/Y',$data['start_date'])->format('Y-m-d');

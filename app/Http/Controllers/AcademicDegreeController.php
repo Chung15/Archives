@@ -38,6 +38,7 @@ class AcademicDegreeController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, AcademicDegree::$validationRules);
         $data = $request->all();
       $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
         $user = \Auth::User();

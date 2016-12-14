@@ -38,6 +38,7 @@ class TopicsController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, ThesisTopic::$validationRules);
         $data = $request->all();
         $year = Carbon::createFromFormat('Y', $data['academic_year'])->format('Y');
         $user = \Auth::User();
