@@ -64,7 +64,9 @@ Route::group(['middleware' => ['web']], function () {
 
 
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
-    Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
+    Route::get('/archives/academicDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
+    Route::resource('/degree', 'AcademicDegreeController', ['only' => ['edit', 'update', 'destroy']]);
+
 
   //archives links
 // alias not working?
@@ -88,6 +90,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
    Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
    Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
+   Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
 
 
   //Route::get('/home', 'HomeController@index');

@@ -48,7 +48,7 @@ class AcademicDegreeController extends Controller
                     'specialization' => $data['specialization'],
                     'year' => $year,
                     ] );
-        return redirect('processDegree');
+        return redirect('/archives/academicDegree');
     }
 
     /**
@@ -59,7 +59,8 @@ class AcademicDegreeController extends Controller
      */
     public function show($id)
     {
-        //
+        $degree = AcademicDegree::findOrFail($id);   
+        return view('other.single_degree', compact('degree'));
     }
 
     /**
@@ -70,7 +71,8 @@ class AcademicDegreeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $degree = AcademicDegree::findOrFail($id);   
+        return view('forms.academic_degree', compact('degree'));
     }
 
     /**
@@ -82,7 +84,14 @@ class AcademicDegreeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, AcademicDegree::$validationRules);
+
+        $other = AcademicDegree::findOrFail($id);
+        $other->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/academicDegree');
     }
 
     /**
@@ -93,6 +102,9 @@ class AcademicDegreeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $degree = AcademicDegree::findOrFail($id);
+         $degree->delete();
+
+         return \Redirect::to('/archives/academicDegree');
     }
 }
