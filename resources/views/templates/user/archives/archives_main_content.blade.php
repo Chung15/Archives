@@ -5,10 +5,10 @@
 <div class="row">
 	<div class="col-md-12">
 		<div class="col-md-2">
-			<a href="#"> Education </a>
+			<a href="{{ url('/archives/diploma') }}"> Education </a>
 		</div>
 		<div class="col-md-2">
-			<a href="#"> Academic records</a>
+			<a href=""> Academic records</a>
 		</div>
 		<div class="col-md-2">
 			<a href="#"> Children </a>

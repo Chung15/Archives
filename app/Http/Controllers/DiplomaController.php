@@ -65,7 +65,9 @@ class DiplomaController extends Controller
      */
     public function show($id)
     {
-        //
+         $diploma = Diploma::findOrFail($id);   
+        return view('other.single_diploma', compact('diploma'));
+
     }
 
     /**
@@ -76,7 +78,8 @@ class DiplomaController extends Controller
      */
     public function edit($id)
     {
-        //
+         $diploma = Diploma::findOrFail($id);
+         return view('forms.diploma', compact('diploma'));
     }
 
     /**
@@ -88,7 +91,14 @@ class DiplomaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, Diploma::$validationRules);
+
+        $diploma = Diploma::findOrFail($id);
+        $diploma->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/diploma');
     }
 
     /**
@@ -99,6 +109,9 @@ class DiplomaController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $diploma = Diploma::findOrFail($id);
+         $diploma->delete();
+
+         return \Redirect::to('/archives/diploma');
     }
 }

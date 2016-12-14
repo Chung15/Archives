@@ -54,6 +54,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
     Route::get('/processDiploma', ['as' => 'processDiploma','uses' => 'DiplomaController@index']);
+    Route::resource('/diploma', 'DiplomaController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
     Route::get('/processTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
@@ -63,7 +64,9 @@ Route::group(['middleware' => ['web']], function () {
 
   //archives links
 // alias not working?
-    Route::get('/archives/other', [ 'uses' => 'OtherController@index']);
+    Route::get('/archives/other', [ 'uses' => 'OtherController@index'])
+    ;
+    Route::get('/archives/diploma', [ 'uses' => 'DiplomaController@index']);
 
   
  
@@ -72,6 +75,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
 
   //////////////////////////edit forms routes/////////////////////
+   Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
   
 
 
@@ -82,6 +86,7 @@ Route::group(['middleware' => ['web']], function () {
    //we don't have to be connected to see a  teacher's profile when click on his name
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
    Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
+
   //Route::get('/home', 'HomeController@index');
 
 

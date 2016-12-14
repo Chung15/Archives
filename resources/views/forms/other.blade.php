@@ -2,7 +2,7 @@
 
 	@section('content')
 		
-@if(isset($other))
+		@if(isset($other))
 			{{ Form::model($other,['method'=>'PATCH', 'action' => ['OtherController@update', $other->id]]) }}
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -56,9 +56,9 @@
 						</div>
 						<div class = "col-md-3"></div>
 					</div>
-			@endif
+		@endif
 		
 
 
 			{{ Form::close() }}
-	@endsection
+@endsection
