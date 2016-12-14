@@ -48,7 +48,7 @@ class AcademicTitleController extends Controller
                     'specialization' => $data['specialization'],
                     'year' => $year,
                     ] );
-        return redirect('processTitle');
+        return redirect('/archives/academicTitle');
     }
 
     /**
@@ -59,7 +59,9 @@ class AcademicTitleController extends Controller
      */
     public function show($id)
     {
-        //
+        $title = AcademicTitle::findOrFail($id);   
+        return view('other.single_title', compact('title'));
+
     }
 
     /**
@@ -70,7 +72,8 @@ class AcademicTitleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $title = AcademicTitle::findOrFail($id);
+        return view('forms.academic_title',compact('title'));
     }
 
     /**
@@ -82,7 +85,14 @@ class AcademicTitleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, AcademicTitle::$validationRules);
+
+        $other = AcademicTitle::findOrFail($id);
+        $other->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/academicTitle');
     }
 
     /**
@@ -92,7 +102,10 @@ class AcademicTitleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        //
+    {   
+        $title = AcademicTitle::findOrFail($id);
+         $title->delete();
+
+         return \Redirect::to('/archives/academicTitle');
     }
 }

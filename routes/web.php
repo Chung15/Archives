@@ -59,7 +59,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/archives/diploma', [ 'uses' => 'DiplomaController@index']);
 
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
-    Route::get('/processTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
+    Route::get('/archives/academicTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
+    Route::resource('/title', 'AcademicTitleController', ['only' => ['edit', 'update', 'destroy']]);
+
 
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
     Route::get('/processDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
@@ -85,6 +87,8 @@ Route::group(['middleware' => ['web']], function () {
    //we don't have to be connected to see a  teacher's profile when click on his name
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
    Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
+   Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
+
 
   //Route::get('/home', 'HomeController@index');
 
