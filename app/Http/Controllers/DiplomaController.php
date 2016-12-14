@@ -54,7 +54,7 @@ class DiplomaController extends Controller
                     'university' => $data['university'],
                     'year' => $year,
                     ] );
-        return redirect('processDiploma');
+        return redirect('archives/diploma');
     }
 
     /**

@@ -36,12 +36,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
     Route::get('/children', ['as' => 'children','uses' => 'ChildController@index']);
 
-    Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
+    //Route::get('/processOther', ['as' => 'processOther','uses' => 'OtherController@index']);
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
    // Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
     //Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
     //Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
     Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
+    Route::get('/archives/other', [ 'uses' => 'OtherController@index']);
 
     Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationsController@store']);
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
@@ -53,8 +54,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/processTopic', ['as' => 'processTopic','uses' => 'TopicsController@index']);
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
-    Route::get('/processDiploma', ['as' => 'processDiploma','uses' => 'DiplomaController@index']);
+   // Route::get('/processDiploma', ['as' => 'processDiploma','uses' => 'DiplomaController@index']);
     Route::resource('/diploma', 'DiplomaController', ['only' => ['edit', 'update', 'destroy']]);
+    Route::get('/archives/diploma', [ 'uses' => 'DiplomaController@index']);
 
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
     Route::get('/processTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
@@ -64,9 +66,6 @@ Route::group(['middleware' => ['web']], function () {
 
   //archives links
 // alias not working?
-    Route::get('/archives/other', [ 'uses' => 'OtherController@index'])
-    ;
-    Route::get('/archives/diploma', [ 'uses' => 'DiplomaController@index']);
 
   
  

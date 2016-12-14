@@ -48,7 +48,7 @@ class OtherController extends Controller
 
                     ] );
 
-        return redirect('processOther');
+        return redirect('archives/other');
     }
 
     /**
