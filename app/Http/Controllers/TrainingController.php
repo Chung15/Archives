@@ -55,7 +55,7 @@ class TrainingController extends Controller
                     ] );
      
 
-        return redirect('processTraining');
+        return redirect('/archives/trainings');
     }
 
     /**
@@ -66,7 +66,8 @@ class TrainingController extends Controller
      */
     public function show($id)
     {
-        //
+        $training = Training::findOrFail($id);   
+        return view('other.single_training', compact('training'));
     }
 
     /**
@@ -77,7 +78,8 @@ class TrainingController extends Controller
      */
     public function edit($id)
     {
-        //
+        $training = Training::findOrFail($id);   
+        return view('forms.training', compact('training'));
     }
 
     /**
@@ -89,7 +91,14 @@ class TrainingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, Training::$validationRules);
+
+        $training = Training::findOrFail($id);
+        $training->update($request->all());
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/archives/trainings');
     }
 
     /**
@@ -100,6 +109,9 @@ class TrainingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $training = Training::findOrFail($id);
+         $training->delete();
+
+         return \Redirect::to('/archives/trainings');
     }
 }

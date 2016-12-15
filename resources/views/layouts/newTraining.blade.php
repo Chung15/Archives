@@ -1,3 +1,5 @@
+
+
 @extends('master')
 
     @section('title')
@@ -10,20 +12,32 @@
     	
 		<div class="row">
 			<div class="col-md-7">
-				<h2>Training
-				</h2>
-				@foreach($trainings as $training)
-			    	<div>
-			    		{{ $training->topic }}
-			    	</div>
-					<p>
-						<a class="btn" href="#">View details »</a>
-					</p>
-		    	@endforeach
-			</div>
+				<table class="table table-striped table-hover">
+					<h2>Trainings</h2>
 
-			<!-- AsideContent-->
-			<!-- End-AsideContent-->
+					@foreach($trainings as $training)
+
+				    	<tr>
+				    		<div class="row">
+					    		<td class="col-md-10">{{ $training->topic }}
+					    			<p><a class="btn" href="{{  action('TrainingController@show', [$training->id]) }}">view details »</a></p>
+					    		</td>
+					    		<td class="col-md-1"><a href="{{ action('TrainingController@edit', [$training->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+					    		<td>
+						    		{{ Form::model($training,['method'=>'DELETE', 'action' => ['TrainingController@destroy', $training->id]]) }}
+					                    {{ Form::hidden('_method', 'DELETE') }}
+					                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+					                   
+					                {{ Form::close() }}
+					    		</td>
+				    		</div>
+				    		
+				    	</tr>
+						
+			    	@endforeach
+		    	</table>
+			</div>
+	
 		</div>
 
     @endsection

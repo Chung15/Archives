@@ -24,7 +24,7 @@ class Training extends Model
      */
 
     public static $validationRules = [
-            'topic' => 'required|topic',
+            'topic' => 'required',
             'description' => 'required',
             'start_date' => 'required',
             'end_date' => 'required',

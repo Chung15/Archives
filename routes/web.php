@@ -49,7 +49,9 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
 
     Route::post('/saveTraining', ['as' => 'saveTraining','uses' => 'TrainingController@store']);
-    Route::get('/processTraining', ['as' => 'processTraining','uses' => 'TrainingController@index']);
+    Route::get('/archives/trainings', ['as' => 'processtraining','uses' => 'TrainingController@index']);
+    Route::resource('/training', 'TrainingController', ['only' => ['edit', 'update', 'destroy']]);
+    
 
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
     Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
@@ -77,6 +79,7 @@ Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherContro
    Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
     Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
     Route::get('/archives/topics/{id}', ['uses' =>'TopicsController@show']);
+    Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
 
   
  
