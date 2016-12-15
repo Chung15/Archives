@@ -5,9 +5,11 @@
     @endsection
 
     @section('content')
+    	@include('templates.user.archives.archives_main_content')
+    	<div class="col-md-1"></div>
     	
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-7">
 				<table class="table table-striped table-hover">
 					<h2>Other</h2>
 

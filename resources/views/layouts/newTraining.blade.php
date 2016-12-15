@@ -5,12 +5,11 @@
     @endsection
 
     @section('content')
-    	@section('pageHeader')
-    		 @include('templates.headerLoggedIn')
-    	@endsection
+    	@include('templates.user.archives.archives_main_content')
+    	<div class="col-md-1"></div>
     	
 		<div class="row">
-			<div class="col-md-8">
+			<div class="col-md-7">
 				<h2>Training
 				</h2>
 				@foreach($trainings as $training)
