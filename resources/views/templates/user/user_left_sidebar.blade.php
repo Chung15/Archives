@@ -10,21 +10,21 @@
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
 
-        <table class="table table-hover table-user-information">
+        <table class="table table-hover table-user-information col-md-4">
               <tr>
-                <td>{{ $adress->city }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->city }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->street }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->street }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->zip }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->zip }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->phone }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->phone }}</td>
               </tr>
               <tr>
-                <td>{{ $user->email }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $user->email }}</td>
               </tr>
         </table>
 
