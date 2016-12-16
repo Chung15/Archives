@@ -1,4 +1,5 @@
 
+
 <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="headingOne">
@@ -16,10 +17,18 @@
                 <th>Date</th>
                 <th>Title</th>
               </tr>
+             @foreach($publications as $publication)
               <tr>
-                <td><li>12/2016</li></td>
-                <td>First publication</td>
+                <td><li>{{$publication->published_on}}</li></td>
+                <td>{{$publication->title}}</td>
+
+                 @if(Auth::check())
+                  <td><i class="glyphicon glyphicon-pencil"></i></td>
+                  <td><i class="glyphicon glyphicon-trash"></i></td>
+                @endif
+
               </tr>
+            @endforeach
         </table>
 
       </div>
@@ -47,9 +56,12 @@
               <tr>
                 <td><li>{{ $training->end_date }}</li></td>
                 <td>{{ $training->topic }}</td>
-                <td>
-                  <i class="glyphicon glyphicon-pencil"></i></td>
+
+              @if(Auth::check())
+                <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
+              @endif
+
               </tr>
           @endforeach
         </table>
@@ -67,15 +79,21 @@
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
         <table class="table table-hover">
-             @foreach($topics as $topic)
 
               <tr>
                 <th>Year</th>
                 <th>Topic</th>
               </tr>
+             @foreach($topics as $topic)
               <tr>
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
+                
+                 @if(Auth::check())
+                  <td><i class="glyphicon glyphicon-pencil"></i></td>
+                  <td><i class="glyphicon glyphicon-trash"></i></td>
+              @endif
+
               </tr>
             @endforeach
           
@@ -83,33 +101,7 @@
       </div>
     </div>
   </div>
-
-<div class="panel panel-default hidden">
-    <div class="panel-heading" role="tab" id="headingFive">
-      <h4 class="panel-title">
-        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-          Leaves
-        </a>
-      </h4>
-    </div>
-    <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
-      <div class="panel-body">
-        <table class="table table-hover">
-             @foreach($topics as $topic)
-
-              <tr>
-                <th>Year</th>
-                <th>Topic</th>
-              </tr>
-              <tr>
-                <td><li>{{ $topic->academic_year }}</li></td>
-                <td>{{ $topic->title }}</td>
-              </tr>
-            @endforeach
-          
-        </table>
-      </div>
-    </div>
-  </div>
-
+  @if(!Auth::check())
+    @include('templates.user.collapse_full_aside_bar')
+   @endif
 </div>

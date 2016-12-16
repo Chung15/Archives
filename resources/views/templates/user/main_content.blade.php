@@ -14,16 +14,19 @@
 	            	  <div class="panel-body">
 							<table class="table table-striped table-user-information">
 								<tbody>
-									<tr><td>Firstname: {{ $user->firstname }} </td><td><i class="glyphicon glyphicon-pencil"></i></td></tr>
-									<tr><td> Patronymic: {{ $user->patronymic }} </td><td><i class="glyphicon glyphicon-pencil"></i></tr>
-									<tr><td> Lastname: {{ $user->lastname }} </td><td><i class="glyphicon glyphicon-pencil"></i></tr>
-									<tr><td> INN: {{ $user->INN }} </td><td><i class="glyphicon glyphicon-pencil"></i></tr>
-									<tr><td> Birthdate: {{ $user->dateOfBirth }} </td><td><i class="glyphicon glyphicon-pencil"></i></tr>
-									<tr><td> Marital status: {{ $user->maritalStatus}} </td><td><i class="glyphicon glyphicon-pencil"></i></tr>
+									<tr><td>Firstname: {{ $user->firstname }} </td></tr>
+									<tr><td> Patronymic: {{ $user->patronymic }} </td></tr>
+									<tr><td> Lastname: {{ $user->lastname }} </td></tr>
+									<tr><td> INN: {{ $user->INN }} </td></tr>
+									<tr><td> Birthdate: {{ $user->dateOfBirth }} </td></tr>
+									<tr><td> Marital status: {{ $user->maritalStatus}} </td></tr>
 										
 								</tbody>
 							</table>
-								<button class="btn btn-primary pull-right btn-xs">edit profile</button>
+								@if(Auth::check())
+									<button class="btn btn-primary pull-right btn-xs">edit profile</button>
+								@endif
+
 						</div>
 				</div>
 			</div>

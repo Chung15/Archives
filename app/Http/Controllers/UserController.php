@@ -118,8 +118,15 @@ class UserController extends Controller
         $adress = $user->adress()->get()->first();
         $topics = $user->thesisTopic()->get();
         $trainings = $user->training()->get();
+        $publications = $user->publication()->get();
+        $children = $user->Child()->get();
+        $diplomas = $user->diploma()->get();
+        $leaves = $user->leave()->get();
+        $titles = $user->title()->get();
+        $degrees = $user->degree()->get();
+        $others = $user->other()->get();
 
-        return view('templates.user.userProfile', compact('user', 'adress', 'topics','trainings'));
+        return view('templates.user.userProfile', compact('user', 'adress', 'topics','trainings','publications','children','diplomas','leaves','titles','degrees','others'));
     }
 
     /**
