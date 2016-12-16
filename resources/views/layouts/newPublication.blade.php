@@ -22,8 +22,6 @@
 		    	@endforeach
 			</div>
 
-			<!-- AsideContent-->
-			<!-- End-AsideContent-->
 		</div>
 
     @endsection

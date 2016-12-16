@@ -1,4 +1,4 @@
-
+@if(Auth::check())
 <div class="col-md-3">
 	<div class="row">
 		<table class="table table-striped table-hover">
@@ -70,3 +70,4 @@
 <div class="col-md-1"></div>
 
 <div class="col-md-8"></div>
+@endif

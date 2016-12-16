@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="col-md-4">
 					<h2>
-						Logo
+						<div class="row"><img src="images/dnu-logo.png" width="60" height="60"></div>
 					</h2>
 				
 				</div>
@@ -76,7 +76,7 @@
 							<a href="{{  url('child') }}">Children</a>
 						</li>
 						<li>
-							<a href="{{  url('training') }}">Qualification(training)</a>
+							<a href="{{  url('training') }}">Training</a>
 						</li>
 						<li>
 							<a href="{{  url('publications') }}">Publications</a>

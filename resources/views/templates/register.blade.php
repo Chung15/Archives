@@ -2,21 +2,12 @@
 
 @section('content')
 
-<!-- <div class="container"> -->
 	<div class="row">
 		<div class="col-md-8">
 			<fieldset>
     		<legend>Register</legend>
 
-			<!-- <div class="panel panel-default">
-				<div class="panel-heading">
-					<h3 class="panel-title">
-						Panel title
-					</h3>
-				</div>
-				<div class="panel-body"> -->
-					<!-- <form class="form-horizontal" >  -->
-		<!-- echo Form::open(array('action' => 'Controller@method'))	 -->	
+			
 		<form class="form-horizontal" role="form" method="POST" action="{{ url('store') }}">
 		{{ csrf_field() }}
 						
@@ -246,18 +237,10 @@
 						<div class="form-group">
                             <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
-
-						<!-- <div class="form-group">
-						     <label for="confirmPassword" class="col-md-4 control-label">
-						       Confirm Password</label>
-						     <div class="col-md-8">
-						         <input type="password" name="confirmPassword" class="form-control" value="">
-						     </div>
-						</div> -->
 
 						<div class="form-group {{ $errors->has('terms') ? ' has-error' : '' }}">
 							<div class="col-md-4"></div>
@@ -271,11 +254,6 @@
 						    </div>
 						 </div>
 
-						  
-				<!--	</form> -->
-
-				<!-- </div> -->
-				<!-- <div class="panel-footer"> -->
 					<div class="form-group">
 						     <div class="col-md-4  pull-right">
 						         <input type="submit" name="submit" value="submit" class="btn btn-default" id="reg_submit">
@@ -294,5 +272,3 @@
 			<div class="col-md-4"></div>
 		</div>
 		@endsection
-	<!-- </div> -->
-<!--</div> -->

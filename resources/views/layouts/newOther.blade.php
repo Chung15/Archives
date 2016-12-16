@@ -21,7 +21,6 @@
 					    			<p><a class="btn" href="{{  action('OtherController@show', [$other->id]) }}">view details »</a></p>
 					    		</td>
 					    		<td class="col-md-1"><a href="{{ action('OtherController@edit', [$other->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
-					    		<!-- <td class="col-md-1"><a href="{{ action('OtherController@destroy', [$other->id] ) }}" class="glyphicon glyphicon-trash default"></a></td> -->
 					    		<td>
 						    		{{ Form::model( $other,['method'=>'DELETE', 'action' => ['OtherController@destroy', $other->id]]) }}
 					                    {{ Form::hidden('_method', 'DELETE') }}

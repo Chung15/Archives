@@ -10,26 +10,21 @@
     <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
       <div class="panel-body">
 
-        <table class="table table-hover">
+        <table class="table table-hover table-user-information">
               <tr>
-                <td>City</td>
-                <td>Dnipro</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->city }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>
-                <td>Street</td>
-                <td>43 Mariland</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->street }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>
-                <td>Zip</td>
-                <td>49010</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->zip }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>
-                <td>Phone</td>
-                <td>00000000</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $adress->phone }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
               <tr>
-                <td>Email</td>
-                <td>test@ex.com</td><td><i class="glyphicon glyphicon-pencil"></i></td>
+                <td>{{ $user->email }}</td><td><i class="glyphicon glyphicon-pencil"></i></td>
               </tr>
         </table>
 
