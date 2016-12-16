@@ -16,7 +16,8 @@ class ChildController extends Controller
      */
     public function index()
     {
-        $children = Child::all();
+        $user =  \Auth::User();
+        $children = $user->child()->get();
         return view('children.children', compact('children'));
     }
          

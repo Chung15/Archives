@@ -14,7 +14,8 @@ class OtherController extends Controller
      */
     public function index()
     {
-        $others = Other::all();
+        $user =  \Auth::User();
+        $others = $user->other()->get();
         return view('layouts.newOther',compact('others'));
     }
 

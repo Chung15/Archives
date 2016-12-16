@@ -1,4 +1,4 @@
-@if(Auth::check())
+@if(Auth::id())
 <div class="col-md-3">
 	<div class="row">
 		<table class="table table-striped table-hover">

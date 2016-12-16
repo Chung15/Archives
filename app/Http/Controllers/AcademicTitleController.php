@@ -16,7 +16,8 @@ class AcademicTitleController extends Controller
      */
     public function index()
     {
-         $titles = AcademicTitle::all();
+         $user =  \Auth::User();
+         $titles = $user->title()->get();
         return view('layouts.titles', compact('titles'));
     }
 

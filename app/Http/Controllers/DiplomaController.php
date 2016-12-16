@@ -15,7 +15,8 @@ class DiplomaController extends Controller
      */
     public function index()
     {
-        $diplomas = Diploma::all();
+        $user =  \Auth::User();
+        $diplomas = $user->diploma()->get();
        // $options = Options::pluck('name','id');
         return view('layouts.diplomas', compact('diplomas'));
     }

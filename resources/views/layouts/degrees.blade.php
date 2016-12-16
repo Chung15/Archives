@@ -11,8 +11,10 @@
 			<div class="col-md-7">
 				<table class="table table-striped table-hover">
 					<h2>Degrees</h2>
-
+					@if(Auth::User())
+					@if(Auth::check())
 					@foreach($degrees as $degree)
+					
 
 				    	<tr>
 				    		<div class="row">
@@ -30,8 +32,10 @@
 				    		</div>
 				    		
 				    	</tr>
-						
+				    
 			    	@endforeach
+			    	@endif
+			    	@endif
 		    	</table>
 			</div>
 	

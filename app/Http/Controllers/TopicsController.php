@@ -15,8 +15,8 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        
-        $topics = ThesisTopic::all();
+        $user =  \Auth::User();   
+        $topics = $user->thesisTopic()->get();
         return view('layouts.newTopic', compact('topics'));
     }
 

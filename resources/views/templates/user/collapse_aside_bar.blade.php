@@ -41,6 +41,7 @@
                 <th></th>
                 <th></th>
               </tr>
+
               <tr>
                 <td><li>12/2016</li></td>
                 <td>First training</td>
@@ -63,14 +64,17 @@
     <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
       <div class="panel-body">
         <table class="table table-hover">
+          @foreach($topics as $topic)
+
               <tr>
                 <th>Year</th>
                 <th>Topic</th>
               </tr>
               <tr>
-                <td><li>2016</li></td>
-                <td>First topic</td>
+                <td><li>{{ $topic->academic_year }}</li></td>
+                <td>{{ $topic->title }}</td>
               </tr>
+            @endforeach
         </table>
       </div>
     </div>

@@ -15,7 +15,8 @@ class TrainingController extends Controller
      */
     public function index()
     {
-         $trainings = Training::all();
+        $user =  \Auth::User();
+         $trainings = $user->training()->get();
         return view('layouts.newTraining', compact('trainings'));
     }
 

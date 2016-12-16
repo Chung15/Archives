@@ -18,7 +18,8 @@ class PublicationsController extends Controller
      */
     public function index()
     {
-        $pubs = Publication::all();
+        $user =  \Auth::User();
+        $pubs = $user->publication()->get();
        // $options = Options::pluck('name','id');
         return view('layouts.newPublication', compact('pubs'));
     }

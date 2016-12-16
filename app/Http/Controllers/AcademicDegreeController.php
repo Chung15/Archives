@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\User;
 use App\AcademicDegree;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
+
 
 class AcademicDegreeController extends Controller
 {
@@ -16,7 +18,13 @@ class AcademicDegreeController extends Controller
      */
     public function index()
     {
-        $degrees = AcademicDegree::all();
+        $user =  \Auth::User();
+       /* $degrees = DB::table('academic_degrees')
+                ->where('user_id', $user->id)
+                ->get();
+    */
+        $degrees = $user->degree()->get();
+
         return view('layouts.degrees', compact('degrees'));
     }
 
