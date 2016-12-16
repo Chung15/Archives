@@ -22,9 +22,10 @@
                 <td><li>{{$publication->published_on}}</li></td>
                 <td>{{$publication->title}}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                   <td><i class="glyphicon glyphicon-pencil"></i></td>
                   <td><i class="glyphicon glyphicon-trash"></i></td>
+                 
                 @endif
 
               </tr>
@@ -57,9 +58,16 @@
                 <td><li>{{ $training->end_date }}</li></td>
                 <td>{{ $training->topic }}</td>
 
-              @if(Auth::check())
-                <td><i class="glyphicon glyphicon-pencil"></i></td>
-                <td><i class="glyphicon glyphicon-trash"></i></td>
+              @if((Auth::check()) AND (Auth::User()->id === $user->id))
+
+                 <td class="col-md-1"><a href="{{ action('TrainingController@edit', [$training->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+                  <td>
+                    {{ Form::model( $training, ['method'=>'DELETE', 'action' => ['TrainingController@destroy', $training->id]] ) }}
+                              {{ Form::hidden('_method', 'DELETE') }}
+                              <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+                     {{ Form::close() }}
+                  </td>
+
               @endif
 
               </tr>
@@ -88,10 +96,15 @@
               <tr>
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
-                
-                 @if(Auth::check())
-                  <td><i class="glyphicon glyphicon-pencil"></i></td>
-                  <td><i class="glyphicon glyphicon-trash"></i></td>
+
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
+                   <td class="col-md-1"><a href="{{ action('TopicsController@edit', [$topic->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+                  <td>
+                    {{ Form::model( $topic, ['method'=>'DELETE', 'action' => ['TopicsController@destroy', $topic->id]] ) }}
+                              {{ Form::hidden('_method', 'DELETE') }}
+                              <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+                     {{ Form::close() }}
+                  </td>
               @endif
 
               </tr>
@@ -101,7 +114,8 @@
       </div>
     </div>
   </div>
-  @if(!Auth::check())
-    @include('templates.user.collapse_full_aside_bar')
+  @if((!Auth::check()) || (Auth::User()->id !== $user->id))
+    @include('templates.user.collapse_full_aside_bar') 
+
    @endif
 </div>

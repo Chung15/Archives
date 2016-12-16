@@ -11,8 +11,7 @@
 			<div class="col-md-7">
 				<table class="table table-striped table-hover">
 					<h2>Degrees</h2>
-					@if(Auth::User())
-					@if(Auth::check())
+					
 					@foreach($degrees as $degree)
 					
 
@@ -21,7 +20,8 @@
 					    		<td class="col-md-10">{{ $degree->academic_degree }}
 					    			<p><a class="btn" href="{{  action('AcademicDegreeController@show', [$degree->id]) }}">view details »</a></p>
 					    		</td>
-					    		<td class="col-md-1"><a href="{{ action('AcademicDegreeController@edit', [$degree->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+					    		<td class="col-md-1"><a href="{{ action('AcademicDegreeController@edit', [$degree->id]) }}" class="glyphicon glyphicon-pencil default"></a>
+					    		</td>
 					    		<td>
 						    		{{ Form::model( $degree, ['method'=>'DELETE', 'action' => ['AcademicDegreeController@destroy', $degree->id]] ) }}
 					                    {{ Form::hidden('_method', 'DELETE') }}
@@ -34,8 +34,7 @@
 				    	</tr>
 				    
 			    	@endforeach
-			    	@endif
-			    	@endif
+			    
 		    	</table>
 			</div>
 	

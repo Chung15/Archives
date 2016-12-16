@@ -19,7 +19,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                   <td><i class="glyphicon glyphicon-pencil"></i></td>
                   <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif
@@ -53,7 +53,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                 <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif
@@ -87,7 +87,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                 <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif
@@ -121,7 +121,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                 <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif
@@ -155,7 +155,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                 <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif
@@ -189,7 +189,7 @@
                 <td><li>{{ $topic->academic_year }}</li></td>
                 <td>{{ $topic->title }}</td>
 
-                 @if(Auth::check())
+                 @if((Auth::check()) AND (Auth::User()->id === $user->id))
                 <td><i class="glyphicon glyphicon-pencil"></i></td>
                 <td><i class="glyphicon glyphicon-trash"></i></td>
               @endif

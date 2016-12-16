@@ -23,7 +23,7 @@
 										
 								</tbody>
 							</table>
-								@if(Auth::check())
+								  @if((Auth::check()) AND (Auth::User()->id === $user->id))
 									<button class="btn btn-primary pull-right btn-xs">edit profile</button>
 								@endif
 
