@@ -15,10 +15,18 @@ class TopicsController extends Controller
      */
     public function index()
     {
-        $user =  \Auth::User();   
+       $user =  \Auth::User();   
         $topics = $user->thesisTopic()->get();
         return view('layouts.newTopic', compact('topics'));
     }
+
+     public function indexCollapse($id)
+    {
+        $user = User::findOrFail($id);
+        $topics = $user->thesisTopic()->get();
+        return view('templates.user.collapse_aside_bar', compact('topics'));
+    }
+
 
     /**
      * Show the form for creating a new resource.

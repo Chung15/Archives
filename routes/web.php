@@ -56,6 +56,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
     Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
     Route::resource('/topic', 'TopicsController', ['only' => ['edit', 'update', 'destroy']]);
+    // Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
     Route::resource('/diploma', 'DiplomaController', ['only' => ['edit', 'update', 'destroy']]);

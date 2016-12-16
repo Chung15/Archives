@@ -115,8 +115,11 @@ class UserController extends Controller
     public function show($id)
     {
         $user = User::findOrFail($id);  
-        $adress = $user->adress()->get()->first(); 
-        return view('templates.user.userProfile', compact('user', 'adress'));
+        $adress = $user->adress()->get()->first();
+        $topics = $user->thesisTopic()->get();
+        $trainings = $user->training()->get();
+
+        return view('templates.user.userProfile', compact('user', 'adress', 'topics','trainings'));
     }
 
     /**
