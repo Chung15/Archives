@@ -16,11 +16,12 @@ class CreateAcademicDegreesTable extends Migration
         Schema::create('academic_degrees', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('academic_degree');//select box
+            $table->enum('academic_degree', ['кандидат тех. наук', 'Доктор тех. наук', 'phD']);//select box
             $table->string('seria_number')->unique();
             $table->string('thesis_topic')->nullable();
             $table->string('specialization');
             $table->string('year');
+            $table->string('degree_link')->nullable();
 
              $table->foreign('user_id')
             ->references('id')

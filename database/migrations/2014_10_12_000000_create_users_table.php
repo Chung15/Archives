@@ -18,9 +18,9 @@ class CreateUsersTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('patronymic');
-            $table->integer('INN');
-            $table->string('title');// change to enum all selected box
-            $table->string('grade');
+            $table->bigInteger('INN')->unique();
+            $table->string('passport_number')->unique();
+            $table->string('passport_link');
             $table->date('dateOfBirth');
             $table->string('gender');
             $table->enum('maritalStatus',['single', 'married', 'divorced','widow']);

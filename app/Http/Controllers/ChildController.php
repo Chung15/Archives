@@ -42,12 +42,17 @@ class ChildController extends Controller
     {
         $this->validate($request, Child::$validationRules);
         $data = $request->all();
+
+        $dateOfBirth = date_create($data['dateOfBirth']);
+        $dateOfBirth = date_format($dateOfBirth,"Y-m-d");
+
         $parent = \Auth::User();
         $newChild = $parent->child()->create( [
-                    'firstname'   => $data['firstname'],
+                    'firstname' => $data['firstname'],
                     'lastname' => $data['lastname'],
-                    'patronymic'    => $data['patronymic'],
-                    /*'dateOfBirth'  => $data['dateOfBirth'],*/
+                    'patronymic' => $data['patronymic'],
+                    'dateOfBirth' =>  $dateOfBirth,
+                    'child_link' => $data['child_link'],
                     ] );
      
 

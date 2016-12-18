@@ -14,7 +14,7 @@ class Diploma extends Model
      * @var array
      */
     protected $fillable = [
-        'diploma_type','seria_number','thesis_topic', 'specialization','department','university', 'year',
+        'diploma_type','seria_number','thesis_topic', 'specialization','department','university', 'year', 'diploma_link',
     ];
 
     /**

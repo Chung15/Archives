@@ -44,6 +44,11 @@
 									    
 									        {{ Form:: text('year', null, ['class' => 'form-control year']) }}
 							        </div>
+							        <div class = 'form-group control-panel'>
+									        {{ Form:: label('diploma_link',  'Ссылка:') }}
+									    
+									        {{ Form:: text('diploma_link', null, ['class' => 'form-control']) }}
+							        </div>
 							         <div>
 								{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
 				   
@@ -101,6 +106,11 @@
 									        {{ Form:: label('year',  'year:') }}
 									    
 									        {{ Form:: text('year', null, ['class' => 'form-control year']) }}
+							        </div>
+							        <div class = 'form-group control-panel'>
+									        {{ Form:: label('diploma_link',  'Ссылка:') }}
+									    
+									        {{ Form:: text('diploma_link', null, ['class' => 'form-control']) }}
 							        </div>
 							         <div class = 'form-group control-panel' >
 											{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

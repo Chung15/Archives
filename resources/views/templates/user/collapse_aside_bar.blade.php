@@ -46,13 +46,13 @@
     <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
       <div class="panel-body">
        <table class="table table-hover">
-        @foreach($trainings as $training)
               <tr>
                 <th>Date</th>
                 <th>Subject</th>
                 <th></th>
                 <th></th>
               </tr>
+        @foreach($trainings as $training)
 
               <tr>
                 <td><li>{{ $training->end_date }}</li></td>

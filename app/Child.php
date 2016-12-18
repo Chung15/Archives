@@ -14,7 +14,7 @@ class Child extends Model
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname', 'patronymic',
+        'firstname','lastname', 'patronymic', 'dateOfBirth', 'child_link',
     ];
 
     /**
@@ -27,7 +27,7 @@ class Child extends Model
             'firstname' => 'required',
             'lastname' => 'required',
             'patronymic' => 'required',
-            //'dateOfBirth' => 'required',
+            'dateOfBirth' => 'required',
 
         ];
 

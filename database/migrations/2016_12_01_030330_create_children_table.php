@@ -19,6 +19,8 @@ class CreateChildrenTable extends Migration
             $table->string('firstname');
             $table->string('lastname');
             $table->string('patronymic');
+            $table->string('dateOfBirth');
+            $table->string('child_link')->nullable();
 
               $table->foreign('user_id')
             ->references('id')

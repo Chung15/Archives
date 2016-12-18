@@ -18,6 +18,8 @@
 									<tr><td> Patronymic: {{ $user->patronymic }} </td></tr>
 									<tr><td> Lastname: {{ $user->lastname }} </td></tr>
 									<tr><td> INN: {{ $user->INN }} </td></tr>
+									<tr><td> Passport №: {{ $user->passport_number }} </td></tr>
+									<tr><td> Link: {{ $user->passport_link }} </td></tr>
 									<tr><td> Birthdate: {{ $user->dateOfBirth }} </td></tr>
 									<tr><td> Marital status: {{ $user->maritalStatus}} </td></tr>
 										

@@ -19,6 +19,11 @@
 					    
 					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 				        </div>
+				        <div class = 'form-group control-panel'>
+					        {{ Form:: label('training_link', 'Ссылка: ') }}
+					    
+					        {{ Form:: text('training_link', null, ['class' => 'form-control']) }}
+				        </div>
 				   		<div class = 'form-group control-panel'>
 					        {{ Form:: label('start_date', 'Start:') }}
 					    
@@ -68,6 +73,11 @@
 						    
 						        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
 					        </div>
+					        <div class = 'form-group control-panel'>
+					        {{ Form:: label('training_link', 'Ссылка: ') }}
+					    
+					        {{ Form:: text('training_link', null, ['class' => 'form-control']) }}
+				        </div>
 					   		<div class = 'form-group control-panel'>
 						        {{ Form:: label('start_date', 'Start:') }}
 						    

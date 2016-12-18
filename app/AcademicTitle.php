@@ -14,7 +14,7 @@ class AcademicTitle extends Model
      * @var array
      */
     protected $fillable = [
-        'academic_title','seria_number','thesis_topic', 'specialization', 'year',
+        'academic_title','seria_number','thesis_topic', 'specialization', 'year', 'title_link',
     ];
 
     /**

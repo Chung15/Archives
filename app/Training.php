@@ -14,7 +14,7 @@ class Training extends Model
      * @var array
      */
     protected $fillable = [
-        'topic', 'description','start_date','end_date', 
+        'topic', 'description','start_date','end_date', 'training_link',
     ];
 
     /**

@@ -14,7 +14,7 @@ class AcademicDegree extends Model
      * @var array
      */
     protected $fillable = [
-        'academic_degree','seria_number','thesis_topic', 'specialization', 'year',
+        'academic_degree','seria_number','thesis_topic', 'specialization', 'year', 'degree_link',
     ];
 
     /**

@@ -9,13 +9,6 @@
 				<div class = "col-md-2"></div>
 				<div class = "col-md-6">
 
-			   		<div class = 'form-group control-panel'>
-			   			{{ Form::label('check', 'Do you have children?') }}
-						{{ Form::radio('yes', 'value') }}
-						{{ Form::radio('no', 'value') }}
-			   		</div>
-			   		<hr/>
-
 		   		<div class = "col-md-6">
 		   			<div class = 'form-group'>
 					    {{ Form:: label('firstname', 'Firstame:') }}
@@ -32,6 +25,17 @@
 
 					    {{ Form:: text('patronymic', null, ['class'=> 'form-control']) }}
 			    	</div>
+			    	<div class = 'form-group control-panel'>
+					        {{ Form:: label('dateOfBirth', 'Date of birth:') }}
+					    
+					        {{ Form:: text('dateOfBirth', null, ['class'=> 'form-control date']) }}
+				    </div>
+				    <div class = 'form-group control-panel'>
+					        {{ Form:: label('child_link', 'Link:') }}
+					    
+					        {{ Form:: text('child_link', null, ['class'=> 'form-control']) }}
+				        </div>
+
 
 			         <div class="form-group">
 							{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
@@ -53,13 +57,6 @@
 				<div class = "col-md-2"></div>
 				<div class = "col-md-6">
 
-			   		<div class = 'form-group control-panel'>
-			   			{{ Form::label('check', 'Do you have children?') }}
-						{{ Form::radio('yes', 'value') }}
-						{{ Form::radio('no', 'value') }}
-			   		</div>
-			   		<hr/>
-
 		   		<div class = "col-md-6">
 		   			<div class = 'form-group'>
 					    {{ Form:: label('firstname', 'Firstame:') }}
@@ -76,6 +73,16 @@
 
 					    {{ Form:: text('patronymic', null, ['class'=> 'form-control']) }}
 			    	</div>
+			    	<div class = 'form-group control-panel'>
+					        {{ Form:: label('dateOfBirth', 'Date of birth:') }}
+					    
+					        {{ Form:: text('dateOfBirth', null, ['class'=> 'form-control date']) }}
+				        </div>
+				    <div class = 'form-group control-panel'>
+					        {{ Form:: label('child_link', 'Link:') }}
+					    
+					        {{ Form:: text('child_link', null, ['class'=> 'form-control']) }}
+				        </div>
 
 			        <div class= 'form-group control-panel'>
 			        	{{ Form::submit('Save child', ['class' => 'btn']) }}

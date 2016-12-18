@@ -19,6 +19,18 @@ $(document).ready(function() {
       dateFormat: "mm/yy"
     });
 
+   // $('select[name=leave_type]').change(other());
+   $('select[name=leave_type]').change(function() { 
+   	console.log($(this).val());
+   	if($(this).val() === 'other') {
+   		$('#otherField').removeClass('hidden');
+   	} 
+   	else{
+   		$('#otherField').addClass('hidden');
+   	}
+   });
+
+   
 
  
 
@@ -176,8 +188,16 @@ function removeInputField(element) {
 		$('.author_data'+id).remove();
 		$('#author_br').remove();
 		counter--;
-	
     
 }
+ function other() {
+
+	var selected_value = $('#selectInput option:selected').text();
+	//$('select[name=selector]').change(function() { alert($(this).val()); });
+ 	console.log('value is:', selected_value);
+ 	if (selected_value === 'other') {
+ 		$('#otherField').removeClass('hidden');
+ 	}
+ }
 
 

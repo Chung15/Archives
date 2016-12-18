@@ -64,7 +64,7 @@ class PublicationsController extends Controller
         //$data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on');
          $data = $request->all();
 
-        $published_on = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
+        $published_on = Carbon::createFromFormat('Y', $data['published_on'])->format('Y');
 
         $authors = $data['authors']; 
 

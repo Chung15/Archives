@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Leaves extends Model
+class Leave extends Model
 {
      /*public $table = 'adress';*/
     
@@ -14,7 +14,7 @@ class Leaves extends Model
      * @var array
      */
     protected $fillable = [
-        'leave_type','start_date', 'end_date',
+        'leave_type', 'other_leave', 'comment', 'start_date', 'end_date',
     ];
 
     /**

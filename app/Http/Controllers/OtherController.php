@@ -46,6 +46,7 @@ class OtherController extends Controller
         $newOther = $user->other()->create( [
                     'name'   => $data['name'],
                     'description' => $data['description'],
+                    'other_link' => $data['other_link'],
 
                     ] );
 

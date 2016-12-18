@@ -8,16 +8,21 @@
     </div>
     <div id="collapseFive" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFive">
       <div class="panel-body">
-        <table class="table table-hover">
+        <table class="table table-striped table-hover">
+
+             @foreach($leaves as $leave)
 
               <tr>
-                <th>Year</th>
-                <th>Topic</th>
+                
+                  <p>
+                    <li> Преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
+                      <p> C таким комметариям: {{ $leave->comment }}.</p>
+                  </li>
+                   
+                  </p> 
+
+
               </tr>
-             @foreach($topics as $topic)
-              <tr>
-                <td><li>{{ $topic->academic_year }}</li></td>
-                <td>{{ $topic->title }}</td>
 
                  @if((Auth::check()) AND (Auth::User()->id === $user->id))
                   <td><i class="glyphicon glyphicon-pencil"></i></td>

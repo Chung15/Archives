@@ -1,10 +1,9 @@
-<div class="row">
+<div class="row headerMenu">
 		<div class="col-md-12">
-			<div class="row">
+			<div class="row ">
 				<div class="col-md-4">
-					<h2>
-						<div class="row"><img src="images/dnu-logo.png" width="60" height="60"></div>
-					</h2>
+					
+					<img src="/images/dnu-logo.png" width="60" height="60">
 				
 				</div>
 				<div class="col-md-4">
@@ -49,6 +48,7 @@
 					</ul>
 				</div>
 			</div>
+
 			<ul class="nav nav-tabs">
 				<li class="active">
 					<a href="{{  url('/') }}">Home</a>
@@ -76,6 +76,9 @@
 							<a href="{{  url('child') }}">Children</a>
 						</li>
 						<li>
+							<a href="{{  url('leave') }}">Leave</a>
+						</li>
+						<li>
 							<a href="{{  url('training') }}">Training</a>
 						</li>
 						<li>
@@ -95,7 +98,7 @@
 				@endif
 				
 			</ul>
-			<div class="page-header">
+			<div class="simple">
 			</div>
 		</div>
 </div>

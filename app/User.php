@@ -15,7 +15,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'firstname','lastname', 'patronymic', 'INN', 'title','grade','dateOfBirth', 'gender','maritalStatus','email', 'password', 'terms',
+        'firstname','lastname', 'patronymic', 'INN', 'passport_number','passport_link','dateOfBirth', 'gender','maritalStatus','email', 'password', 'terms',
     ];
 
     /**
@@ -61,7 +61,7 @@ class User extends Authenticatable
     }
 
     public function leave() {
-        return $this->hasMany('App\Leaves');
+        return $this->hasMany('App\Leave');
     }
 
     public function title() {

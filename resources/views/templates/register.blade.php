@@ -49,6 +49,7 @@
 						          @endif
 						     </div>
     					</div>
+
     					<div class="form-group {{ $errors->has('INN') ? ' has-error' : '' }}">
 						     <label for="INN" class="col-md-4 control-label">
 						       INN</label>
@@ -60,49 +61,33 @@
 						          	    </span>
 						          @endif
 						     </div>
+						</div>
+
+						     <div class="form-group {{ $errors->has('passport_number') ? ' has-error' : '' }}">
+						     	<label for="passport_number" class="col-md-4 control-label">
+						       	Passport№</label>
+						     	<div class="col-md-8">
+						          <input type="text" class="form-control" name="passport_number" id="passport_number" placeholder="Enter passport_number..." value="{{ old('passport_number') }}" />
+						           @if ($errors->has('passport_number'))
+						          	    <span class="help-block">
+						          	        <strong>{{ $errors->first('passport_number') }}</strong>
+						          	    </span>
+						          @endif
+						     </div>
     					</div>
-    					<div class="form-group {{ $errors->has('title') ? ' has-error' : '' }}">
-						    <label for="title" class="col-md-4 control-label"> Title</label>
-						    <div class="col-md-8">
-						      <div class="row">
-						        <div class="col-md-5">
-						          <select class="form-control" name="title">
-						            
-						             <option selected value="lecturer">Lecturer</option>
-						             <option value="doctor">Doctor</option>
-						             <option value="professor">Professor</option>
-						          </select>
-						        </div>
-						        <div class="col-md-3">
-						           
-						        </div>
-						        <div class="col-md-4">
-						           
-						        </div>
+
+    					<div class="form-group {{ $errors->has('passport_link') ? ' has-error' : '' }}">
+						     <label for="passport_link" class="col-md-4 control-label">
+						       passport_link</label>
+						     <div class="col-md-8">
+						          <input type="text" class="form-control" name="passport_link" id="passport_link" placeholder="Enter passport_link..." value="{{ old('passport_link') }}" />
+						           @if ($errors->has('passport_link'))
+						          	    <span class="help-block">
+						          	        <strong>{{ $errors->first('passport_link') }}</strong>
+						          	    </span>
+						          @endif
 						     </div>
-						   </div>
-						 </div>
-						 <div class="form-group {{ $errors->has('grade') ? ' has-error' : '' }}">
-						    <label for="grade" class="col-md-4 control-label"> Grade</label>
-						    <div class="col-md-8">
-						      <div class="row">
-						        <div class="col-md-5">
-						          <select class="form-control" name="grade">
-						            
-						             <option selected value="junior">Junior</option>
-						             <option value="assistant">Assistant</option>
-						             <option value="senior">Senior</option>
-						          </select>
-						        </div>
-						        <div class="col-md-3">
-						           
-						        </div>
-						        <div class="col-md-4">
-						           
-						        </div>
-						     </div>
-						   </div>
-						 </div>
+    					</div>
 						
     					
     					<div class="form-group  {{ $errors->has('dateOfBirth') ? ' has-error' : '' }}">

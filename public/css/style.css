@@ -1,6 +1,39 @@
-#authorLabel{
- 	clear:both;
+.container{
+	background-color: Gainsboro;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: auto;
 }
-.table-user-information > tbody > tr {
-    border-top: 1px solid rgb(221, 221, 221);
+.nav {
+	background-color:grey ;
+	margin-top: 20px;
+
+}
+.nav-tabs {
+
+}
+.nav nav-tabs{
+
+}
+.row header {
+	background-color: lightgrey;
+	margin: 10px;
+	padding: 10px;
+}
+ul li a {
+	color: white;
+}
+.footer {
+	background-color:grey ;
+	margin-top: 100px;
+
+}
+.simple{
+	background-color: Gainsboro;
+	margin-top: 40px;
+
+}
+.formTitle {
+	margin-top: 40px;
 }

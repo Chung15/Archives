@@ -36,6 +36,14 @@
 			    	<tr>
 
 			    		<td>
+				   			 <a href="{{ url('/archives/leave') }}"> Leave</a>
+				
+	    		 			
+			    		 </td>
+			    	</tr>
+			    	<tr>
+
+			    		<td>
 				   			 <a href="{{ url('/archives/trainings') }}"> Trainings </a>
 	    		 			
 			    		 </td>

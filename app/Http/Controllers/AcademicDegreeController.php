@@ -48,7 +48,7 @@ class AcademicDegreeController extends Controller
     {
         $this->validate($request, AcademicDegree::$validationRules);
         $data = $request->all();
-      $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
+        $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
         $user = \Auth::User();
         $newDegree= $user->degree()->create( [
                     'academic_degree' => $data['academic_degree'],
@@ -56,6 +56,7 @@ class AcademicDegreeController extends Controller
                     'thesis_topic' => $data['thesis_topic'],
                     'specialization' => $data['specialization'],
                     'year' => $year,
+                    'degree_link' => $data['degree_link'],
                     ] );
         return redirect('/archives/academicDegree');
     }

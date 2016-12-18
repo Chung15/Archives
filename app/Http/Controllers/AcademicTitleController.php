@@ -49,6 +49,7 @@ class AcademicTitleController extends Controller
                     'thesis_topic' => $data['thesis_topic'],
                     'specialization' => $data['specialization'],
                     'year' => $year,
+                    'title_link' => $data['title_link'],
                     ] );
         return redirect('/archives/academicTitle');
     }

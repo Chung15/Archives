@@ -31,11 +31,16 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
+   Route::get('/leave', ['as' => 'leave','uses' => 'LeavesController@create']);
 
 /*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
     Route::get('/archives/children', ['as' => 'children','uses' => 'ChildController@index']);
     Route::resource('/child', 'ChildController', ['only' => ['edit', 'update', 'destroy']]);
+
+    Route::post('/saveLeave', ['as' => 'saveLeave','uses' => 'LeavesController@store']);
+    Route::get('/archives/leave', ['as' => 'processleave','uses' => 'LeavesController@index']);
+    Route::resource('/leave', 'LeavesController', ['only' => ['edit', 'update', 'destroy']]);
 
     
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
@@ -80,6 +85,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/topics/{id}', ['uses' =>'TopicsController@show']);
    Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
    Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
+   Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
 
   
  

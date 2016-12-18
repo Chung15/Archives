@@ -40,7 +40,8 @@ class TrainingController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Training::$validationRules);
-         $data = $request->all();
+         //$data = $request->all();
+        $data = $request->only('topic', 'description', 'start_date','end_date', 'training_link');
 
          $start_date = Carbon::createFromFormat('d/m/Y',$data['start_date'])->format('Y-m-d');
 
@@ -53,6 +54,7 @@ class TrainingController extends Controller
                     'description' => $data['description'],
                     'start_date' => $start_date,
                     'end_date' => $end_date,
+                    'training_link' => $data['training_link'],
                     ] );
      
 
@@ -80,6 +82,11 @@ class TrainingController extends Controller
     public function edit($id)
     {
         $training = Training::findOrFail($id);   
+
+            $training->start_date= Carbon::createFromFormat('Y-m-d',$training->start_date)->format('d/m/Y');
+
+            $training->end_date = Carbon::createFromFormat('Y-m-d',$training->end_date)->format('d/m/Y');
+
         return view('forms.training', compact('training'));
     }
 
@@ -95,7 +102,14 @@ class TrainingController extends Controller
         $this->validate($request, Training::$validationRules);
 
         $training = Training::findOrFail($id);
-        $training->update($request->all());
+
+        $data =$request->all();
+
+        $data['start_date'] = Carbon::createFromFormat('d/m/Y',$data['start_date'])->format('Y-m-d');
+
+        $data['end_date'] = Carbon::createFromFormat('d/m/Y',$data['end_date'])->format('Y-m-d');
+
+        $training->update();
 
         \Session::flash('sucess', 'sucessfully updated');
 

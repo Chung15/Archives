@@ -18,6 +18,7 @@ class CreateOthersTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('name');
             $table->string('description');
+            $table->string('other_link')->nullable();
 
               $table->foreign('user_id')
             ->references('id')

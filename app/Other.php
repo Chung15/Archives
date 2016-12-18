@@ -14,7 +14,7 @@ class Other extends Model
      * @var array
      */
     protected $fillable = [
-        'name','description',
+        'name','description','other_link',
     ];
 
     /**

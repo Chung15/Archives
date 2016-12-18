@@ -16,11 +16,12 @@ class CreateAcademicTitlesTable extends Migration
         Schema::create('academic_titles', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('academic_title');//select box
+            $table->enum('academic_title', ['Доцент', 'Профессор', 'старший научный сотрудник']);//select box
             $table->string('seria_number')->unique();
             $table->string('thesis_topic')->nullable();
             $table->string('specialization');
             $table->string('year');
+            $table->string('link')->nullable();
 
              $table->foreign('user_id')
             ->references('id')

@@ -16,13 +16,15 @@ class CreateDiplomaTable extends Migration
         Schema::create('diplomas', function (Blueprint $table) {
              $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('diploma_type');
+            $table->enum('diploma_type', ['Бакалавр', 'Магистратура', 'Аспирантира', 'Другое']);
+            $table->string('other_diploma');
             $table->string('seria_number')->unique();
             $table->string('thesis_topic')->nullable();
             $table->string('specialization');
             $table->string('department')->nullable();
             $table->string('university');
             $table->string('year');
+            $table->string('diploma_link')->nullable();
 
              $table->foreign('user_id')
             ->references('id')
