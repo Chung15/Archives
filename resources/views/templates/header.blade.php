@@ -53,12 +53,15 @@
 				<li class="active">
 					<a href="{{  url('/') }}">Home</a>
 				</li>
+				
 				@if(Auth::check())
 					
 					<li> <a href="{{  url(Auth::user()->id) }}">Profile</a> </li>
+				
 					<li class="">
 						<a href="{{ url('archives') }}">Archives</a>
 					</li>
+					
 									<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">

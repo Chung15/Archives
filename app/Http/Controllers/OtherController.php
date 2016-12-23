@@ -40,7 +40,7 @@ class OtherController extends Controller
         //validation
         $this->validate($request, Other::$validationRules);
          $data = $request->all();
-          $data = $request->only('name','description');
+          $data = $request->only('name','description','other_link');
 
         $user = \Auth::User();
         $newOther = $user->other()->create( [

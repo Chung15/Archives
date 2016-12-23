@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('patronymic');
             $table->bigInteger('INN')->unique();
             $table->string('passport_number')->unique();
-            $table->string('passport_link');
+            $table->string('passport_link')->nullable();
             $table->date('dateOfBirth');
             $table->string('gender');
             $table->enum('maritalStatus',['single', 'married', 'divorced','widow']);

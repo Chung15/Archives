@@ -3,6 +3,12 @@
 	@section('content')
 		@if(isset($leave))
 			{{ Form::model($leave, ['method'=>'PATCH', 'action' => ['LeavesController@update', $leave->id]]) }}
+				@if(Session::has('success'))
+			        <div class="alert alert-info">
+			            <a class="close" data-dismiss="alert">×</a>
+			            <strong>Heads Up!</strong> {{Session::get('success')}}
+			        </div>
+    			@endif
 		
 			<div class="formTitle"><strong>Leaves</strong></div>
 				<hr/>

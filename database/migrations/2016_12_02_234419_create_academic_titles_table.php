@@ -21,7 +21,7 @@ class CreateAcademicTitlesTable extends Migration
             $table->string('thesis_topic')->nullable();
             $table->string('specialization');
             $table->string('year');
-            $table->string('link')->nullable();
+            $table->string('title_link')->nullable();
 
              $table->foreign('user_id')
             ->references('id')

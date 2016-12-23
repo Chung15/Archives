@@ -12,8 +12,13 @@
 									        {{ Form:: label('diploma_type',  'Diploma type:'), ['class' => 'control-label'] }}
 					        		 <div class = 'form-group control-panel'>
 									    
-									        {{ Form:: select('diploma_type', ['Bachelor'=> 'Bachelor', 'Master' => 'Master', 'Doctorat' =>'Doctorat'], ['class'=> 'form-control','multiple']) }}
+									        {{ Form:: select('diploma_type', ['Бакалавр' => 'Бакалавр', 'Магистратура' => 'Магистратура' , 'Аспирантира' =>'Аспирантира', 'other' =>'Другое'], ['class'=> 'form-control','multiple']) }}
 							        </div>
+							        <div class = 'form-group control-panel hidden' id=' otherField1'>
+									        {{ Form:: label('other_diploma', 'другое:') }}
+									    
+									        {{ Form:: text('other_diploma', null, ['class'=> 'form-control']) }}
+				        			</div>
 							        <div class = 'form-group control-panel'>
 									        {{ Form:: label('seria_number',  'Serie/N:') }}
 									    
@@ -75,8 +80,13 @@
 									        {{ Form:: label('diploma_type',  'Diploma type:'), ['class' => 'control-label'] }}
 					        		 <div class = 'form-group control-panel'>
 									    
-									        {{ Form:: select('diploma_type', ['Bachelor'=> 'Bachelor', 'Master' => 'Master', 'Doctorat' =>'Doctorat'], ['class'=> 'form-control','multiple']) }}
+									        {{ Form:: select('diploma_type', ['Бакалавр' => 'Бакалавр', 'Магистратура' => 'Магистратура' , 'Аспирантира' =>'Аспирантира', 'other' =>'Другое'], ['class'=> 'form-control','multiple']) }}
 							        </div>
+							        <div class = 'form-group control-panel hidden' id=' otherField1'>
+									        {{ Form:: label('other_diploma', 'другое:') }}
+									    
+									        {{ Form:: text('other_diploma', null, ['class'=> 'form-control']) }}
+				        			</div>
 							        <div class = 'form-group control-panel'>
 									        {{ Form:: label('seria_number',  'Serie/N:') }}
 									    

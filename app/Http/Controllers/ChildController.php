@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\User;
 use App\Child;
+use Carbon\Carbon;
 
 class ChildController extends Controller
 {
@@ -42,9 +43,10 @@ class ChildController extends Controller
     {
         $this->validate($request, Child::$validationRules);
         $data = $request->all();
+        $dateOfBirth= Carbon::createFromFormat('d/m/Y',$data['dateOfBirth'])->format('Y-m-d');
 
-        $dateOfBirth = date_create($data['dateOfBirth']);
-        $dateOfBirth = date_format($dateOfBirth,"Y-m-d");
+        //$dateOfBirth = date_create($data['dateOfBirth']);
+        //$dateOfBirth = date_format($dateOfBirth,"Y-m-d");
 
         $parent = \Auth::User();
         $newChild = $parent->child()->create( [
@@ -68,6 +70,7 @@ class ChildController extends Controller
     public function show($id)
     {
          $child = Child::findOrFail($id);   
+         $child->dateOfBirth= Carbon::createFromFormat('Y-m-d',$child->dateOfBirth)->format('d/m/Y');
         return view('other.single_child', compact('child'));
     }
 
@@ -79,7 +82,8 @@ class ChildController extends Controller
      */
     public function edit($id)
     {
-        $child = Child::findOrFail($id);   
+        $child = Child::findOrFail($id); 
+        $child->dateOfBirth= Carbon::createFromFormat('Y-m-d',$child->dateOfBirth)->format('d/m/Y');  
         return view('forms.children', compact('child'));
     }
 
@@ -95,7 +99,11 @@ class ChildController extends Controller
         $this->validate($request, Child::$validationRules);
 
         $child = Child::findOrFail($id);
-        $child->update($request->all());
+        $data = $request->all();
+        $data['dateOfBirth'] = Carbon::createFromFormat('d/m/Y',$data['dateOfBirth'])->format('Y-m-d');
+
+        $child->update($data);
+
 
         \Session::flash('sucess', 'sucessfully updated');
 

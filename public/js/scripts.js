@@ -30,6 +30,8 @@ $(document).ready(function() {
    	}
    });
 
+   //editUserProfile();
+
    
 
  
@@ -198,6 +200,17 @@ function removeInputField(element) {
  	if (selected_value === 'other') {
  		$('#otherField').removeClass('hidden');
  	}
+ }
+
+ function editUserProfile() {
+ 	var editBtn = $('#editProfile'),
+ 		contentView = $('#userProfileInfo'),
+ 		editView = $('#userProfileEdit');
+ 	editBtn.clik( function() {
+ 		
+ 		contentView.addClass('hidden');
+ 		editView.removeClass('hidden');
+ 	})
  }
 
 

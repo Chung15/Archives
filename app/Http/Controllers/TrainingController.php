@@ -109,7 +109,7 @@ class TrainingController extends Controller
 
         $data['end_date'] = Carbon::createFromFormat('d/m/Y',$data['end_date'])->format('Y-m-d');
 
-        $training->update();
+        $training->update($data);
 
         \Session::flash('sucess', 'sucessfully updated');
 

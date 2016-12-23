@@ -9,7 +9,7 @@
 				     <table class="table table-striped table-user-information">
 
 					    <tr>
-					    	<p>	преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
+					    	<p>	преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в таком отпуске: {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
 					    	 
 					    	</p>
 					    	<p> C таким комметариям: {{ $leave->comment }}.</p>

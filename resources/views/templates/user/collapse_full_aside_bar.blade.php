@@ -14,12 +14,12 @@
 
               <tr>
                 
-                  <p>
+                  <td>
                     <li> Преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
                       <p> C таким комметариям: {{ $leave->comment }}.</p>
                   </li>
                    
-                  </p> 
+                  </td> 
 
 
               </tr>

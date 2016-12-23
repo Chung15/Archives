@@ -88,19 +88,26 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
 
   
- 
   Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
+ 
   Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
-  Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@showProfile']);
+ // Route::resource('/', 'UserController', ['only' => ['edit', 'update']]);
 
-  
+  Route::get('/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
+  Route::patch('/{id}', ['as' => 'update','uses' => 'UserController@update']);
+  //Route::resource('/id', 'UserController', ['only' => ['edit', 'update']]);
+  Route::get('/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
+
+
 
 
   });
 
 
    //we don't have to be connected to see a  teacher's profile when click on his name
+  
    Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
+
    
 
 });

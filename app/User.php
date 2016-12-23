@@ -32,6 +32,20 @@ class User extends Authenticatable
             'password' => 'required|min:6',
         ];
 
+     public static $editValidationRules = [
+            'email' => 'required|email|max:255|exists:users',
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'patronymic' => 'required',
+            'INN' => 'required',
+            'passport_number' => 'required',
+            'dateOfBirth' => 'required',
+            'gender' => 'required',
+            'maritalStatus' => 'required',
+            
+        ];
+   
+
 
      public function adress() {
         return $this->hasMany('App\Adress');

@@ -40,7 +40,7 @@ class DiplomaController extends Controller
     public function store(Request $request)
     {
          $this->validate($request, Diploma::$validationRules);
-        $data = $request->only('diploma_type', 'seria_number', 'thesis_topic','specialization','department','university','year');
+        $data = $request->only('diploma_type', 'seria_number', 'thesis_topic','specialization','department','university','year', 'diploma_link');
         //$data = $request->all();
         $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
          
@@ -54,7 +54,7 @@ class DiplomaController extends Controller
                     'department' => $data['department'],
                     'university' => $data['university'],
                     'year' => $year,
-                    'diploma_link' => $data['diploma_link']
+                    'diploma_link' => $data['diploma_link'],
                     ] );
         return redirect('archives/diploma');
     }

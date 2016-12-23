@@ -12,6 +12,8 @@
 					    <tr><td>{{ $title->thesis_topic }}</td></tr>
 					    <tr><td>{{ $title->specialization }}</td></tr>
 					    <tr><td>{{ $title->year }}</td></tr>
+					    <tr><td>{{ $title->title_link}}</td></tr>
+			    	
 			    	
 				   </table>
 				  </div>

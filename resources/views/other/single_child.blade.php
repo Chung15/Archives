@@ -9,6 +9,7 @@
 					    <tr><td>{{ $child->firstname }}</td></tr>
 					    <tr><td>{{ $child->patronymic }}</td></tr>
 					    <tr><td>{{ $child->lastname }}</td></tr>
+					     <tr><td>{{ $child->child_link }}</td></tr>
 					    
 			    	
 				   </table>

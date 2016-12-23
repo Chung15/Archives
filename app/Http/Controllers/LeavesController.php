@@ -111,13 +111,13 @@ class LeavesController extends Controller
 
         $leave = Leave::findOrFail($id);
 
-        $data =$request->all();
+        $data = $request->all();
 
         $data['start_date'] = Carbon::createFromFormat('d/m/Y',$data['start_date'])->format('Y-m-d');
 
         $data['end_date'] = Carbon::createFromFormat('d/m/Y',$data['end_date'])->format('Y-m-d');
 
-        $leave->update();
+        $leave->update($data);
 
         \Session::flash('sucess', 'sucessfully updated');
 

@@ -16,7 +16,7 @@ class CreateLeavesTable extends Migration
         Schema::create('leaves', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->enum('leave_type', ['уход за ребенком', 'отпуск', 'отпуск по болезни', 'другое']);
+            $table->enum('leave_type', ['уход за ребенком', 'отпуск', 'отпуск по болезни', 'other']);
             $table->string('other_leave')->nullable();
             $table->string('comment')->nullable();
             $table->date('start_date');

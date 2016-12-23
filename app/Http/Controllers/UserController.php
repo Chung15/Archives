@@ -8,6 +8,7 @@ use App\Http\Requests\UserRequest;
 //use Request;
 use App\User;
 use App\Adress;
+use Carbon\Carbon;
 class UserController extends Controller
 {
     /**
@@ -34,8 +35,7 @@ class UserController extends Controller
     }
 
     public function showArchives() 
-    {
-
+    {   
         return view('templates.user.archives.archives');
 
     }
@@ -113,7 +113,7 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
+    { 
         $user = User::findOrFail($id);  
         $adress = $user->adress()->get()->first();
         $topics = $user->thesisTopic()->get();
@@ -137,7 +137,12 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = \Auth::User()->findOrFail($id);
+        //$user = User::findOrFail($id);  
+
+       $user->dateOfBirth= Carbon::createFromFormat('Y-m-d',$user->dateOfBirth)->format('d/m/Y');
+
+        return view('templates.user.edit_user_profile', compact('user'));
     }
 
     /**
@@ -149,7 +154,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, User::$editValidationRules);
+
+         $user = \Auth::User()->findOrFail($id);
+        //$user = User::findOrFail($id);
+         //dd($user);
+
+        $data = $request->all();
+
+        $data['dateOfBirth'] = Carbon::createFromFormat('d/m/Y',$data['dateOfBirth'])->format('Y-m-d');
+
+        $user->update($data);
+
+        //return redirect('/');
+        //return Redirect::to('/Authprofile');
+        //return redirect()->route('Authprofile');
+        return $this->show($id);
     }
 
     /**
