@@ -86,7 +86,6 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
    Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
    Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
-
   
   Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
  
@@ -96,8 +95,10 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
   Route::patch('/{id}', ['as' => 'update','uses' => 'UserController@update']);
   //Route::resource('/id', 'UserController', ['only' => ['edit', 'update']]);
-  Route::get('/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
+  Route::get('/profile/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
 
+  Route::get('/profile/{user_id}/editContact/{adress_id}', ['as' => 'edit', 'uses' =>'AdressController@edit']);
+  Route::patch('/{id}', ['as' => 'update','uses' => 'AdressController@update']);
 
 
 
@@ -106,7 +107,7 @@ Route::group(['middleware' => ['web']], function () {
 
    //we don't have to be connected to see a  teacher's profile when click on his name
   
-   Route::get('/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
+   Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
 
    
 

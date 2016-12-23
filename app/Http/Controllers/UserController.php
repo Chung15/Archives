@@ -145,6 +145,7 @@ class UserController extends Controller
         return view('templates.user.edit_user_profile', compact('user'));
     }
 
+
     /**
      * Update the specified resource in storage.
      *

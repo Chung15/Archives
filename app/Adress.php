@@ -24,7 +24,7 @@ class Adress extends Model
      */
 
     public static $validationRules = [
-            'zip' => 'required|zip|',
+            'zip' => 'required',
             'phone' => 'required|min:',
             'street' => 'required',
             'city' => 'required',

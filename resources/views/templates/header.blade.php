@@ -56,7 +56,7 @@
 				
 				@if(Auth::check())
 					
-					<li> <a href="{{  url(Auth::user()->id) }}">Profile</a> </li>
+					<li> <a href="{{  url('/profile/'.Auth::user()->id) }}">Profile</a> </li>
 				
 					<li class="">
 						<a href="{{ url('archives') }}">Archives</a>

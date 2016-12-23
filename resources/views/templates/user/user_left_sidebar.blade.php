@@ -27,6 +27,10 @@
                 <td>{{ $user->email }}</td>
               </tr>
         </table>
+         @if((Auth::check()) AND (Auth::User()->id === $user->id))
+                  <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . Auth::user()->id . '/editContact/' .$adress->id) }}">edit Contact</a>
+                @endif
+
 
       </div>
     </div>
