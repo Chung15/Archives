@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 use App\User;
+use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
@@ -97,7 +98,8 @@ class AuthController extends Controller
         $loginData = $request->only('email', 'password');
        if (\Auth::attempt($loginData)) {
              $user = \Auth::User();
-            return redirect()->intended($user->id);
+            return redirect('/profile/'.$user->id);
+            //->intended();
         }
         return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
     }
@@ -140,5 +142,26 @@ class AuthController extends Controller
         }
         return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
     }*/
+
+    public function updatePassword (Request $request, $user_id){
+        $user = \Auth::User();
+        $passwords = $request->all();
+        $newPassword = bcrypt($passwords['newPassword']);
+        $oldPassword = $passwords['oldPassword'];
+
+        //return $user->password.'<br>'.$oldPassword;
+        //password_verify ( string $password , string $hash )
+
+        if(password_verify( $oldPassword, $user->password)) {
+            DB::table('users')
+            ->where('id', $user->id)
+            ->update(['password' => $newPassword]);
+
+            return $this->logout();
+        }else{
+            return back()->withInput()->withErrors(['password' =>' invalid old password']);
+        }
+
+    }
 
 }

@@ -31,6 +31,9 @@ $(document).ready(function() {
    });
 
    //editUserProfile();
+   $('#updatePassword').on('click', function () {
+  $('#myModal').focus();
+})
 
    
 

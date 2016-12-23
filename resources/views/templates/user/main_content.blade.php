@@ -29,7 +29,15 @@
 							</table>
 								  @if((Auth::check()) AND (Auth::User()->id === $user->id))
 									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/' . Auth::user()->id . '/edit') }}" id="editProfile">edit profile</a>
+
+									<button class="btn btn-primary pull-left btn-xs" data-toggle="modal" data-target="#myModal" id="updatePassword">update password
+									</button> 
+									<div>
+										@include('templates.user.update_password')
+									</div>
+
 								@endif
+
 
 						</div>
 				</div>

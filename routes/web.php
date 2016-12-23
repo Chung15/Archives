@@ -90,6 +90,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
  
   Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
+
  // Route::resource('/', 'UserController', ['only' => ['edit', 'update']]);
 
   Route::get('/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
@@ -101,6 +102,7 @@ Route::group(['middleware' => ['web']], function () {
   Route::patch('/{id}', ['as' => 'update','uses' => 'AdressController@update']);
 
 
+  Route::patch('/profile/{id}/updatePassword', ['as' => 'updatePassword','uses' => 'AuthController@updatePassword']);
 
   });
 
