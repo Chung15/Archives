@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Other;
+use App\User;
 
 class OtherController extends Controller
 {
@@ -12,12 +13,19 @@ class OtherController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
+    {
+        $user = User::findOrFail($user_id);
+        $others = $user->other()->get();
+        return view('layouts.newOther',compact('others','user'));
+    }
+
+    /*public function index()
     {
         $user =  \Auth::User();
         $others = $user->other()->get();
         return view('layouts.newOther',compact('others'));
-    }
+    }*/
 
     /**
      * Show the form for creating a new resource.
@@ -50,7 +58,7 @@ class OtherController extends Controller
 
                     ] );
 
-        return redirect('archives/other');
+        return redirect('profile/' . $user->id . '/archives/other');
     }
 
     /**
@@ -59,10 +67,19 @@ class OtherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+  /*  public function show($id)
     {
-        $other = Other::findOrFail($id);   
+        $user = User::findOrFail($id);
+        $other = $user->other()->get();   
         return view('other.single_other', compact('other'));
+    }*/
+
+     public function show($id)
+    {
+        $user = User::findOrFail($id);
+         $other = $user->other()->get()->first();
+        //$other = Other::findOrFail($id);   
+        return view('other.single_other', compact('other','user'));
     }
 
     /**
@@ -94,7 +111,8 @@ class OtherController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('archives/other');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/other');
+        //return $this->show($id);
         
 
     }
@@ -110,6 +128,6 @@ class OtherController extends Controller
          $other = Other::findOrFail($id);
          $other->delete();
 
-         return \Redirect::to('/archives/other');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/other');
     }
 }

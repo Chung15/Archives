@@ -85,7 +85,7 @@
 				        </div>
 
 			        <div class= 'form-group control-panel'>
-			        	{{ Form::submit('Save child', ['class' => 'btn']) }}
+			        	{{ Form::submit('Save child', ['class' => 'btn btn-primary']) }}
 			        </div>
 
 			{{ Form::close() }}

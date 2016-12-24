@@ -13,11 +13,11 @@ class TrainingController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $user =  \Auth::User();
+        $user = User::findOrFail($user_id);
          $trainings = $user->training()->get();
-        return view('layouts.newTraining', compact('trainings'));
+        return view('layouts.newTraining', compact('trainings','user'));
     }
 
     /**
@@ -58,7 +58,7 @@ class TrainingController extends Controller
                     ] );
      
 
-        return redirect('/archives/trainings');
+        return redirect('/profile/' .$user->id. '/archives/trainings');
     }
 
     /**
@@ -69,10 +69,18 @@ class TrainingController extends Controller
      */
     public function show($id)
     {
-        $training = Training::findOrFail($id);   
-        return view('other.single_training', compact('training'));
+        $training = Training::findOrFail($id);
+         $user= $training->user()->get()->first();   
+        return view('other.single_training', compact('training','user'));
     }
 
+   /*  public function show($id)
+    {   
+       $training = Training::findOrFail($id); 
+       
+        return view('other.single_training', compact('training'));
+    }
+*/
     /**
      * Show the form for editing the specified resource.
      *
@@ -113,7 +121,7 @@ class TrainingController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/trainings');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/trainings');
     }
 
     /**
@@ -127,6 +135,6 @@ class TrainingController extends Controller
         $training = Training::findOrFail($id);
          $training->delete();
 
-         return \Redirect::to('/archives/trainings');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/trainings');
     }
 }

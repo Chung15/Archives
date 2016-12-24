@@ -1,6 +1,11 @@
 @extends('master')
 
 	@section('content')
+		@if(Session::has('success'))
+          <div class="alert-box success">
+          <h2>{!! Session::get('success') !!}</h2>
+          </div>
+        @endif
 		
 		@if(isset($other))
 			{{ Form::model($other,['method'=>'PATCH', 'action' => ['OtherController@update', $other->id]]) }}
@@ -21,7 +26,7 @@
 				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('other_link', 'Link:') }}
 					    
-					        {{ Form:: textarea('other_link', null, ['class'=> 'form-control']) }}
+					        {{ Form::text('other_link', null, ['class'=> 'form-control']) }}
 				        </div>
 				         <div>
 								{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
@@ -57,7 +62,7 @@
 					        <div class = 'form-group control-panel'>
 					        {{ Form:: label('other_link', 'Link:') }}
 					    
-					        {{ Form:: textarea('other_link', null, ['class'=> 'form-control']) }}
+					        {{ Form:: text('other_link', null, ['class'=> 'form-control']) }}
 				        </div>
 					        <div>
 								{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

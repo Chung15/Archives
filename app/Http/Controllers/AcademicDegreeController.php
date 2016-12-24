@@ -16,16 +16,16 @@ class AcademicDegreeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $user =  \Auth::User();
+        $user = User::findOrFail($user_id);
        /* $degrees = DB::table('academic_degrees')
                 ->where('user_id', $user->id)
                 ->get();
     */
         $degrees = $user->degree()->get();
 
-        return view('layouts.degrees', compact('degrees'));
+        return view('layouts.degrees', compact('degrees','user'));
     }
 
     /**
@@ -58,7 +58,7 @@ class AcademicDegreeController extends Controller
                     'year' => $year,
                     'degree_link' => $data['degree_link'],
                     ] );
-        return redirect('/archives/academicDegree');
+        return redirect('/profile/' .$user->id. '/archives/academicDegree');
     }
 
     /**
@@ -69,8 +69,10 @@ class AcademicDegreeController extends Controller
      */
     public function show($id)
     {
+        
         $degree = AcademicDegree::findOrFail($id);   
-        return view('other.single_degree', compact('degree'));
+        $user = $degree->user()->get()->first();
+        return view('other.single_degree', compact('degree','user'));
     }
 
     /**
@@ -101,7 +103,7 @@ class AcademicDegreeController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/academicDegree');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/academicDegree');
     }
 
     /**
@@ -115,6 +117,6 @@ class AcademicDegreeController extends Controller
         $degree = AcademicDegree::findOrFail($id);
          $degree->delete();
 
-         return \Redirect::to('/archives/academicDegree');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/academicDegree');
     }
 }

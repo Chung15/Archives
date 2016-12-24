@@ -9,6 +9,8 @@ use App\Http\Requests\UserRequest;
 use App\User;
 use App\Adress;
 use Carbon\Carbon;
+use App\Archives;
+
 class UserController extends Controller
 {
     /**
@@ -30,13 +32,16 @@ class UserController extends Controller
     public function showProfile()
     {
         $user = \Auth::User();
+        $archives = new Archives($user);
 
-        return view('templates.user.userProfile',compact('user'));
+        return view('templates.user.userProfile',compact('user','archives'));
     }
 
-    public function showArchives() 
+    public function showArchives($id) 
     {   
-        return view('templates.user.archives.archives');
+        $user = User::findOrFail($id);
+        $archives = new Archives($user);
+        return view('templates.user.archives.archives', compact('user','archives'));
 
     }
 

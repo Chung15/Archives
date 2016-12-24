@@ -14,11 +14,11 @@ class LeavesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-         $user =  \Auth::User();
+          $user = User::findOrFail($user_id);
         $leaves = $user->leave()->get();
-        return view('layouts.leaves', compact('leaves'));
+        return view('layouts.leaves', compact('leaves','user'));
 
     }
 
@@ -59,7 +59,7 @@ class LeavesController extends Controller
 
                     ] );
 
-        return redirect('archives/leave');
+        return redirect('profile/' .$user->id. '/archives/leave');
 
     }
 
@@ -72,7 +72,8 @@ class LeavesController extends Controller
     public function show($id)
     {
          $leave = Leave::findOrFail($id); 
-          $user = $leave->user()->get()->first();
+         //$user = User::findOrFail($leave->user_id);
+        $user = $leave->user()->get()->first();
 
          $leave->start_date= Carbon::createFromFormat('Y-m-d',$leave->start_date)->format('d/m/Y');
 
@@ -121,7 +122,7 @@ class LeavesController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/leave');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/leave');
     }
 
     /**
@@ -135,6 +136,6 @@ class LeavesController extends Controller
         $leave = Leave::findOrFail($id);
          $leave->delete();
 
-         return \Redirect::to('/archives/leave');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/leave');
     }
 }

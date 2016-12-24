@@ -1,5 +1,5 @@
 
-@extends('master')
+<!-- @extends('master') -->
 
 	@section('content')
 		
@@ -18,22 +18,24 @@
 			    	
 				   </table>
 				  </div>
-				  <div class="panel-footer">
-				  	<div class="row">
-				   		<div class="col-md-2">
-				   		{{ Form::model($training,['method'=>'DELETE', 'action' => ['TrainingController@destroy', $training->id]]) }}
-				            {{ Form::hidden('_method', 'DELETE') }}
-				           
-				            {{ Form::submit('delete', array('class' => 'btn btn-small btn-danger')) }}
-				        {{ Form::close() }}
-				        </div>
-				  		<div class="col-md-8"></div>
-				  		<div class="col-md-2">
-				   			
-				   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/training/' . $training->id . '/edit') }}">Edit</a>
-				   		</div>
-				   	</div>
-				  </div>
+				  @if((Auth::check()) AND (Auth::User()->id === $user->id))
+					  <div class="panel-footer">
+					  	<div class="row">
+					   		<div class="col-md-2">
+					   		{{ Form::model($training,['method'=>'DELETE', 'action' => ['TrainingController@destroy', $training->id]]) }}
+					            {{ Form::hidden('_method', 'DELETE') }}
+					           
+					            {{ Form::submit('delete', array('class' => 'btn btn-small btn-danger')) }}
+					        {{ Form::close() }}
+					        </div>
+					  		<div class="col-md-8"></div>
+					  		<div class="col-md-2">
+					   			
+					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/training/' . $training->id . '/edit') }}">Edit</a>
+					   		</div>
+					   	</div>
+					  </div>
+				  @endif
 
 				</div>
 		

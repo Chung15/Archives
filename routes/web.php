@@ -35,11 +35,9 @@ Route::group(['middleware' => ['web']], function () {
 
 /*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
-    Route::get('/archives/children', ['as' => 'children','uses' => 'ChildController@index']);
     Route::resource('/child', 'ChildController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/saveLeave', ['as' => 'saveLeave','uses' => 'LeavesController@store']);
-    Route::get('/archives/leave', ['as' => 'processleave','uses' => 'LeavesController@index']);
     Route::resource('/leave', 'LeavesController', ['only' => ['edit', 'update', 'destroy']]);
 
     
@@ -48,46 +46,30 @@ Route::group(['middleware' => ['web']], function () {
     //Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
     //Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
     Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
-    Route::get('/archives/other', [ 'uses' => 'OtherController@index']);
 
     Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationsController@store']);
     Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
 
     Route::post('/saveTraining', ['as' => 'saveTraining','uses' => 'TrainingController@store']);
-    Route::get('/archives/trainings', ['as' => 'processtraining','uses' => 'TrainingController@index']);
     Route::resource('/training', 'TrainingController', ['only' => ['edit', 'update', 'destroy']]);
     
 
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
-    Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
     Route::resource('/topic', 'TopicsController', ['only' => ['edit', 'update', 'destroy']]);
     // Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
     Route::resource('/diploma', 'DiplomaController', ['only' => ['edit', 'update', 'destroy']]);
-    Route::get('/archives/diploma', [ 'uses' => 'DiplomaController@index']);
 
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
-    Route::get('/archives/academicTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
     Route::resource('/title', 'AcademicTitleController', ['only' => ['edit', 'update', 'destroy']]);
 
 
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
-    Route::get('/archives/academicDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
     Route::resource('/degree', 'AcademicDegreeController', ['only' => ['edit', 'update', 'destroy']]);
 
 
-
-   Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
-   Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
-   Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
-   Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
-   Route::get('/archives/topics/{id}', ['uses' =>'TopicsController@show']);
-   Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
-   Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
-   Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
   
-  Route::get('/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
  
   Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
 
@@ -109,6 +91,25 @@ Route::group(['middleware' => ['web']], function () {
 
    //we don't have to be connected to see a  teacher's profile when click on his name
   
+  Route::get('/profile/{user_id}/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
+
+    Route::get('profile/{user_id}/archives/leave', ['as' => 'processleave','uses' => 'LeavesController@index']);
+    Route::get('profile/{user_id}/archives/other', [ 'as' => 'archivesOther', 'uses' => 'OtherController@index']);
+    Route::get('profile/{user_id}/archives/diploma', [ 'uses' => 'DiplomaController@index']);
+    Route::get('profile/{user_id}/archives/academicDegree', ['as' => 'processDegree','uses' => 'AcademicDegreeController@index']);
+    Route::get('profile/{user_id}/archives/children', ['as' => 'children','uses' => 'ChildController@index']);
+    Route::get('profile/{user_id}/archives/trainings', ['as' => 'processtraining','uses' => 'TrainingController@index']);
+    Route::get('profile/{user_id}/archives/academicTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
+    Route::get('profile/{user_id}/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+    
+   Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
+   Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
+   Route::get('/archives/academicDegree/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicDegreeController@show']);
+   Route::get('/archives/children/{id}', ['uses' =>'ChildController@show']);
+   Route::get('/archives/topics/{id}', ['uses' =>'TopicsController@show']);
+   Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
+   Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
+   Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
    Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
 
    

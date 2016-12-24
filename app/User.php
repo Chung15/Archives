@@ -85,6 +85,10 @@ class User extends Authenticatable
         return $this->hasMany('App\AcademicDegree');
     }
 
+    // public function archives() {
+    //     return $this->has
+    // }
+
 
 }
 

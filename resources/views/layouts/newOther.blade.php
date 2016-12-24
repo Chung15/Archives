@@ -20,14 +20,17 @@
 					    		<td class="col-md-10">{{ $other->name }}
 					    			<p><a class="btn" href="{{  action('OtherController@show', [$other->id]) }}">view details »</a></p>
 					    		</td>
-					    		<td class="col-md-1"><a href="{{ action('OtherController@edit', [$other->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
-					    		<td>
-						    		{{ Form::model( $other,['method'=>'DELETE', 'action' => ['OtherController@destroy', $other->id]]) }}
-					                    {{ Form::hidden('_method', 'DELETE') }}
-					                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
-					                    <!-- {{ Form::submit('delete', array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }} -->
-					                {{ Form::close() }}
-					    		</td>
+					    		
+					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+						    		<td class="col-md-1"><a href="{{ action('OtherController@edit', [$other->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+						    		<td>
+							    		{{ Form::model( $other,['method'=>'DELETE', 'action' => ['OtherController@destroy', $other->id]]) }}
+						                    {{ Form::hidden('_method', 'DELETE') }}
+						                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+						                    <!-- {{ Form::submit('delete', array('class' => 'btn btn-danger btn-xs glyphicon glyphicon-trash')) }} -->
+						                {{ Form::close() }}
+						    		</td>
+						    	@endif
 				    		</div>
 				    		
 				    	</tr>

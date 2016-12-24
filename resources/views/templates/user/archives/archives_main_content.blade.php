@@ -1,4 +1,4 @@
-@if(Auth::id())
+
 <div class="col-md-3">
 	<div class="row">
 		<table class="table table-striped table-hover">
@@ -7,7 +7,7 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/diploma') }}"> Diploma</a>
+				   			 <a href="{{ action('DiplomaController@index', [$user->id]) }}"> Diploma</a>
 				
 	    		 			
 			    		 </td>
@@ -15,28 +15,28 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/academicTitle') }}"> Academic Title</a>
+				   			 <a href="{{ action('AcademicTitleController@index', [$user->id]) }}"> Academic Title</a>
 	    		 			
 			    		 </td>
 			    	</tr>
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/academicDegree') }}"> Academic degree</a>
+				   			 <a href="{{ action('AcademicDegreeController@index', [$user->id]) }}"> Academic degree</a>
 	    		 			
 			    		 </td>
 			    	</tr>
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/children') }}"> Children </a>
+				   			 <a href="{{ action('ChildController@index', [$user->id]) }}"> Children </a>
 	    		 			
 			    		 </td>
 			    	</tr>
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/leave') }}"> Leave</a>
+				   			 <a href="{{ action('LeavesController@index', [$user->id]) }}"> Leave</a>
 				
 	    		 			
 			    		 </td>
@@ -44,14 +44,14 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/trainings') }}"> Trainings </a>
+				   			 <a href="{{ action('TrainingController@index', [$user->id]) }}"> Trainings </a>
 	    		 			
 			    		 </td>
 			    	</tr>
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/publications') }}"> Publications </a>
+				   			 <a href="{{ action('PublicationsController@index', [$user->id]) }}"> Publications </a>
 					    		
 	    		 			
 			    		 </td>
@@ -59,14 +59,14 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/topics') }}"> Thesis-topics </a>
+				   			 <a href="{{ action('TopicsController@index', [$user->id]) }}"> Thesis-topics </a>
 	    		 			
 			    		 </td>
 			    	</tr>
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ url('/archives/other') }}"> Other information </a>
+				   			 <a href="{{ action('OtherController@index', [$user->id]) }}"> Other information </a>
 					    		
 	    		 			
 			    		 </td>
@@ -78,4 +78,3 @@
 <div class="col-md-1"></div>
 
 <div class="col-md-8"></div>
-@endif

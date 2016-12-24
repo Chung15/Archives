@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ThesisTopic;
 use Carbon\Carbon;
+use App\User;
 
 class TopicsController extends Controller
 {
@@ -13,11 +14,11 @@ class TopicsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-       $user =  \Auth::User();   
+       $user = User::findOrFail($user_id);
         $topics = $user->thesisTopic()->get();
-        return view('layouts.newTopic', compact('topics'));
+        return view('layouts.newTopic', compact('topics','user'));
     }
 
      public function indexCollapse($id)
@@ -59,7 +60,7 @@ class TopicsController extends Controller
 
                     ] );
 
-         return redirect('/archives/topics');
+         return redirect('/profile/' .$user->id. '/archives/topics');
     }
 
     /**
@@ -70,8 +71,9 @@ class TopicsController extends Controller
      */
     public function show($id)
     {
-        $topic = ThesisTopic::findOrFail($id);   
-        return view('other.single_topic', compact('topic'));
+        $topic = ThesisTopic::findOrFail($id);  
+        $user = $topic->user()->get()->first(); 
+        return view('other.single_topic', compact('topic','user'));
     }
 
     /**
@@ -102,7 +104,7 @@ class TopicsController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/topics');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/topics');
     }
 
     /**
@@ -116,6 +118,6 @@ class TopicsController extends Controller
         $topic = ThesisTopic::findOrFail($id);
          $topic->delete();
 
-         return \Redirect::to('/archives/topics');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/topics');
     }
 }

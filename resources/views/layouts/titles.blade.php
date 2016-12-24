@@ -20,14 +20,16 @@
 					    		<td class="col-md-10">{{ $title->academic_title }}
 					    			<p><a class="btn" href="{{  action('AcademicTitleController@show', [$title->id]) }}">view details »</a></p>
 					    		</td>
-					    		<td class="col-md-1"><a href="{{ action('AcademicTitleController@edit', [$title->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
-					    		<td>
-						    		{{ Form::model( $title, ['method'=>'DELETE', 'action' => ['AcademicTitleController@destroy', $title->id]] ) }}
-					                    {{ Form::hidden('_method', 'DELETE') }}
-					                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
-					 
-					                {{ Form::close() }}
-					    		</td>
+					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+						    		<td class="col-md-1"><a href="{{ action('AcademicTitleController@edit', [$title->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
+						    		<td>
+							    		{{ Form::model( $title, ['method'=>'DELETE', 'action' => ['AcademicTitleController@destroy', $title->id]] ) }}
+						                    {{ Form::hidden('_method', 'DELETE') }}
+						                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+						 
+						                {{ Form::close() }}
+						    		</td>
+						    	@endif
 				    		</div>
 				    		
 				    	</tr>

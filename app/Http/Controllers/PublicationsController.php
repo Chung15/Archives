@@ -16,12 +16,12 @@ class PublicationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $user =  \Auth::User();
+        $user = User::findOrFail($user_id);
         $pubs = $user->publication()->get();
        // $options = Options::pluck('name','id');
-        return view('layouts.newPublication', compact('pubs'));
+        return view('layouts.newPublication', compact('pubs','user'));
     }
 
     /**

@@ -14,11 +14,11 @@ class AcademicTitleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-         $user =  \Auth::User();
+         $user = User::findOrFail($user_id);
          $titles = $user->title()->get();
-        return view('layouts.titles', compact('titles'));
+        return view('layouts.titles', compact('titles','user'));
     }
 
     /**
@@ -51,7 +51,7 @@ class AcademicTitleController extends Controller
                     'year' => $year,
                     'title_link' => $data['title_link'],
                     ] );
-        return redirect('/archives/academicTitle');
+        return redirect('/profile/' .$user->id. '/archives/academicTitle');
     }
 
     /**
@@ -62,8 +62,9 @@ class AcademicTitleController extends Controller
      */
     public function show($id)
     {
-        $title = AcademicTitle::findOrFail($id);   
-        return view('other.single_title', compact('title'));
+        $title = AcademicTitle::findOrFail($id); 
+        $user = $title->user()->get()->first();  
+        return view('other.single_title', compact('title','user'));
 
     }
 
@@ -95,7 +96,7 @@ class AcademicTitleController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/academicTitle');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/academicTitle');
     }
 
     /**
@@ -109,6 +110,6 @@ class AcademicTitleController extends Controller
         $title = AcademicTitle::findOrFail($id);
          $title->delete();
 
-         return \Redirect::to('/archives/academicTitle');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/academicTitle');
     }
 }

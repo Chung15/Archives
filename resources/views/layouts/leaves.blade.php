@@ -20,15 +20,18 @@
 					    		<td class="col-md-10">{{ $leave->leave_type }}
 					    			<p><a class="btn" href="{{  action('LeavesController@show', [$leave->id]) }}">view details »</a></p>
 					    		</td>
-					    		<td class="col-md-1"><a href="{{ action('LeavesController@edit', [$leave->id]) }}" class="glyphicon glyphicon-pencil default"></a>
-					    		</td>
-					    		<td>
-						    		{{ Form::model( $leave, ['method'=>'DELETE', 'action' => ['LeavesController@destroy', $leave->id]] ) }}
-					                    {{ Form::hidden('_method', 'DELETE') }}
-					                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
-					 
-					                {{ Form::close() }}
-					    		</td>
+					    		
+					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+						    		<td class="col-md-1"><a href="{{ action('LeavesController@edit', [$leave->id]) }}" class="glyphicon glyphicon-pencil default"></a>
+						    		</td>
+						    		<td>
+							    		{{ Form::model( $leave, ['method'=>'DELETE', 'action' => ['LeavesController@destroy', $leave->id]] ) }}
+						                    {{ Form::hidden('_method', 'DELETE') }}
+						                    <button type="submit"><i class="glyphicon glyphicon-trash pull-right"></i></button>
+						 
+						                {{ Form::close() }}
+						    		</td>
+						    	@endif
 				    		</div>
 				    		
 				    	</tr>

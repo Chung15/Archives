@@ -15,11 +15,11 @@ class ChildController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $user =  \Auth::User();
+        $user = User::findOrFail($user_id);
         $children = $user->child()->get();
-        return view('children.children', compact('children'));
+        return view('children.children', compact('children','user'));
     }
          
 
@@ -58,7 +58,7 @@ class ChildController extends Controller
                     ] );
      
 
-        return redirect('/archives/children');
+        return redirect('/profile/' .$parent->id. '/archives/children');
     }
 
     /**
@@ -69,9 +69,10 @@ class ChildController extends Controller
      */
     public function show($id)
     {
-         $child = Child::findOrFail($id);   
+         $child = Child::findOrFail($id); 
+         $user = $child->user()->get()->first();  
          $child->dateOfBirth= Carbon::createFromFormat('Y-m-d',$child->dateOfBirth)->format('d/m/Y');
-        return view('other.single_child', compact('child'));
+        return view('other.single_child', compact('child','user'));
     }
 
     /**
@@ -107,7 +108,7 @@ class ChildController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/children');
+        return redirect('/profile/' .\Auth::User(). '/archives/children');
     }
 
     /**
@@ -121,6 +122,6 @@ class ChildController extends Controller
         $child = Child::findOrFail($id);
          $child->delete();
 
-         return \Redirect::to('/archives/children');
+         return \Redirect::to('/profile/' .\Auth::User(). '/archives/children');
     }
 }

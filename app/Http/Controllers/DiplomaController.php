@@ -13,12 +13,12 @@ class DiplomaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($user_id)
     {
-        $user =  \Auth::User();
+        $user = User::findOrFail($user_id);
         $diplomas = $user->diploma()->get();
        // $options = Options::pluck('name','id');
-        return view('layouts.diplomas', compact('diplomas'));
+        return view('layouts.diplomas', compact('diplomas','user'));
     }
 
     /**
@@ -56,7 +56,7 @@ class DiplomaController extends Controller
                     'year' => $year,
                     'diploma_link' => $data['diploma_link'],
                     ] );
-        return redirect('archives/diploma');
+        return redirect('/profile/' .$user->id. '/archives/diploma');
     }
 
     /**
@@ -68,7 +68,8 @@ class DiplomaController extends Controller
     public function show($id)
     {
          $diploma = Diploma::findOrFail($id);   
-        return view('other.single_diploma', compact('diploma'));
+         $user = $diploma->user()->get()->first();
+        return view('other.single_diploma', compact('diploma','user'));
 
     }
 
@@ -100,7 +101,7 @@ class DiplomaController extends Controller
 
         \Session::flash('sucess', 'sucessfully updated');
 
-        return redirect('/archives/diploma');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/diploma');
     }
 
     /**
@@ -114,6 +115,6 @@ class DiplomaController extends Controller
          $diploma = Diploma::findOrFail($id);
          $diploma->delete();
 
-         return \Redirect::to('/archives/diploma');
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/diploma');
     }
 }

@@ -59,10 +59,10 @@
 					<li> <a href="{{  url('/profile/'.Auth::user()->id) }}">Profile</a> </li>
 				
 					<li class="">
-						<a href="{{ url('archives') }}">Archives</a>
+						<a href="{{ url('/profile/'.Auth::user()->id .'/archives') }}">Archives</a>
 					</li>
 					
-									<li class="dropdown pull-right">
+					<li class="dropdown pull-right">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
