@@ -47,6 +47,13 @@ class UserController extends Controller
 
     }
 
+     public function showHelp() 
+    {   
+        //$user = User::findOrFail($id);
+        return view('templates.user.help');
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *

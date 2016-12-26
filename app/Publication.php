@@ -14,7 +14,7 @@ class Publication extends Model
      * @var array
      */
     protected $fillable = [
-       'type', 'authors', 'title',  'specialisation', 'description', 'journal', 'published_on',
+       'type', 'title',  'specialisation', 'description', 'journal', 'published_on', 'publication_file',
     ];
 
     /**
@@ -25,12 +25,12 @@ class Publication extends Model
 
     public static $validationRules = [
             'type' => 'required',
-            //'authors' => 'required',
             'title' => 'required',
             'specialisation' => 'required',
             'description' => 'required',
             'journal' => 'required',
             'published_on' => 'required',
+           // 'publication_file' => 'required',
 
         ];
     public function user() {

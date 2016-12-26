@@ -29,11 +29,12 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
    Route::get('/academicTitle',['as' =>'academicTitle','uses' => 'AcademicTitleController@create']);
    Route::get('/academicDegree',['as' =>'academicDegree','uses' => 'AcademicDegreeController@create']);
-   Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationsController@create']);
+   Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationController@create']);
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
    Route::get('/leave', ['as' => 'leave','uses' => 'LeavesController@create']);
+   Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
 
 /*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
@@ -49,8 +50,8 @@ Route::group(['middleware' => ['web']], function () {
     //Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
     Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
 
-    Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationsController@store']);
-    Route::get('/processPub', ['as' => 'processPub','uses' => 'PublicationsController@index']);
+    Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationController@store']);
+    Route::resource('/publication', 'PublicationController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/saveTraining', ['as' => 'saveTraining','uses' => 'TrainingController@store']);
     Route::resource('/training', 'TrainingController', ['only' => ['edit', 'update', 'destroy']]);
@@ -106,6 +107,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('profile/{user_id}/archives/trainings', ['as' => 'processtraining','uses' => 'TrainingController@index']);
     Route::get('profile/{user_id}/archives/academicTitle', ['as' => 'processTitle','uses' => 'AcademicTitleController@index']);
     Route::get('profile/{user_id}/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
+    Route::get('profile/{user_id}/archives/publications', ['as' => 'processPub','uses' => 'PublicationController@index']);
     
    Route::get('/archives/other/{id}', ['as' => 'singleOther', 'uses' =>'OtherController@show']);
    Route::get('/archives/academicTitle/{id}', ['as' => 'singlTitle', 'uses' =>'AcademicTitleController@show']);
@@ -115,6 +117,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/trainings/{id}', ['uses' =>'TrainingController@show']);
    Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
    Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
+   Route::get('/archives/publication/{id}', ['as' => 'singlePublication', 'uses' =>'PublicationController@show']);
    Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
 
 

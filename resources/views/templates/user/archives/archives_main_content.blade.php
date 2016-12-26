@@ -51,7 +51,7 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ action('PublicationsController@index', [$user->id]) }}"> Publications </a>
+				   			 <a href="{{ action('PublicationController@index', [$user->id]) }}"> Publications </a>
 					    		
 	    		 			
 			    		 </td>

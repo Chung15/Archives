@@ -8,8 +8,9 @@ use Illuminate\Http\Request;
 use App\Publication;
 use Carbon\Carbon;
 use App\Author;
+use App\User;
 
-class PublicationsController extends Controller
+class PublicationController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +20,9 @@ class PublicationsController extends Controller
     public function index($user_id)
     {
         $user = User::findOrFail($user_id);
-        $pubs = $user->publication()->get();
+        $publications = $user->publication()->get();
        // $options = Options::pluck('name','id');
-        return view('layouts.newPublication', compact('pubs','user'));
+        return view('layouts.newPublication', compact('publications','user'));
     }
 
     /**
@@ -61,34 +62,23 @@ class PublicationsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, Publication::$validationRules);
-        //$data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on');
-         $data = $request->all();
+        $data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on','publication_file');
+         //$data = $request->all();
 
-        $published_on = Carbon::createFromFormat('Y', $data['published_on'])->format('Y');
-
-        $authors = $data['authors']; 
-
-        /*foreach($authors as $author) {
-                echo $author.'<br/>';
-        }*/
-
-        //dd($authors);
-       // $authors = Author::pluck('name', 'id');
+        $published_on = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
 
         $user = \Auth::User();
         $publication = $user->publication()->create( [
                     'type' => $data['type'],
-                    //'authors' => $authors,
                     'title' => $data['title'],
                     'specialisation' => $data['specialisation'],
                     'description'  => $data['description'],
                     'journal' => $data['journal'],
                     'published_on' => $published_on,
+                    'publication_file' => $data['publication_file'],
                     ] );
 
-        $publication->authors()->sync($authors);   
-     //return $data;
-       return redirect('processPub');
+       return redirect('profile/' .$user->id. '/archives/publications');
     }
 
     /**
@@ -99,7 +89,11 @@ class PublicationsController extends Controller
      */
     public function show($id)
     {
-        //
+        $publication = Publication::findOrFail($id);  
+         $publication->published_on= Carbon::createFromFormat('Y-m',$publication->published_on)->format('m/Y');
+
+        $user = $publication->user()->get()->first(); 
+        return view('other.single_publication', compact('publication','user'));
     }
 
     /**
@@ -110,7 +104,9 @@ class PublicationsController extends Controller
      */
     public function edit($id)
     {
-        //
+        $publication = Publication::findOrFail($id);
+        $publication->published_on= Carbon::createFromFormat('Y-m',$publication->published_on)->format('m/Y');
+         return view('forms.publications', compact('publication'));
     }
 
     /**
@@ -122,7 +118,16 @@ class PublicationsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+         $this->validate($request, Publication::$validationRules);
+        $publication = Publication::findOrFail($id);
+         $data = $request->all();
+          $data['published_on'] = Carbon::createFromFormat('m/Y',$data['published_on'])->format('Y-m');
+       
+        $publication->update($data);
+
+        \Session::flash('sucess', 'sucessfully updated');
+
+        return redirect('/profile/' .\Auth::User()->id. '/archives/publications');
     }
 
     /**
@@ -133,7 +138,10 @@ class PublicationsController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $publication = Publication::findOrFail($id);
+         $publication->delete();
+
+         return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/publications');
     }
     /**
      * Remove the specified resource from storage.
@@ -143,7 +151,7 @@ class PublicationsController extends Controller
      */
     public function upload()
     {
-        
+
     }
 
 }
