@@ -22,6 +22,8 @@ Route::group(['middleware' => ['web']], function () {
   Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
 
  route::group(['middleware' => 'auth'], function () {
+ Route::match(array('GET', 'POST'), '/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
+  //Route::post('/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
    /*---------forms routes---------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
    Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
@@ -89,9 +91,12 @@ Route::group(['middleware' => ['web']], function () {
   });
 
 
+
+   
    //we don't have to be connected to see a  teacher's profile when click on his name
   
   Route::get('/profile/{user_id}/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
+
 
     Route::get('profile/{user_id}/archives/leave', ['as' => 'processleave','uses' => 'LeavesController@index']);
     Route::get('profile/{user_id}/archives/other', [ 'as' => 'archivesOther', 'uses' => 'OtherController@index']);
@@ -111,6 +116,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/archives/diploma/{id}', ['as' => 'singleDiploma', 'uses' =>'DiplomaController@show']);
    Route::get('/archives/leave/{id}', ['as' => 'singleLeave', 'uses' =>'LeavesController@show']);
    Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
+
 
    
 

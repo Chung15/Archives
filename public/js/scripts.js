@@ -33,7 +33,23 @@ $(document).ready(function() {
    //editUserProfile();
    $('#updatePassword').on('click', function () {
   $('#myModal').focus();
-})
+   });
+
+   $("#uploadImg").click(function() {
+    $("input[type='file']").click();
+	});
+
+   $("input[type='file']").click(function(){
+    	$('#imgUploadBtn').removeClass('hidden');
+
+	   var img = $("input[type='file']").val();
+	   console.log('uploaded file as', img);
+    });
+
+
+
+
+
 
    
 

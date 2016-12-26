@@ -26,7 +26,8 @@
 	                            </form>
 							</li>
 							<li>
-								|Help
+								<a class="fa fa-question-circle" aria-hidden="true" href="{{ url('help') }}">
+	                            </a>
 							</li>
 							
 						@else
@@ -42,7 +43,8 @@
 	                            </a>
 							</li>
 							<li>
-								|Help
+								<a class="fa fa-question-circle" aria-hidden="true" href="{{ url('help') }}">
+	                            </a>
 							</li>
 						@endif
 					</ul>

@@ -2,7 +2,28 @@
 	<div class = "col-md-6">
 			<div class="row">
 				<div class="profile_picture col-md-4">
-					<div class="row"><img src="/images/user-logo.png"></div>
+					<div class="row">
+					@if(isset($user->profile_picture))
+						<img class="img-rounded" src="{{ $user->profile_picture}}" " height="200" width="200"/>
+					@else
+						<img class="img-rounded" src="/images/user-logo.png">
+					@endif
+
+						  <form method="POST" action="{{ url('/profile/' .$user->id. '/profile_picture') }}" enctype="multipart/form-data">
+						  {{ csrf_field() }}
+						  
+						 @if((Auth::check()) AND (Auth::User()->id === $user->id))
+							  Change picture<i class="pull-right fa fa-camera fa-2x" id="uploadImg"></i>
+							  	<input type="file" name="profile_picture" class="hidden" id="inputUploadImg">
+							  	<div class="form-group hidden" id="imgUploadBtn">
+							  		<button type="cancel" name="cancel" value="cancel">Cancel</button>
+							  		<button type="submit" name="submit" value="submit">Submit</button>
+							  		
+							  	</div>
+						 @endif
+						  </form>
+
+					</div>
 					<hr class="divider" />
 					
 					<div class="row">@include('templates.user.user_left_sidebar')</div>

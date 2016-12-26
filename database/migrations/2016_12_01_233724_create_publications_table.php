@@ -14,14 +14,14 @@ class CreatePublicationsTable extends Migration
     public function up()
     {
         Schema::create('publications', function (Blueprint $table) {
-           $table->increments('id');
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
-            //$table->integer('author_id')->unsigned();
+            $table->string('publication_file')->nullable();
             $table->string('type');//select box
            // $table->string('authors');
             $table->string('title');
             $table->string('specialisation');
-            $table->string('description');
+            $table->string('description')->nullable();
             $table->string('journal');
             $table->string('published_on');
 

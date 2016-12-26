@@ -10,6 +10,8 @@ use App\User;
 use App\Adress;
 use Carbon\Carbon;
 use App\Archives;
+use \Input as Input;
+use Image;
 
 class UserController extends Controller
 {
@@ -187,6 +189,24 @@ class UserController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function uploadImg(Request $request) {
+       
+         $user = \Auth::User();
+         $data =  $request->file('profile_picture');
+         $img = $user->id .'_'. time().'_' .$data->getClientOriginalName();
+
+        $data->move('images/user_pictures', $img);
+    
+        $img_path = "/images/user_pictures/" .$img;
+
+        $user->profile_picture = $img_path;
+        $user->save();
+
+       return $this->show($user->id);
+
+
     }
 
 }

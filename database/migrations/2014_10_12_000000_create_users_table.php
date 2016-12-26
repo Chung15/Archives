@@ -24,7 +24,7 @@ class CreateUsersTable extends Migration
             $table->date('dateOfBirth');
             $table->string('gender');
             $table->enum('maritalStatus',['single', 'married', 'divorced','widow']);
-           // $table->binary('picture');//path/link images in the DB
+            $table->string('profile_picture')->nullable();//path/link images in the DB
             $table->string('email')->unique();
             $table->string('password');
             $table->boolean('terms');
