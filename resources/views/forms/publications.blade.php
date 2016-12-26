@@ -2,8 +2,18 @@
 
 	@section('content')
 
+
+		 @if($errors->any())
+     		 <ul class="alert alert-danger">
+          		<li>invalid file format, only pdf allowed</li>
+       		 @foreach($errors as $error)
+          		<li>{{$error}}</li>
+        	@endforeach
+      		</ul>
+    	@endif
+
 		@if(isset($publication))
-			{{ Form::model($publication,['method'=>'PATCH', 'action' => ['PublicationController@update', $publication->id]]) }}
+			{{ Form::model($publication,['method'=>'PATCH', 'action' => ['PublicationController@update', $publication->id], 'enctype' => 'multipart/form-data']) }}
 				<div><strong> Edit Publications</strong></div>
 				<hr/>
 				<div class = "row">
@@ -70,7 +80,7 @@
 	@else
 
 
-		{{ Form::open(['url'=>'savePub']) }}
+		{{ Form::open(['url'=>'savePub', 'enctype' => 'multipart/form-data']) }}
 
 			<div><strong>Publications</strong></div>
 				<hr/>
@@ -116,8 +126,7 @@
 
 						<div class = 'form-group control-panel'>
 						    {{ Form:: label('publication_file', 'Upload file:') }}
-
-						    {{ Form:: file('publication_file', null, ['class'=> 'form-control']) }}
+							<input type="file" name="publication_file" class ="form-group control" >
 				    	</div>
 				        <div>
 							{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

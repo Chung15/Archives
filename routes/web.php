@@ -20,10 +20,11 @@ Route::group(['middleware' => ['web']], function () {
 
   Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
   Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
+   Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
 
  route::group(['middleware' => 'auth'], function () {
  Route::match(array('GET', 'POST'), '/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
-  //Route::post('/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
+ Route::post('/profile/{user_id}/publication_file', ['as' => 'uploadFile', 'uses' =>'PublicationController@upload']);
    /*---------forms routes---------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
    Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
@@ -34,7 +35,6 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
    Route::get('/leave', ['as' => 'leave','uses' => 'LeavesController@create']);
-   Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
 
 /*---------------request form routes----------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);

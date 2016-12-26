@@ -1,5 +1,5 @@
 .container{
-	background-color: Gainsboro;
+	background-color: Silver;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
@@ -22,7 +22,7 @@
 	padding: 10px;
 }
 ul li a {
-	color: white;
+	color: black;
 }
 .footer {
 	background-color:grey ;
@@ -36,4 +36,20 @@ ul li a {
 }
 .formTitle {
 	margin-top: 40px;
+}
+.img-circle{
+	margin-left: auto;
+	margin-right:5px;
+	padding-left:15px;
+	position: relative;
+}
+.row footer {
+	position: fixed;
+	margin-top:30px;
+}
+#accordion {
+	padding-left:15px;
+}
+#table-rounded {
+	border-radius:3px;
 }

@@ -9,6 +9,7 @@ use App\Publication;
 use Carbon\Carbon;
 use App\Author;
 use App\User;
+use \Input as Input;
 
 class PublicationController extends Controller
 {
@@ -63,22 +64,42 @@ class PublicationController extends Controller
     {
         $this->validate($request, Publication::$validationRules);
         $data = $request->only('type','authors', 'title', 'specialisation','description', 'journal', 'published_on','publication_file');
-         //$data = $request->all();
+        
 
-        $published_on = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
+         $user = \Auth::User();
 
-        $user = \Auth::User();
-        $publication = $user->publication()->create( [
-                    'type' => $data['type'],
-                    'title' => $data['title'],
-                    'specialisation' => $data['specialisation'],
-                    'description'  => $data['description'],
-                    'journal' => $data['journal'],
-                    'published_on' => $published_on,
-                    'publication_file' => $data['publication_file'],
-                    ] );
+         $publication_obj = Input::file('publication_file');
+         $extension = Input::file('publication_file')->getClientOriginalExtension();
 
-       return redirect('profile/' .$user->id. '/archives/publications');
+         if($publication_obj->isValid() AND $extension === 'pdf')
+         {
+            $publication_file = $user->id .'_'. time().'_' .$publication_obj->getClientOriginalName();
+
+            $publication_obj->move('uploads/publications', $publication_file);
+    
+            $publication_file_path = "/uploads/publications/" .$publication_file;
+            $published_on = Carbon::createFromFormat('m/Y', $data['published_on'])->format('Y-m');
+
+                   
+            $publication = $user->publication()->create( [
+                                'type' => $data['type'],
+                                'title' => $data['title'],
+                                'specialisation' => $data['specialisation'],
+                                'description'  => $data['description'],
+                                'journal' => $data['journal'],
+                                'published_on' => $published_on,
+                                'publication_file' => $publication_file_path,
+                                ] );
+            return redirect('profile/' .$user->id. '/archives/publications');
+         }
+
+          \Session::flash('invalid_format', 'invalid file format, only pdf allowed');
+
+         return back()->withInput()->withErrors(['publication_file' =>'invalid file format, only pdf allowed']);
+        
+
+        
+       
     }
 
     /**
@@ -149,8 +170,23 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function upload()
+    public function upload(Request $request)
     {
+        $user = \Auth::User();
+        $data =  $request->file('publication_file');
+        echo $data;
+      /*  $file = $user->id .'_'. time().'_' .$data;
+        $data->move('uploads/publications', $file);
+    
+        $file_path = "/uploads/publications/" .$file;
+
+        $user->profile_picture = $file_path;
+        $user->save();
+
+        return $this->index($user_id);
+*/
+       
+
 
     }
 

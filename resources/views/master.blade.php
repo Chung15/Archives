@@ -5,7 +5,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>App Name - @yield('title')</title>
+        <title>ARCHIVES</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
@@ -17,7 +17,7 @@
         <link href="/css/jquery-ui.theme.css" rel="stylesheet">
         <link href="/css/jquery-ui.structure.css" rel="stylesheet">
         <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
-        <link href="/css/style.css" rel="stylesheet">
+        <link href="/css/style.css" type="text/css" rel="stylesheet">
 
         <!-- Styles -->
         

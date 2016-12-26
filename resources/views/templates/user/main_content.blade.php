@@ -4,7 +4,7 @@
 				<div class="profile_picture col-md-4">
 					<div class="row">
 					@if(isset($user->profile_picture))
-						<img class="img-rounded" src="{{ $user->profile_picture}}" " height="200" width="200"/>
+						<img class="img-circle" src="{{ $user->profile_picture}}" " height="200" width="200"/>
 					@else
 						<img class="img-rounded" src="/images/user-logo.png">
 					@endif

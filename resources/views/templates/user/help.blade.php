@@ -2,11 +2,7 @@
 <html>
 <head>
 	<title></title>
-	<style>
-		.list-inline {
-			background-color: lightgrey;
-		}
-	</style>
+
 	 <link href="/css/bootstrap.css" rel="stylesheet">
         <link href="/css/bootstrap.min.css" rel="stylesheet">
         <link href="/css/jquery-ui.css" rel="stylesheet">
