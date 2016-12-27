@@ -6,14 +6,14 @@
 					@if(isset($user->profile_picture))
 						<img class="img-circle" src="{{ $user->profile_picture}}" " height="200" width="200"/>
 					@else
-						<img class="img-rounded" src="/images/user-logo.png">
+						<img class="img-circle" src="/images/user-logo.png" height="200" width="200">
 					@endif
 
 						  <form method="POST" action="{{ url('/profile/' .$user->id. '/profile_picture') }}" enctype="multipart/form-data">
 						  {{ csrf_field() }}
 						  
 						 @if((Auth::check()) AND (Auth::User()->id === $user->id))
-							  Change picture<i class="pull-right fa fa-camera fa-2x" id="uploadImg"></i>
+							  <i class="pull-right fa fa-camera fa-2x" id="uploadImg" data-toggle="tooltip" data-placement="left" title="Change picture"></i>
 							  	<input type="file" name="profile_picture" class="hidden" id="inputUploadImg">
 							  	<div class="form-group hidden" id="imgUploadBtn">
 							  		<button type="cancel" name="cancel" value="cancel">Cancel</button>
@@ -48,7 +48,7 @@
 										
 								</tbody>
 							</table>
-								  @if((Auth::check()) AND (Auth::User()->id === $user->id))
+								  @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/' . Auth::user()->id . '/edit') }}" id="editProfile">edit profile</a>
 
 									<button class="btn btn-primary pull-left btn-xs" data-toggle="modal" data-target="#myModal" id="updatePassword">update password

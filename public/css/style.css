@@ -1,12 +1,18 @@
+body{
+	/*background-image: url('/images/background2.jpg');*/
+	background-color:LightSteelBlue;
+	background-image: no-repeat;
+
+}
 .container{
-	background-color: Silver;
+	/*background-color: Silver;*/
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: auto;
 }
 .nav {
-	background-color:grey ;
+	background-color:SteelBlue;
 	margin-top: 20px;
 
 }
@@ -17,7 +23,7 @@
 
 }
 .row header {
-	background-color: lightgrey;
+	background-color: LightSteelBlue;
 	margin: 10px;
 	padding: 10px;
 }
@@ -52,4 +58,7 @@ ul li a {
 }
 #table-rounded {
 	border-radius:3px;
+}
+#teacherList{
+	background-color: white;
 }

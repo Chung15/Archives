@@ -21,7 +21,7 @@
 					    			<p><a class="btn" href="{{  action('AcademicDegreeController@show', [$degree->id]) }}">view details »</a></p>
 					    		</td>
 
-					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+					    		 @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 					    		<td class="col-md-1"><a href="{{ action('AcademicDegreeController@edit', [$degree->id]) }}" class="glyphicon glyphicon-pencil default"></a>
 					    		</td>
 					    		<td>

@@ -17,7 +17,7 @@
 			    	
 				   </table>
 				  </div>
-				  @if((Auth::check()) AND (Auth::User()->id === $user->id))
+				   @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 					  <div class="panel-footer">
 					  	<div class="row">
 					   		<div class="col-md-2">

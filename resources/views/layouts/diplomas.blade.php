@@ -20,7 +20,7 @@
 					    		<td class="col-md-10">{{ $diploma->diploma_type }}
 					    			<p><a class="btn" href="{{  action('DiplomaController@show', [$diploma->id]) }}">view details »</a></p>
 					    		</td>
-					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+					    		 @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 						    		<td class="col-md-1"><a href="{{ action('DiplomaController@edit', [$diploma->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
 						    		<td>
 							    		{{ Form::model( $diploma, ['method'=>'DELETE', 'action' => ['DiplomaController@destroy', $diploma->id]] ) }}

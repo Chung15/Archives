@@ -21,7 +21,7 @@
 					    			<p><a class="btn" href="{{  action('PublicationController@show', [$publication->id]) }}">view details »</a></p>
 					    		</td>
 					    		
-					    		@if((Auth::check()) AND (Auth::User()->id === $user->id))
+					    		 @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 						    		<td class="col-md-1"><a href="{{ action('PublicationController@edit', [$publication->id]) }}" class="glyphicon glyphicon-pencil default"></a></td>
 						    		<td>
 							    		{{ Form::model( $publication,['method'=>'DELETE', 'action' => ['PublicationController@destroy', $publication->id]]) }}

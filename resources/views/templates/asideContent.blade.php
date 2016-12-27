@@ -4,7 +4,7 @@
 			<h2>
 				Teachers
 			</h2>
-			<table class="table table-striped table-hover">
+			<table class="table table-user-information table-hover" id="teacherList">
 
 				@foreach($users as $user)
 

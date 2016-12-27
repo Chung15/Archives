@@ -1,6 +1,6 @@
 <div class="panel-group" id="accordion" role="tab" aria-multiselectable="false">
   <div class="panel panel-default">
-    <div class="panel-heading" role="tab" id="headingFour">
+    <div class="panel-heading " role="tab" id="headingFour">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
           Contact info
@@ -27,7 +27,7 @@
                 <td>{{ $user->email }}</td>
               </tr>
         </table>
-         @if((Auth::check()) AND (Auth::User()->id === $user->id))
+          @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
                   <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . Auth::user()->id . '/editContact/' .$adress->id) }}">edit Contact</a>
                 @endif
 
