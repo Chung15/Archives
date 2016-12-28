@@ -9,10 +9,10 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>{{ $topic->type }}</td></tr>
-					    <tr><td>{{ $topic->student_name }}</td></tr>
-					    <tr><td>{{ $topic->student_group}}</td></tr>
-					    <tr><td>{{ $topic->academic_year }}</td></tr>
+					    <tr><td>Diplom type: {{ $topic->type }}</td></tr>
+					    <tr><td> Student name: {{ $topic->student_name }}</td></tr>
+					    <tr><td>Student group: {{ $topic->student_group}}</td></tr>
+					    <tr><td> Year: {{ $topic->academic_year }}</td></tr>
 			    	
 				   </table>
 				  </div>

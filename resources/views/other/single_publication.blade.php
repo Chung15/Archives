@@ -12,7 +12,7 @@
 					     <tr><td>{{ $publication->description }}</td></tr>
 					     <tr><td>{{ $publication->journal }}</td></tr>
 					     <tr><td>{{ $publication->published_on }}</td></tr>
-					     <tr><td><a href="{{ $publication->publication_file }}">View pdf</a></td></tr>
+					     <tr><td><a href="{{ $publication->publication_file }}" target="_blank">View pdf</a></td></tr>
 					    
 			    	
 				   </table>

@@ -7,7 +7,11 @@
 		    <h6 class="panel-title">{{ $other->name }}</h6>
 		  </div>
 		  <div class="panel-body">
-		    {{ $other->description }}
+		  	<table>
+			  	<tr><td>Description: {{ $other->description }}</td></tr>
+			    <tr><td>Link: <a href="{{ $other->other_link }}" target="_blank">{{ $other->other_link }}</a></td></tr>
+		    </table>
+		    
 		  </div>
 		  
 		   @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))

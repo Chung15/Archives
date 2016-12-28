@@ -8,10 +8,11 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>{{ $degree->seria_number }}</td></tr>
-					    <tr><td>{{ $degree->thesis_topic }}</td></tr>
-					    <tr><td>{{ $degree->specialization }}</td></tr>
-					    <tr><td>{{ $degree->year }}</td></tr>
+					    <tr><td>Seria №: {{ $degree->seria_number }}</td></tr>
+					    <tr><td>Thesis topic: {{ $degree->thesis_topic }}</td></tr>
+					    <tr><td>Specialisation: {{ $degree->specialization }}</td></tr>
+					    <tr><td>Year: {{ $degree->year }}</td></tr>
+					    <tr><td>Link: <a href="{{ $degree->degree_link }}" target="_blank">{{ $degree->degree_link }}</a></td></tr>
 			    	
 				   </table>
 				  </div>

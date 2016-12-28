@@ -14,7 +14,7 @@
 					    <tr><td>Description: {{ $training->description }}</td></tr>
 					    <tr><td>Start: {{ $training->start_date }}</td></tr>
 					    <tr><td>End: {{ $training->end_date }}</td></tr>
-					    <tr><td>End: {{ $training->training_link }}</td></tr>
+					    <tr><td>Link: <a href="{{ $training->training_link }}" target="_blank">{{ $training->training_link }}</a></td></tr>
 			    	
 				   </table>
 				  </div>

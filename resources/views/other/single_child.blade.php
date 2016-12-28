@@ -6,10 +6,11 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>{{ $child->firstname }}</td></tr>
-					    <tr><td>{{ $child->patronymic }}</td></tr>
-					    <tr><td>{{ $child->lastname }}</td></tr>
-					     <tr><td>{{ $child->child_link }}</td></tr>
+					    <tr><td>Firstname: {{ $child->firstname }}</td></tr>
+					    <tr><td>Patronymic: {{ $child->patronymic }}</td></tr>
+					    <tr><td>Lastname: {{ $child->lastname }}</td></tr>
+					    <tr><td>Birth date: {{ $child->dateOfBirth }}</td></tr>
+					     <tr><td>Link: <a href="{{ $child->child_link }}" target="_blank">{{ $child->child_link }}</a></td></tr>
 					    
 			    	
 				   </table>

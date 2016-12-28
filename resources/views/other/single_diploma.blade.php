@@ -9,12 +9,13 @@
 		  <div class="panel-body">
 		  <table class="table table-striped table-user-information">
 
-			    <tr><td>{{ $diploma->seria_number }}</td></tr>
-			    <tr><td>{{ $diploma->thesis_topic }}</td></tr>
-			    <tr><td>{{ $diploma->specialization }}</td></tr>
-			    <tr><td>{{ $diploma->department}}</td></tr>
-			    <tr><td>{{ $diploma->university}}</td></tr>
-			    <tr><td>{{ $diploma->year }}</td></tr>
+			    <tr><td>Seria №: {{ $diploma->seria_number }}</td></tr>
+			    <tr><td>Thesis topic: {{ $diploma->thesis_topic }}</td></tr>
+			    <tr><td> Specialisation: {{ $diploma->specialization }}</td></tr>
+			    <tr><td>Department: {{ $diploma->department}}</td></tr>
+			    <tr><td>University: {{ $diploma->university}}</td></tr>
+			    <tr><td>Year: {{ $diploma->year }}</td></tr>
+			    <tr><td>Link: <a href="{{ $diploma->diploma_link }}" target="_blank">{{ $diploma->diploma_link }}</a></td></tr>
 	    	
 		   </table>
 		  </div>
