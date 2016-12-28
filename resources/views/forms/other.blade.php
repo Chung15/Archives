@@ -1,14 +1,17 @@
 @extends('master')
 
 	@section('content')
-		@if(Session::has('success'))
-          <div class="alert-box success">
-          <h2>{!! Session::get('success') !!}</h2>
-          </div>
-        @endif
+		@if (session()->has('flash_notification.message'))
+		    <div class="alert alert-{{ session('flash_notification.level') }}">
+		        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+
+		        {!! session('flash_notification.message') !!}
+		    </div>
+		@endif
 		
 		@if(isset($other))
 			{{ Form::model($other,['method'=>'PATCH', 'action' => ['OtherController@update', $other->id]]) }}
+				
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">

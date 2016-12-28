@@ -28,7 +28,7 @@
               </tr>
         </table>
           @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
-                  <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . Auth::user()->id . '/editContact/' .$adress->id) }}">edit Contact</a>
+                  <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/editContact/' .$adress->id) }}">edit Contact</a>
                 @endif
 
 

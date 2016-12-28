@@ -228,14 +228,18 @@
                         </div>
 
 						<div class="form-group {{ $errors->has('terms') ? ' has-error' : '' }}">
-							<div class="col-md-4"></div>
-						   <div class="col-md-8">
+							<div class="col-md-6"></div>
+						   <div class="col-md-6">
 						        <div class="checkbox">
 						          <label>
 						             <input type="checkbox" value="1" name="terms" id="terms" required>
 						             I agree to the Terms of Use
 						          </label>
 						        </div>
+						        	<div class="row">
+						        		<div class="col-md-2"></div>
+						        		<a href="{{url('/help/terms')}}" target="_blank">terms of use</a>
+						        	</div>
 						    </div>
 						 </div>
 

@@ -4,16 +4,16 @@
 		<div class="panel panel-default">
 				  <div class="panel-heading">
 				    @if(isset($leave->other_leave) AND (!empty($leave->other_leave)))
-				    	<h6 class="panel-title">{{ $leave->other_leave }}</h6>	
+				    	<h6 class="panel-title"><strong>{{ $leave->other_leave }}</strong></h6>	
 				    @else
-				    	 <h6 class="panel-title">{{ $leave->leave_type }}</h6>
+				    	 <h6 class="panel-title"><strong>{{ $leave->leave_type }}</strong></h6>
 				    @endif
 				  </div>
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
 					    <tr>
-					    	<p>	преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в таком отпуске: {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
+					    	<p>	Преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
 					    	 
 					    	</p>
 					    	<p> C таким комметариям: {{ $leave->comment }}.</p>

@@ -158,7 +158,8 @@ class AuthController extends Controller
             ->update(['password' => $newPassword]);
 
             return $this->logout();
-        }else{
+        }
+        else{
             return back()->withInput()->withErrors(['password' =>' invalid old password']);
         }
 

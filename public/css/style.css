@@ -5,11 +5,12 @@ body{
 
 }
 .container{
-	/*background-color: Silver;*/
+	/*background-color: SteelBlue;*/
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: auto;
+	
 }
 .nav {
 	background-color:SteelBlue;

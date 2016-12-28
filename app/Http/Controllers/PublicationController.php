@@ -164,30 +164,6 @@ class PublicationController extends Controller
 
          return \Redirect::to('/profile/' .\Auth::User()->id. '/archives/publications');
     }
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function upload(Request $request)
-    {
-        $user = \Auth::User();
-        $data =  $request->file('publication_file');
-        echo $data;
-      /*  $file = $user->id .'_'. time().'_' .$data;
-        $data->move('uploads/publications', $file);
     
-        $file_path = "/uploads/publications/" .$file;
-
-        $user->profile_picture = $file_path;
-        $user->save();
-
-        return $this->index($user_id);
-*/
-       
-
-
-    }
 
 }

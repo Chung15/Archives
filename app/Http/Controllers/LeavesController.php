@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use App\Leave;
 use Carbon\Carbon;
+use App\Child;
 
 class LeavesController extends Controller
 {
@@ -71,6 +72,7 @@ class LeavesController extends Controller
      */
     public function show($id)
     {
+        //this function should know Child
          $leave = Leave::findOrFail($id); 
          //$user = User::findOrFail($leave->user_id);
         $user = $leave->user()->get()->first();

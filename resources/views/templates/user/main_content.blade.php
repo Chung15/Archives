@@ -16,9 +16,8 @@
 							  <i class="pull-right fa fa-camera fa-2x" id="uploadImg" data-toggle="tooltip" data-placement="left" title="Change picture"></i>
 							  	<input type="file" name="profile_picture" class="hidden" id="inputUploadImg">
 							  	<div class="form-group hidden" id="imgUploadBtn">
-							  		<button type="cancel" name="cancel" value="cancel">Cancel</button>
-							  		<button type="submit" name="submit" value="submit">Submit</button>
-							  		
+							  		<button class="btn btn-primary btn-sm" type="submit" name="cancel" value="cancel">Cancel</button>
+							  		<button href="" class="btn btn-primary btn-sm" type="submit" name="submit" value="submit">Submit</button>
 							  	</div>
 						 @endif
 						  </form>
@@ -42,14 +41,17 @@
 									<tr><td> Lastname: {{ $user->lastname }} </td></tr>
 									<tr><td> INN: {{ $user->INN }} </td></tr>
 									<tr><td> Passport №: {{ $user->passport_number }} </td></tr>
-									<tr><td> Link: {{ $user->passport_link }} </td></tr>
+									<tr><td> Passport_link: <a href="{{ $user->passport_link }}" target="_blank">{{ $user->passport_link }}</a> </td></tr>
 									<tr><td> Birthdate: {{ $user->dateOfBirth }} </td></tr>
 									<tr><td> Marital status: {{ $user->maritalStatus}} </td></tr>
 										
 								</tbody>
 							</table>
 								  @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
-									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/' . Auth::user()->id . '/edit') }}" id="editProfile">edit profile</a>
+									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/edit') }}" id="editProfile">edit profile</a>
+
+									<!-- admin cannot edit user password -->
+									@elseif((Auth::check()) AND (Auth::User()->id === $user->id))
 
 									<button class="btn btn-primary pull-left btn-xs" data-toggle="modal" data-target="#myModal" id="updatePassword">update password
 									</button> 

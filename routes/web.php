@@ -24,6 +24,7 @@ Route::group(['middleware' => ['web']], function () {
 
  route::group(['middleware' => 'auth'], function () {
  Route::match(array('GET', 'POST'), '/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
+ //Route::post('/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
  Route::post('/profile/{user_id}/publication_file', ['as' => 'uploadFile', 'uses' =>'PublicationController@upload']);
    /*---------forms routes---------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
@@ -78,13 +79,13 @@ Route::group(['middleware' => ['web']], function () {
 
  // Route::resource('/', 'UserController', ['only' => ['edit', 'update']]);
 
-  Route::get('/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
-  Route::patch('/{id}', ['as' => 'update','uses' => 'UserController@update']);
+  Route::get('/profile/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
+  Route::patch('/profile/{id}', ['as' => 'update','uses' => 'UserController@update']);
   //Route::resource('/id', 'UserController', ['only' => ['edit', 'update']]);
   Route::get('/profile/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
 
   Route::get('/profile/{user_id}/editContact/{adress_id}', ['as' => 'edit', 'uses' =>'AdressController@edit']);
-  Route::patch('/{id}', ['as' => 'update','uses' => 'AdressController@update']);
+  Route::patch('/profile/{user_id}/{id}', ['as' => 'update','uses' => 'AdressController@update']);
 
 
   Route::patch('/profile/{id}/updatePassword', ['as' => 'updatePassword','uses' => 'AuthController@updatePassword']);

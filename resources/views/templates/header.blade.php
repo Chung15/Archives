@@ -81,7 +81,7 @@
 							<a href="{{  url('child') }}">Children</a>
 						</li>
 						<li>
-							<a href="{{  url('leave') }}">Leave</a>
+							<a href="{{  url('leave') }}">Leaves</a>
 						</li>
 						<li>
 							<a href="{{  url('training') }}">Training</a>

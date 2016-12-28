@@ -109,7 +109,7 @@ class OtherController extends Controller
         $other = Other::findOrFail($id);
         $other->update($request->all());
 
-        \Session::flash('sucess', 'sucessfully updated');
+        flash('sucessfully updated','sucess');
 
         return redirect('/profile/' .\Auth::User()->id. '/archives/other');
         //return $this->show($id);

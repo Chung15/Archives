@@ -139,6 +139,8 @@ class UserController extends Controller
         $titles = $user->title()->get();
         $degrees = $user->degree()->get();
         $others = $user->other()->get();
+        //this was added so as to show the user birthday in the format d/m/y in the user profile view
+        $user->dateOfBirth= Carbon::createFromFormat('Y-m-d',$user->dateOfBirth)->format('d/m/Y');
 
         return view('templates.user.userProfile', compact('user', 'adress', 'topics','trainings','publications','children','diplomas','leaves','titles','degrees','others'));
     }
@@ -151,8 +153,11 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        $user = \Auth::User()->findOrFail($id);
-        //$user = User::findOrFail($id);  
+         //removed $user = \Auth::User()->findOrFail($id); and replaced by $user = \Auth::User();
+        //$user = \Auth::User();
+        //to edit , since there is now an admin , the user should be the one we click on not thw one connected
+
+        $user = User::findOrFail($id);  
 
        $user->dateOfBirth= Carbon::createFromFormat('Y-m-d',$user->dateOfBirth)->format('d/m/Y');
 
@@ -170,9 +175,11 @@ class UserController extends Controller
     public function update(Request $request, $id)
     {
          $this->validate($request, User::$editValidationRules);
+         //removed $user = \Auth::User()->findOrFail($id); and replaced by $user = \Auth::User();
+         //to edit , since there is now an admin , the user should be the one we click on not thw one connected
 
-         $user = \Auth::User()->findOrFail($id);
-        //$user = User::findOrFail($id);
+        // $user = \Auth::User();
+        $user = User::findOrFail($id);
          //dd($user);
 
         $data = $request->all();
@@ -183,8 +190,8 @@ class UserController extends Controller
 
         //return redirect('/');
         //return Redirect::to('/Authprofile');
-        //return redirect()->route('Authprofile');
-        return $this->show($id);
+        return redirect('/profile/' .$user->id);
+        //return $this->show($id);
     }
 
     /**
@@ -199,9 +206,14 @@ class UserController extends Controller
     }
 
     public function uploadImg(Request $request) {
-       
+       //on doit verifier si le input field est vide que le bouton cancel fonctionne sans renvoyer d'erreur.
          $user = \Auth::User();
          $data =  $request->file('profile_picture');
+
+         if (is_null($data)) {
+            return redirect()->back();
+        }
+        else{
          $img = $user->id .'_'. time().'_' .$data->getClientOriginalName();
 
         $data->move('images/user_pictures', $img);
@@ -211,7 +223,9 @@ class UserController extends Controller
         $user->profile_picture = $img_path;
         $user->save();
 
-       return $this->show($user->id);
+       //return $this->show($user->id);
+        return redirect('/profile/' .$user->id);
+        }
 
 
     }

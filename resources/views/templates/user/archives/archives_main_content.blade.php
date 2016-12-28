@@ -36,7 +36,7 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ action('LeavesController@index', [$user->id]) }}"> Leave</a>
+				   			 <a href="{{ action('LeavesController@index', [$user->id]) }}"> Leaves</a>
 				
 	    		 			
 			    		 </td>
