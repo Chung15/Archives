@@ -14,13 +14,18 @@
 
 Route::group(['middleware' => ['web']], function () {
  
-    Route::get('/', 'UserController@index');
+  Route::get('/', 'UserController@index');
   Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);// appelle le formulaire pour se connecter
   Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);// execute la connection
 
   Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
   Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
-   Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
+  Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
+ /* Route::post('/password/email', ['as' => 'reset','uses' => 'Auth\ForgotPasswordController']);
+  Route::get('/email', ['as' => 'email','uses' => 'AuthController@sendLink']);
+  Route::post('/password/reset', ['as' => 'reset','uses' => 'Auth\ResetPasswordController']);
+   Route::get('/reset', ['as' => 'reset','uses' => 'AuthController@resetPassword']);*/
+
 
  route::group(['middleware' => 'auth'], function () {
  Route::match(array('GET', 'POST'), '/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);

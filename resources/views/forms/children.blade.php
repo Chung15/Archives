@@ -3,7 +3,7 @@
 	@section('content')
 		@if(isset($child))
 			{{ Form::model($child, ['method'=>'PATCH', 'action' => ['ChildController@update', $child->id]]) }}
-			<div><strong>Children</strong></div>
+			<div class="formTitles"><strong>Children</strong></div>
 			<hr/>
 			<div class = "row">
 				<div class = "col-md-2"></div>
@@ -51,7 +51,7 @@
 		@else
 
 		{{ Form::open(['url' => 'saveChildren']) }}
-			<div><strong>Children</strong></div>
+			<div class="formTitles"><strong>Children</strong></div>
 			<hr/>
 			<div class = "row">
 				<div class = "col-md-2"></div>

@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\DB;
 
 class AuthController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('guest', ['only' => 'login', 'register']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -114,6 +118,17 @@ class AuthController extends Controller
     {
         return view('templates.register');
     }
+     public function sendLink()
+    {
+        return view('auth.passwords.email');
+    }
+
+     public function resetPassword()
+    {
+        return view('auth.passwords.reset');
+    }
+
+
 
    /* public function processRegister(UserRequest $request)
     {

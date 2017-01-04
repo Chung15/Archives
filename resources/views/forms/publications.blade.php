@@ -14,7 +14,8 @@
 
 		@if(isset($publication))
 			{{ Form::model($publication,['method'=>'PATCH', 'action' => ['PublicationController@update', $publication->id], 'enctype' => 'multipart/form-data']) }}
-				<div><strong> Edit Publications</strong></div>
+			
+				<div class="formTitles"><strong> Edit Publications</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -82,7 +83,7 @@
 
 		{{ Form::open(['url'=>'savePub', 'enctype' => 'multipart/form-data']) }}
 
-			<div><strong>Publications</strong></div>
+			<div class="formTitles"><strong>Publications</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -126,7 +127,8 @@
 
 						<div class = 'form-group control-panel'>
 						    {{ Form:: label('publication_file', 'Upload file:') }}
-							<input type="file" name="publication_file" class ="form-group control" >
+							<!-- <input type="file" name="publication_file" class ="form-group control" > -->
+							{{ Form:: file('publication_file', null, ['class'=> 'form-control']) }}
 				    	</div>
 				        <div>
 							{{ Form::submit('submit', ['class' => 'btn btn-primary form_control']) }}

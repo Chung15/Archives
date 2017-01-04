@@ -18,7 +18,6 @@ class CreatePublicationsTable extends Migration
             $table->integer('user_id')->unsigned();
             $table->string('publication_file')->nullable();
             $table->string('type');//select box
-           // $table->string('authors');
             $table->string('title');
             $table->string('specialisation');
             $table->string('description')->nullable();
@@ -30,11 +29,7 @@ class CreatePublicationsTable extends Migration
             ->references('id')
             ->on('users')
             ->onDelete('cascade');
-/*
-            $table->foreign('author_id')
-            ->references('id')
-            ->on('authors')
-            ->onDelete('no action');*/
+
 
             $table->timestamps();
         });

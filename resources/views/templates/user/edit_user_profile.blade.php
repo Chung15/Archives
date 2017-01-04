@@ -1,11 +1,12 @@
 @extends('master')
 	@section('content')
 <div class="row">
-		<div class="col-md-8">
+		<div class="col-md-3"></div>
+		<div class="col-md-5">
 			<fieldset>
     		<legend>Edit profile</legend>
     			{{ Form::model($user,['method'=>'PATCH', 'action' => ['UserController@update', $user->id]]) }}
-			<hr/>
+			<br>
 		
 		   			<div class = 'form-group'>
 					    {{ Form:: label('firstname', 'Firstame:') }}
@@ -76,6 +77,7 @@
 							{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 					</div>
+					<div class="col-md-4"></div>
 	
 			{{ Form::close() }}
 

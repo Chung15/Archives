@@ -1,16 +1,19 @@
 body{
-	/*background-image: url('/images/background2.jpg');*/
-	background-color:LightSteelBlue;
-	background-image: no-repeat;
+	background-image: url('/images/background.jpg');
+	/*background-color:LightSteelBlue;*/
+	background-position: fixed;
+	background-repeat: initial;
 
 }
 .container{
-	/*background-color: SteelBlue;*/
+	background-color: LightSteelBlue;
 	margin-top: 20px;
 	margin-left: auto;
 	margin-right: auto;
 	padding: auto;
-	
+	border-radius: 10px;
+	position: relative;
+
 }
 .nav {
 	background-color:SteelBlue;
@@ -23,16 +26,51 @@ body{
 .nav nav-tabs{
 
 }
+h2{
+	padding-left: 10px;
+}
+a {
+	text-decoration: none;
+	text-align:justify;
+}
+#appName{
+	color:CadetBlue;
+}
+.topmenu{
+	color:CadetBlue;
+
+}
+
+.table-rounded{
+	background-color: AliceBlue;
+	border-radius: 5px;
+	padding-left: 20px;
+	position: relative;
+}
+tr td a{
+	font-weight: bold;
+	
+
+}
+
+#logo{
+	padding-left: 5px;
+	padding-top: 5px;
+}
 .row header {
 	background-color: LightSteelBlue;
 	margin: 10px;
 	padding: 10px;
 }
 ul li a {
-	color: black;
+	color:MidnightBlue;
+	font-weight: bold;
+	text-decoration: none;
+}
+li a{
 }
 .footer {
-	background-color:grey ;
+	background-color: SteelBlue;
 	margin-top: 100px;
 
 }
@@ -41,21 +79,25 @@ ul li a {
 	margin-top: 40px;
 
 }
-.formTitle {
-	margin-top: 40px;
+.formTitles {
+	padding-left: 20px;
 }
 .img-circle{
 	margin-left: auto;
 	margin-right:5px;
-	padding-left:15px;
+	padding-left:20px;
 	position: relative;
+	float: left;
 }
 .row footer {
 	position: fixed;
 	margin-top:30px;
 }
 #accordion {
-	padding-left:15px;
+	padding-left:20px;
+}
+#accordionCollapse{
+	padding-right: 20px;
 }
 #table-rounded {
 	border-radius:3px;

@@ -4,7 +4,7 @@
 		@if(isset($topic))
 			{{ Form::model($topic, ['method'=>'PATCH', 'action' => ['TopicsController@update', $topic->id]]) }}
 		
-			<div><strong>Thesis Topics</strong></div>
+			<div class="formTitles"><strong>Thesis Topics</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -51,7 +51,7 @@
 
 		{{ Form::open(['url' => 'saveTopic']) }}
 		
-			<div><strong>Thesis Topics</strong></div>
+			<div class="formTitles"><strong>Thesis Topics</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>

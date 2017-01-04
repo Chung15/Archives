@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
@@ -10,20 +10,20 @@
         <link href="/css/jquery-ui.structure.css" rel="stylesheet">
         <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
         <link href="/css/style.css" rel="stylesheet">
-</head>
-@include('templates.header')
-<body>
-	<div class="container-fluid">
-		<div class="row">
-			<div class="col-md-12">
+</head> -->
+@extends('master')
+
+	@section('content')
+
+			<!-- <div class="col-md-12"> -->
 				<div class="row">
-					<div class="col-md-10">
-						<h3 class="text-info">
+					<!-- <div class="col-md-10"> -->
+						<h3 class="text-info formTitles">
 							help
 						</h3>
-						<div class="row">
-							<div class="col-md-2">
-								<table class="table table-hover table-bordered">
+						<!-- <div class="row"> -->
+							<div class="col-md-2 formTitles">
+								<table class="table table-hover table-bordered table-rounded">
 									<tbody>
 										<tr><td>forms</td></tr>
 										<tr><td>about</td></tr>
@@ -37,26 +37,28 @@
 									</tbody>
 								</table>
 							</div>
+
 							<div class="col-md-8">
 								<table class="table">
 									<tr>this will be description</tr>
+								</table>
+							</div>
 									
 							<div class="col-md-2">
+							something else
 							</div>
-						</div>
-					</div>
-					<div class="col-md-2">
-					</div>
 				</div>
-			</div>
-		</div>
-	</div>
+					<!-- <div class="col-md-2">
+					</div> -->
+				<!-- </div> -->
+@endsection
+			<!-- </div>
+		</div> -->
 
-<script src="/js/jquery.min.js"></script>
+<!-- <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
-    <script src="/js/scripts.js"></script>
+    <script src="/js/scripts.js"></script> -->
 
-</body>
-</html>
-
+<!-- </html>
+ -->
     

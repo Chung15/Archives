@@ -46,6 +46,10 @@ $(document).ready(function() {
 	   console.log('uploaded file as', img);
     });
 
+   /*$('.menuli').on('mousedown', function() {
+   		$('.menuli').addClass('active');
+   });*/
+
 
 
 

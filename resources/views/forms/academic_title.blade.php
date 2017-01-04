@@ -4,7 +4,8 @@
         @if(isset($title))
              <div class="row">
                     {{ Form::model($title,['method'=>'PATCH', 'action' => ['AcademicTitleController@update', $title->id]]) }}
-                          <div><strong>Title</strong></div>
+                          <div class="formTitles"><strong>Title</strong></div>
+                          <hr/>
                                 <div class = "col-md-2"></div>
                                 <div class="col-md-4">
 
@@ -58,7 +59,8 @@
                       
                         <div class="row">
                               {{ Form::open(['url' => 'saveTitle']) }}
-                                  <div><strong>Title</strong></div>
+                                  <div class="formTitles"><strong>Title</strong></div>
+                                  <hr/>
                                           <div class = "col-md-2"></div>
                                           <div class="col-md-4">
 

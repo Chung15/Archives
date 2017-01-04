@@ -30,19 +30,12 @@ class Publication extends Model
             'description' => 'required',
             'journal' => 'required',
             'published_on' => 'required',
-           // 'publication_file' => 'required',
+            'publication_file' => 'required',
 
         ];
     public function user() {
         return $this->belongsTo('App\User');
     }
 
-    public function authors () {
-        return $this->belongsToMany('App\Author', 'publication_author');
-    }
-
-    /* public function options() {
-
-        return $this->belongsToMany('App\User', '');
-    }*/
+  
 }

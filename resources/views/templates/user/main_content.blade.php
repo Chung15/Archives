@@ -4,7 +4,7 @@
 				<div class="profile_picture col-md-4">
 					<div class="row">
 					@if(isset($user->profile_picture))
-						<img class="img-circle" src="{{ $user->profile_picture}}" " height="200" width="200"/>
+						<img class="img-circle" src="{{ $user->profile_picture}}" height="200" width="200"/>
 					@else
 						<img class="img-circle" src="/images/user-logo.png" height="200" width="200">
 					@endif
@@ -31,6 +31,8 @@
 				<div class="col-md-8">
 					<div class="panel ">
 	            <div class="panel-heading">
+	            <strong><h4>General Information</h4></strong>	
+				</div>
 	            	  <div class="panel-body" id="userProfileInfo">
 
 	            	  
@@ -49,9 +51,10 @@
 							</table>
 								  @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/edit') }}" id="editProfile">edit profile</a>
+								  @endif
 
 									<!-- admin cannot edit user password -->
-									@elseif((Auth::check()) AND (Auth::User()->id === $user->id))
+									@if((Auth::check()) AND (Auth::User()->id === $user->id))
 
 									<button class="btn btn-primary pull-left btn-xs" data-toggle="modal" data-target="#myModal" id="updatePassword">update password
 									</button> 
@@ -63,7 +66,6 @@
 
 
 						</div>
-				</div>
 			</div>
 				</div>
 			</div>

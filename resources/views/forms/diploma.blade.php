@@ -5,7 +5,8 @@
 		@if(isset($diploma))
 			<div class="row">
 				{{ Form::model($diploma, ['method'=>'PATCH', 'action' => ['DiplomaController@update', $diploma->id]]) }}
-						<div><strong>Diploma</strong></div>
+						<div class="formTitles"><strong>Diploma</strong></div>
+						<hr/>
 							<div class = "col-md-2"></div>
 							<div class="col-md-6">
 
@@ -73,7 +74,8 @@
 
 				<div class="row">
 					{{ Form::open(['url' => 'saveDiploma']) }}
-						<div><strong>Diploma</strong></div>
+						<div class="formTitles"><strong>Diploma</strong></div>
+						<hr/>
 							<div class = "col-md-2"></div>
 							<div class="col-md-6">
 

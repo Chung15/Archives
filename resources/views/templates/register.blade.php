@@ -80,7 +80,7 @@
 						     <label for="passport_link" class="col-md-4 control-label">
 						       passport_link</label>
 						     <div class="col-md-8">
-						          <input type="text" class="form-control" name="passport_link" id="passport_link" placeholder="Enter passport_link..." value="{{ old('passport_link') }}" />
+						          <input type="text" class="form-control" name="passport_link" id="passport_link" placeholder="Enter passport_link..." value="{{ old('passport_link') }}" data-toggle="tooltip" data-placement="left" title="add a link from your Google Drive"/>
 						           @if ($errors->has('passport_link'))
 						          	    <span class="help-block">
 						          	        <strong>{{ $errors->first('passport_link') }}</strong>

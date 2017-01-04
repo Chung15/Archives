@@ -23,11 +23,11 @@
 					    <label for="password">Password</label>
 					    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
 					  </div>
-					  <div class="checkbox">
+					<!--   <div class="checkbox">
 					    <label>
 					      <input type="checkbox"> Remember Me
 					    </label>
-					  </div>
+					  </div> -->
   						<button type="submit" class="btn btn-default">Submit</button>
 
   						@if (count($errors))
@@ -48,7 +48,7 @@
 				</div>
 				<div class="panel-footer">
 					<div class="">
-					    <label> <a href="#"> Forgot my password  <a>
+					    <label> <a href="{{ url('/email') }}"> Forgot my password  <a>
 					    </label>
 					  </div>
 				</div>

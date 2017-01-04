@@ -1,16 +1,12 @@
 @extends('master')
 
 	@section('content')
-		@if (session()->has('flash_notification.message'))
-		    <div class="alert alert-{{ session('flash_notification.level') }}">
-		        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-
-		        {!! session('flash_notification.message') !!}
-		    </div>
-		@endif
 		
 		@if(isset($other))
 			{{ Form::model($other,['method'=>'PATCH', 'action' => ['OtherController@update', $other->id]]) }}
+		@if(Session::has('message'))
+    <h2 style="color: green"><i class="fa fa-star"></i>{{Session::get('message')}}</h2>
+@endif
 				
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -46,7 +42,7 @@
 		
 			{{ Form::open(['url' => 'saveOther']) }}
 
-				<div>Add an other information</div>
+				<div class="formTitles">Add another information</div>
 					<hr/>
 					<div class = "row">
 						<div class = "col-md-3"></div>

@@ -151,11 +151,12 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
          //removed $user = \Auth::User()->findOrFail($id); and replaced by $user = \Auth::User();
         //$user = \Auth::User();
         //to edit , since there is now an admin , the user should be the one we click on not thw one connected
+
+    public function edit($id)
+    {
 
         $user = User::findOrFail($id);  
 
@@ -171,16 +172,16 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @param  int  $id
      * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-         $this->validate($request, User::$editValidationRules);
          //removed $user = \Auth::User()->findOrFail($id); and replaced by $user = \Auth::User();
          //to edit , since there is now an admin , the user should be the one we click on not thw one connected
 
         // $user = \Auth::User();
+     */
+
+    public function update(Request $request, $id)
+    {
+         $this->validate($request, User::$editValidationRules);
         $user = User::findOrFail($id);
-         //dd($user);
 
         $data = $request->all();
 
@@ -188,9 +189,10 @@ class UserController extends Controller
 
         $user->update($data);
 
+        return redirect('/profile/' .$user->id);
+
         //return redirect('/');
         //return Redirect::to('/Authprofile');
-        return redirect('/profile/' .$user->id);
         //return $this->show($id);
     }
 
@@ -205,8 +207,9 @@ class UserController extends Controller
         //
     }
 
-    public function uploadImg(Request $request) {
        //on doit verifier si le input field est vide que le bouton cancel fonctionne sans renvoyer d'erreur.
+    
+    public function uploadImg(Request $request) {
          $user = \Auth::User();
          $data =  $request->file('profile_picture');
 
@@ -223,11 +226,11 @@ class UserController extends Controller
         $user->profile_picture = $img_path;
         $user->save();
 
-       //return $this->show($user->id);
         return redirect('/profile/' .$user->id);
         }
 
 
     }
 
+       //return $this->show($user->id);
 }

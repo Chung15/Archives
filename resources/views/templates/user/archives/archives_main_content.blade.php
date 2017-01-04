@@ -1,7 +1,7 @@
 
-<div class="col-md-3">
-	<div class="row">
-		<table class="table table-striped table-hover" id="table-rounded">
+<div class="col-md-3 ">
+	<div class="row table-rounded">
+		<table class="table  table-hover">
 
 
 			    	<tr>

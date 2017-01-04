@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Other;
 use App\User;
+use Session;
 
 class OtherController extends Controller
 {
@@ -109,9 +110,9 @@ class OtherController extends Controller
         $other = Other::findOrFail($id);
         $other->update($request->all());
 
-        flash('sucessfully updated','sucess');
+        //flash('sucessfully updated','sucess');
 
-        return redirect('/profile/' .\Auth::User()->id. '/archives/other');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/other')->with('message', 'successfully updated');
         //return $this->show($id);
         
 

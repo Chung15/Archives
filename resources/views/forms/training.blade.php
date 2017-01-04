@@ -3,7 +3,7 @@
 	@section('content')
 		@if(isset($training))
 			{{ Form::model($training, ['method'=>'PATCH', 'action' => ['TrainingController@update', $training->id]]) }}
-				<div> <strong>Training</strong></div>
+				<div class="formTitles"> <strong>Training</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -27,12 +27,12 @@
 				   		<div class = 'form-group control-panel'>
 					        {{ Form:: label('start_date', 'Start:') }}
 					    
-					        {{ Form:: text('start_date', null, ['class' => 'date']) }}
+					        {{ Form:: text('start_date', null, ['class' => 'form-control date']) }}
 				        </div>
 				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('end_date', 'End: ') }}
 					    
-					        {{ Form:: text('end_date', null, ['class' => 'date']) }}
+					        {{ Form:: text('end_date', null, ['class' => 'form-control date']) }}
 				        </div>
 
 
@@ -57,7 +57,7 @@
 
 			{{ Form::open(['url' => 'saveTraining']) }}
 
-				<div> <strong>Training</strong></div>
+				<div class="formTitles"> <strong>Training</strong></div>
 					<hr/>
 					<div class = "row">
 						<div class = "col-md-3"></div>
@@ -81,12 +81,12 @@
 					   		<div class = 'form-group control-panel'>
 						        {{ Form:: label('start_date', 'Start:') }}
 						    
-						        {{ Form:: text('start_date', null, ['class' => 'date']) }}
+						        {{ Form:: text('start_date', null, ['class' => 'form-control date']) }}
 					        </div>
 					        <div class = 'form-group control-panel'>
 						        {{ Form:: label('end_date', 'End: ') }}
 						    
-						        {{ Form:: text('end_date', null, ['class' => 'date']) }}
+						        {{ Form:: text('end_date', null, ['class' => 'form-control date']) }}
 					        </div>
 
 

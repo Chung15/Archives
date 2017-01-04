@@ -3,7 +3,8 @@
 			<div class="row ">
 				<div class="col-md-4">
 					
-					<img src="/images/dnu-logo.png" width="60" height="60">
+					<img src="/images/dnu-logo.png" width="60" height="60" id="logo">
+					<strong id="appName">EOM ARCHIVER</strong>
 				
 				</div>
 				<div class="col-md-4">
@@ -12,38 +13,38 @@
 					<ul class="list-inline">
 						@if(Auth::check())
 
-							<li>
-								Welcome {{ Auth::User()->firstname }}
+							<li class="topmenu">
+								<strong>Welcome {{ Auth::User()->firstname }}</strong>
 							</li>
 							<li>
-								<a href="{{ url('logout') }}"
+								<a class="topmenu" href="{{ url('logout') }}"
 	                                onclick="event.preventDefault();
-	                                     document.getElementById('logout-form').submit();">|Logout
+	                                     document.getElementById('logout-form').submit();"><strong>|Logout</strong>
 	                            </a>
 
-	                            <form id="logout-form" action="{{ url('logout') }}" method="POST" style="display: none;">
+	                            <form id="logout-form" action="{{ url('logout') }}" method="POST" class="hidden" ">
 	                                {{ csrf_field() }}
 	                            </form>
 							</li>
-							<li>
-								<a class="fa fa-question-circle" aria-hidden="true" href="{{ url('help') }}">
+							<li class="">
+								<a class="fa fa-question-circle topmenu" aria-hidden="true" href="{{ url('help') }}">
 	                            </a>
 							</li>
 							
 						@else
 							<li>
-								<a href="{{ url('login') }}">|Login
+								<a class="topmenu" href="{{ url('login') }}">|Login
 	                            </a>
 
 	                           
 							</li>
 
 							<li>
-								<a href="{{ url('register') }}">|Register
+								<a class="topmenu" href="{{ url('register') }}">|Register
 	                            </a>
 							</li>
 							<li>
-								<a class="fa fa-question-circle" aria-hidden="true" href="{{ url('help') }}">
+								<a class="fa fa-question-circle topmenu" aria-hidden="true" href="{{ url('help') }}">
 	                            </a>
 							</li>
 						@endif
@@ -52,19 +53,19 @@
 			</div>
 
 			<ul class="nav nav-tabs">
-				<li class="active">
+				<li class="menuli">
 					<a href="{{  url('/') }}">Home</a>
 				</li>
 				
 				@if(Auth::check())
 					
-					<li> <a href="{{  url('/profile/'.Auth::user()->id) }}">Profile</a> </li>
+					<li class="menuli"> <a href="{{  url('/profile/'.Auth::user()->id) }}">Profile</a> </li>
 				
-					<li class="">
+					<li class="menuli">
 						<a href="{{ url('/profile/'.Auth::user()->id .'/archives') }}">Archives</a>
 					</li>
 					
-					<li class="dropdown pull-right">
+					<li class="dropdown pull-right menuli">
 					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>

@@ -21,8 +21,8 @@ class PublicationController extends Controller
     public function index($user_id)
     {
         $user = User::findOrFail($user_id);
-        $publications = $user->publication()->get();
-       // $options = Options::pluck('name','id');
+        $publications = $user->publication()->latest('created_at')->get();
+        // $latest = Publication::latest()->first();
         return view('layouts.newPublication', compact('publications','user'));
     }
 
@@ -35,24 +35,7 @@ class PublicationController extends Controller
     {
         return view('forms.publications');
     }
-
-     private function syncAuthors(Publication $publication, array $authors) {
-          $publication->authors()->sync($authors);
-
-    }
-
-   /* private function createpublication(PublicationRequest $request) {
-        $publication = new Publication($request->all());
-         
-         $article->user_id = \Auth::user()->id;
-         //$article->save();
-        $article =  \Auth::user()->articles()->create($request->all());
-        
-        $this->syncauthors( $article, $request->input('tag_list'));   
-
-        return $article;
-
-    }*/
+    
 
     /**
      * Store a newly created resource in storage.
@@ -96,9 +79,7 @@ class PublicationController extends Controller
           \Session::flash('invalid_format', 'invalid file format, only pdf allowed');
 
          return back()->withInput()->withErrors(['publication_file' =>'invalid file format, only pdf allowed']);
-        
-
-        
+             
        
     }
 
@@ -127,6 +108,7 @@ class PublicationController extends Controller
     {
         $publication = Publication::findOrFail($id);
         $publication->published_on= Carbon::createFromFormat('Y-m',$publication->published_on)->format('m/Y');
+        $publication->publication_file;
          return view('forms.publications', compact('publication'));
     }
 
@@ -143,6 +125,21 @@ class PublicationController extends Controller
         $publication = Publication::findOrFail($id);
          $data = $request->all();
           $data['published_on'] = Carbon::createFromFormat('m/Y',$data['published_on'])->format('Y-m');
+
+        $publication_obj = Input::file('publication_file');
+         $extension = Input::file('publication_file')->getClientOriginalExtension();
+         $user = $publication->user()->get()->first(); 
+
+         if($publication_obj->isValid() AND $extension === 'pdf')
+         {
+            $publication_file = $user->id .'_'. time().'_' .$publication_obj->getClientOriginalName();
+
+            $publication_obj->move('uploads/publications', $publication_file);
+    
+            $publication_file_path = "/uploads/publications/" .$publication_file;
+        }
+
+        $data['publication_file'] = $publication_file_path;
        
         $publication->update($data);
 

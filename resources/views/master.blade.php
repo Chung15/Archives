@@ -37,12 +37,12 @@
 
                     </div> 
 
-                </div>
-
-            </div>
                     <div class="row footer">
                         @include('templates.footerContent')
                     </div>
+                </div>
+
+            </div>
         </div>
        
 
