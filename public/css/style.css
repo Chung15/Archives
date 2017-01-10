@@ -13,6 +13,7 @@ body{
 	padding: auto;
 	border-radius: 10px;
 	position: relative;
+	box-shadow: 5px 5px 2px lightGrey;
 
 }
 .nav {
@@ -23,11 +24,35 @@ body{
 .nav-tabs {
 
 }
-.nav nav-tabs{
+.fa-times {
 
+}
+.nav nav-tabs{
+	margin-bottom: 50px;
+}
+.singles{
+	margin-top: 50px;
+
+}
+.table-hover{
+	color: SteelBlue;
+}
+#imgUploadBtn{
+	padding-left: 20px;
+}
+div h4 a{
+	color: SteelBlue;
+}
+h4{
+	color: SteelBlue;
+
+}
+h4 a strong{
+	color: SteelBlue;
 }
 h2{
 	padding-left: 10px;
+	color: SteelBlue;
 }
 a {
 	text-decoration: none;
@@ -40,7 +65,11 @@ a {
 	color:CadetBlue;
 
 }
+#carousel{
+	padding-left: 20px;
+	border-radius: 5px;
 
+}
 .table-rounded{
 	background-color: AliceBlue;
 	border-radius: 5px;
@@ -49,8 +78,6 @@ a {
 }
 tr td a{
 	font-weight: bold;
-	
-
 }
 
 #logo{

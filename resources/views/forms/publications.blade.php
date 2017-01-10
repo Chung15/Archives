@@ -15,59 +15,59 @@
 		@if(isset($publication))
 			{{ Form::model($publication,['method'=>'PATCH', 'action' => ['PublicationController@update', $publication->id], 'enctype' => 'multipart/form-data']) }}
 			
-				<div class="formTitles"><strong> Edit Publications</strong></div>
+				<div class="formTitles"><strong> Редактировать публикации</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
 						<div class = 'form-group'>
-						    {{ Form:: label('type', 'Type:') }}
+						    {{ Form:: label('type', 'Тип:') }}
 
 						    {{ Form:: select('type', ['стаття ' => 'стаття' ,'монографія ' => 'монографія','підручник' => 'підручник','навч. посібник' => 'навч. посібник','методична розробка' =>'методична розробка','тези доповіді' =>'тези доповіді'], ['class'=> 'form-control']) }}
 				    	</div>
 
 
 						<div class = 'form-group'>
-						    {{ Form:: label('title', 'Title:') }}
+						    {{ Form:: label('title', 'Название:') }}
 
 						    {{ Form:: text('title', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 
 				        <div class = 'form-group'>
-						    {{ Form:: label('specialisation',  'Specialisation:') }}
+						    {{ Form:: label('specialisation',  'Специальность:') }}
 
 						    {{ Form:: text('specialisation', null, ['class'=> 'form-control']) }}
 				    	</div>
 				    	
-				    	<div class = 'form-group control-panel'>
-					        {{ Form:: label('description', 'Description:') }}
-					    
-					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
-				        </div>
 				        <div class = 'form-group'>
-						    {{ Form:: label('journal', 'journal:') }}
+						    {{ Form:: label('journal', 'Журнал:') }}
 
 						    {{ Form:: text('journal', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>
-					        {{ Form:: label('published-on', 'Published on:') }}
+					        {{ Form:: label('published-on', 'Опубликована в:') }}
 					    
 					        {{ Form:: text('published_on', null, ['class'=> 'form-control', 'id' => 'month'])  }}
 				        </div>
+				    	<div class = 'form-group control-panel'>
+					        {{ Form:: label('description', 'Описание:') }}
+					    
+					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
+				        </div>
 
 						<div class = 'form-group control-panel'>
-						    {{ Form:: label('publication_file', 'Upload file:') }}
+						    {{ Form:: label('publication_file', 'Скачать файл:') }}
 
 						    {{ Form:: file('publication_file', null, ['class'=> 'form-control']) }}
 				    	</div>
 				         <div>
-								{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+								{{ Form::submit('сохранить', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
 				   
 						</div>
 						<div>
-								{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
+								{{ Form::submit('отметить', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 						</div>
 
@@ -83,50 +83,50 @@
 
 		{{ Form::open(['url'=>'savePub', 'enctype' => 'multipart/form-data']) }}
 
-			<div class="formTitles"><strong>Publications</strong></div>
+			<div class="formTitles"><strong>Публикация</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
 						<div class = 'form-group'>
-						    {{ Form:: label('type', 'Type:') }}
+						    {{ Form:: label('type', 'Тип:') }}
 
 						    {{ Form:: select('type', ['стаття ' => 'стаття' ,'монографія ' => 'монографія','підручник' => 'підручник','навч. посібник' => 'навч. посібник','методична розробка' =>'методична розробка','тези доповіді' =>'тези доповіді'], ['class'=> 'form-control']) }}
 				    	</div>
 
 
 						<div class = 'form-group'>
-						    {{ Form:: label('title', 'Title:') }}
+						    {{ Form:: label('title', 'Название:') }}
 
 						    {{ Form:: text('title', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 
 				        <div class = 'form-group'>
-						    {{ Form:: label('specialisation',  'Specialisation:') }}
+						    {{ Form:: label('specialisation',  'Специальность:') }}
 
 						    {{ Form:: text('specialisation', null, ['class'=> 'form-control']) }}
 				    	</div>
 				    	
-				    	<div class = 'form-group control-panel'>
-					        {{ Form:: label('description', 'Description:') }}
-					    
-					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
-				        </div>
 				        <div class = 'form-group'>
-						    {{ Form:: label('journal', 'journal:') }}
+						    {{ Form:: label('journal', 'журнал:') }}
 
 						    {{ Form:: text('journal', null, ['class'=> 'form-control']) }}
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>
-					        {{ Form:: label('published-on', 'Published on:') }}
+					        {{ Form:: label('published-on', 'Опубликована в:') }}
 					    
 					        {{ Form:: text('published_on', null, ['class'=> 'form-control', 'id' => 'month'])  }}
 				        </div>
+				    	<div class = 'form-group control-panel'>
+					        {{ Form:: label('description', 'Описание:') }}
+					    
+					        {{ Form:: textarea('description', null, ['class'=> 'form-control']) }}
+				        </div>
 
 						<div class = 'form-group control-panel'>
-						    {{ Form:: label('publication_file', 'Upload file:') }}
+						    {{ Form:: label('publication_file', 'Скачать файл:') }}
 							<!-- <input type="file" name="publication_file" class ="form-group control" > -->
 							{{ Form:: file('publication_file', null, ['class'=> 'form-control']) }}
 				    	</div>

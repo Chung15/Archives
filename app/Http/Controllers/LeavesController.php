@@ -7,6 +7,7 @@ use App\User;
 use App\Leave;
 use Carbon\Carbon;
 use App\Child;
+use Illuminate\Http\Session;
 
 class LeavesController extends Controller
 {
@@ -122,9 +123,9 @@ class LeavesController extends Controller
 
         $leave->update($data);
 
-        \Session::flash('sucess', 'sucessfully updated');
+        //flash('sucessfully updated', 'sucess');
 
-        return redirect('/profile/' .\Auth::User()->id. '/archives/leave');
+        return redirect('/profile/' .\Auth::User()->id. '/archives/leave')->with('status', 'successfully updated!');
     }
 
     /**

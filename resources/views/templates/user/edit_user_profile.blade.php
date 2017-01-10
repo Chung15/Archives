@@ -5,6 +5,7 @@
 		<div class="col-md-5">
 			<fieldset>
     		<legend>Edit profile</legend>
+
     			{{ Form::model($user,['method'=>'PATCH', 'action' => ['UserController@update', $user->id]]) }}
 			<br>
 		
@@ -77,7 +78,11 @@
 							{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 					</div>
+					</fieldset>
+					
+		</div>
 					<div class="col-md-4"></div>
+	</div>
 	
 			{{ Form::close() }}
 

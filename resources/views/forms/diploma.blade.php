@@ -5,12 +5,12 @@
 		@if(isset($diploma))
 			<div class="row">
 				{{ Form::model($diploma, ['method'=>'PATCH', 'action' => ['DiplomaController@update', $diploma->id]]) }}
-						<div class="formTitles"><strong>Diploma</strong></div>
+						<div class="formTitles"><strong>Редактировать диплом</strong></div>
 						<hr/>
 							<div class = "col-md-2"></div>
 							<div class="col-md-6">
 
-									        {{ Form:: label('diploma_type',  'Diploma type:'), ['class' => 'control-label'] }}
+									        {{ Form:: label('diploma_type',  'Тип:'), ['class' => 'control-label'] }}
 					        		 <div class = 'form-group control-panel'>
 									    
 									        {{ Form:: select('diploma_type', ['Бакалавр' => 'Бакалавр', 'Магистратура' => 'Магистратура' , 'Аспирантира' =>'Аспирантира', 'other' =>'Другое'], ['class'=> 'form-control','multiple']) }}
@@ -21,32 +21,32 @@
 									        {{ Form:: text('other_diploma', null, ['class'=> 'form-control']) }}
 				        			</div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('seria_number',  'Serie/N:') }}
+									        {{ Form:: label('seria_number',  'Серияя/N:') }}
 									    
 									        {{ Form:: text('seria_number', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									       {{ Form:: label('thesis_topic',  'Thesis Topic:') }}
+									       {{ Form:: label('thesis_topic',  'Тема:') }}
 									    
 									       {{ Form:: text('thesis_topic', null, ['class'=> 'form-control']) }}
 							        </div>
 							         <div class = 'form-group control-panel'>
-									        {{ Form:: label('specialization',  'Specialization:') }}
+									        {{ Form:: label('specialization',  'Специальность:') }}
 									    
 									        {{ Form:: text('specialization', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('department',  'Department:') }}
+									        {{ Form:: label('department',  'Кафедра:') }}
 									    
 									        {{ Form:: text('department', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('university',  'University:') }}
+									        {{ Form:: label('university',  'Вуз:') }}
 									    
 									        {{ Form:: text('university', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('year',  'year:') }}
+									        {{ Form:: label('year',  'Год:') }}
 									    
 									        {{ Form:: text('year', null, ['class' => 'form-control year']) }}
 							        </div>
@@ -56,11 +56,11 @@
 									        {{ Form:: text('diploma_link', null, ['class' => 'form-control']) }}
 							        </div>
 							         <div>
-								{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+								{{ Form::submit('сохранить', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
 				   
 									</div>
 									<div>
-								{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
+								{{ Form::submit('отметить', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 									</div>
 						    </div>
@@ -74,12 +74,12 @@
 
 				<div class="row">
 					{{ Form::open(['url' => 'saveDiploma']) }}
-						<div class="formTitles"><strong>Diploma</strong></div>
+						<div class="formTitles"><strong>Диплом</strong></div>
 						<hr/>
 							<div class = "col-md-2"></div>
 							<div class="col-md-6">
 
-									        {{ Form:: label('diploma_type',  'Diploma type:'), ['class' => 'control-label'] }}
+									        {{ Form:: label('diploma_type',  'Тип:'), ['class' => 'control-label'] }}
 					        		 <div class = 'form-group control-panel'>
 									    
 									        {{ Form:: select('diploma_type', ['Бакалавр' => 'Бакалавр', 'Магистратура' => 'Магистратура' , 'Аспирантира' =>'Аспирантира', 'other' =>'Другое'], ['class'=> 'form-control','multiple']) }}
@@ -90,32 +90,32 @@
 									        {{ Form:: text('other_diploma', null, ['class'=> 'form-control']) }}
 				        			</div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('seria_number',  'Serie/N:') }}
+									        {{ Form:: label('seria_number',  'Серия/N:') }}
 									    
 									        {{ Form:: text('seria_number', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									       {{ Form:: label('thesis_topic',  'Thesis Topic:') }}
+									       {{ Form:: label('thesis_topic',  'Тема:') }}
 									    
 									       {{ Form:: text('thesis_topic', null, ['class'=> 'form-control']) }}
 							        </div>
 							         <div class = 'form-group control-panel'>
-									        {{ Form:: label('specialization',  'Specialization:') }}
+									        {{ Form:: label('specialization',  'Специальность:') }}
 									    
 									        {{ Form:: text('specialization', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('department',  'Department:') }}
+									        {{ Form:: label('department',  'Кафедра:') }}
 									    
 									        {{ Form:: text('department', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('university',  'University:') }}
+									        {{ Form:: label('university',  'Вуз:') }}
 									    
 									        {{ Form:: text('university', null, ['class'=> 'form-control']) }}
 							        </div>
 							        <div class = 'form-group control-panel'>
-									        {{ Form:: label('year',  'year:') }}
+									        {{ Form:: label('year',  'Год:') }}
 									    
 									        {{ Form:: text('year', null, ['class' => 'form-control year']) }}
 							        </div>

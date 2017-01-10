@@ -5,7 +5,7 @@
     <div class="panel-heading" role="tab" id="headingOne">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-          Publications
+          Публикации
         </a>
       </h4>
     </div>
@@ -14,8 +14,8 @@
 
         <table class="table table-hover">
               <tr>
-                <th>Date</th>
-                <th>Title</th>
+                <th>Дата</th>
+                <th>Тема</th>
               </tr>
              @foreach($publications as $publication)
               <tr>
@@ -43,7 +43,7 @@
     <div class="panel-heading" role="tab" id="headingTwo">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-          Trainings
+          Повыщение квалификации
         </a>
       </h4>
     </div>
@@ -51,8 +51,8 @@
       <div class="panel-body">
        <table class="table table-hover">
               <tr>
-                <th>Date</th>
-                <th>Subject</th>
+                <th>Дата</th>
+                <th>Тема</th>
                 <th></th>
                 <th></th>
               </tr>
@@ -85,7 +85,7 @@
     <div class="panel-heading" role="tab" id="headingThree">
       <h4 class="panel-title">
         <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-          Thesis-topics
+          Темы Дипломов
         </a>
       </h4>
     </div>
@@ -94,8 +94,8 @@
         <table class="table table-hover">
 
               <tr>
-                <th>Year</th>
-                <th>Topic</th>
+                <th>Дата</th>
+                <th>Тема</th>
               </tr>
              @foreach($topics as $topic)
               <tr>

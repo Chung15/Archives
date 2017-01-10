@@ -11,27 +11,39 @@
 |
 */
 
-
+/*-----------------------------------------------WEB ROUTES------------------------------------------------------------------------*/
 Route::group(['middleware' => ['web']], function () {
+     
+     /*
+       | Auth routes.
+       | Call register view 
+       | Call the login view
+       | Store user data in DB
+       | Execute connection
+       | 
+       */
  
   Route::get('/', 'UserController@index');
-  Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);// appelle le formulaire pour se connecter
-  Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);// execute la connection
+  Route::get('/login', ['as' => 'login', 'uses' =>'AuthController@loginView']);
+  Route::post('/processLogin', ['as' => 'processLogin', 'uses' =>'AuthController@processLogin']);
 
-  Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);// appelle le formulaire pour se connecter
-  Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']);// execute la 
+  Route::get('/register', ['as' => 'register', 'uses' =>'AuthController@registerView']);
+  Route::post('/store', ['as' => 'store', 'uses' =>'UserController@store']); 
   Route::get('/help', ['as' => 'help','uses' => 'UserController@showHelp']);
- /* Route::post('/password/email', ['as' => 'reset','uses' => 'Auth\ForgotPasswordController']);
-  Route::get('/email', ['as' => 'email','uses' => 'AuthController@sendLink']);
-  Route::post('/password/reset', ['as' => 'reset','uses' => 'Auth\ResetPasswordController']);
-   Route::get('/reset', ['as' => 'reset','uses' => 'AuthController@resetPassword']);*/
 
+/*----------------------------------------------AUTH ROUTES---------------------------------------------------------------------------*/
+    /**
+     * Auth routes .
+     * Available only when the user is connected.
+     *  
+     * @return all forms, CRUD, logout view
+     */
 
  route::group(['middleware' => 'auth'], function () {
  Route::match(array('GET', 'POST'), '/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
- //Route::post('/profile/{user_id}/profile_picture', ['as' => 'upload', 'uses' =>'UserController@uploadImg']);
  Route::post('/profile/{user_id}/publication_file', ['as' => 'uploadFile', 'uses' =>'PublicationController@upload']);
-   /*---------forms routes---------*/
+
+/*---------------------------------------Forms routes-----------------------------------------------------------------------------------*/
    Route::get('/other', ['as'=> 'other', 'uses' => 'OtherController@create']);
    Route::get('/diploma',['as' =>'diploma','uses' => 'DiplomaController@create']);
    Route::get('/academicTitle',['as' =>'academicTitle','uses' => 'AcademicTitleController@create']);
@@ -42,18 +54,14 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
    Route::get('/leave', ['as' => 'leave','uses' => 'LeavesController@create']);
 
-/*---------------request form routes----------------------*/
+/*---------------------------------------CRUD forms routes------------------------------------------------------------------------------*/
     Route::post('/saveChildren', ['as' => 'saveChildren','uses' => 'ChildController@store']);
     Route::resource('/child', 'ChildController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/saveLeave', ['as' => 'saveLeave','uses' => 'LeavesController@store']);
     Route::resource('/leave', 'LeavesController', ['only' => ['edit', 'update', 'destroy']]);
 
-    
     Route::post('/saveOther', ['as' => 'saveOther','uses' => 'OtherController@store']);
-   // Route::patch('/other/{id}', ['as' => 'updateOther','uses' => 'OtherController@update']);
-    //Route::delete('/other/{id}', ['as' => 'deleteOther','uses' => 'OtherController@destroy']);
-    //Route::get('other/{id}/edit', ['as' => 'editOther', 'uses' =>'OtherController@edit']);
     Route::resource('/other', 'OtherController', ['only' => ['edit', 'update', 'destroy']]);
 
     Route::post('/savePub', ['as' => 'savePub','uses' => 'PublicationController@store']);
@@ -62,10 +70,8 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveTraining', ['as' => 'saveTraining','uses' => 'TrainingController@store']);
     Route::resource('/training', 'TrainingController', ['only' => ['edit', 'update', 'destroy']]);
     
-
     Route::post('/saveTopic', ['as' => 'saveTopic','uses' => 'TopicsController@store']);
     Route::resource('/topic', 'TopicsController', ['only' => ['edit', 'update', 'destroy']]);
-    // Route::get('/archives/topics', ['as' => 'processTopic','uses' => 'TopicsController@index']);
 
     Route::post('/saveDiploma', ['as' => 'saveDiploma','uses' => 'DiplomaController@store']);
     Route::resource('/diploma', 'DiplomaController', ['only' => ['edit', 'update', 'destroy']]);
@@ -73,34 +79,30 @@ Route::group(['middleware' => ['web']], function () {
     Route::post('/saveTitle', ['as' => 'saveTitle','uses' => 'AcademicTitleController@store']);
     Route::resource('/title', 'AcademicTitleController', ['only' => ['edit', 'update', 'destroy']]);
 
-
     Route::post('/saveDegree', ['as' => 'saveDegree','uses' => 'AcademicDegreeController@store']);
     Route::resource('/degree', 'AcademicDegreeController', ['only' => ['edit', 'update', 'destroy']]);
 
+    Route::resource('/profile', 'UserController', ['only' => ['edit', 'update']]);
 
-  
- 
-  Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
+    Route::get('/profile/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
 
- // Route::resource('/', 'UserController', ['only' => ['edit', 'update']]);
+    Route::patch('/profile/{id}/updatePassword', ['as' => 'updatePassword','uses' => 'AuthController@updatePassword']);
 
-  Route::get('/profile/{id}/edit', ['as' => 'edit', 'uses' =>'UserController@edit']);
-  Route::patch('/profile/{id}', ['as' => 'update','uses' => 'UserController@update']);
-  //Route::resource('/id', 'UserController', ['only' => ['edit', 'update']]);
-  Route::get('/profile/{id}', ['as' => 'Authprofile', 'uses' =>'UserController@showProfile']);
+    Route::get('/profile/{user_id}/editContact/{adress_id}', ['as' => 'edit', 'uses' =>'AdressController@edit']);
+    Route::patch('/profile/{user_id}/{id}', ['as' => 'update','uses' => 'AdressController@update']);
 
-  Route::get('/profile/{user_id}/editContact/{adress_id}', ['as' => 'edit', 'uses' =>'AdressController@edit']);
-  Route::patch('/profile/{user_id}/{id}', ['as' => 'update','uses' => 'AdressController@update']);
+    Route::get('/profile/{id}', ['as' => 'cancelImg', 'uses' =>'UserController@cancelImg']);
+    //Route::get('/profile/{id}', ['as' => 'deleteImg', 'uses' =>'UserController@deleteImg']);
 
 
-  Route::patch('/profile/{id}/updatePassword', ['as' => 'updatePassword','uses' => 'AuthController@updatePassword']);
+    Route::post('/logout', ['as' => 'logout', 'uses' =>'AuthController@logout']);
+
+
 
   });
 
 
-
-   
-   //we don't have to be connected to see a  teacher's profile when click on his name
+/*------------------------------------------Archives routes-------------------------------------------------------------------------*/
   
   Route::get('/profile/{user_id}/archives', ['as' => 'archives', 'uses' =>'UserController@showArchives']);
 

@@ -15,37 +15,37 @@
                                                 {{ Form:: select('academic_title', ['Доцент'=> 'Доцент', 'Профессор' => 'Профессор', 'старший научный сотрудник' =>'старший научный сотрудник'], ['class'=> 'form-control','multiple']) }}
                                     </div>
                                     <div class = 'form-group control-panel'>
-                                                {{ Form:: label('seria_number',  'Serie/N:') }}
+                                                {{ Form:: label('seria_number',  'Серия/N:') }}
                                             
                                                 {{ Form:: text('seria_number', null, ['class'=> 'form-control']) }}
                                     </div>
                                     <div class = 'form-group control-panel'>
-                                               {{ Form:: label('thesis_topic',  'Thesis Topic:') }}
+                                               {{ Form:: label('thesis_topic',  'Тема:') }}
                                             
                                                {{ Form:: text('thesis_topic', null, ['class'=> 'form-control']) }}
                                     </div>
                                      <div class = 'form-group control-panel'>
-                                                {{ Form:: label('specialization',  'Specialization:') }}
+                                                {{ Form:: label('specialization',  'Специальность:') }}
                                             
                                                 {{ Form:: text('specialization', null, ['class'=> 'form-control']) }}
                                     </div>
                                     <div class = 'form-group control-panel'>
-                                                {{ Form:: label('year',  'year:') }}
+                                                {{ Form:: label('year',  'Год:') }}
                                             
                                                 {{ Form:: text('year', null, ['class' => 'form-control year']) }}
                                     </div>
                                      <div class = 'form-group control-panel'>
-                                                {{ Form:: label('title_link',  'title_link:') }}
+                                                {{ Form:: label('title_link',  'Ссылка:') }}
                                             
                                                 {{ Form:: text('title_link', null, ['class'=> 'form-control']) }}
                                     </div>
 
                                     <div>
-                                                {{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+                                                {{ Form::submit('сохранить', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
            
                                     </div>
                                    <div>
-                                               {{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
+                                               {{ Form::submit('отметить', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
            
                                   </div>
                                </div>
@@ -70,27 +70,27 @@
                                                               {{ Form:: select('academic_title', ['Доцент'=> 'Доцент', 'Профессор' => 'Профессор', 'старший научный сотрудник' =>'старший научный сотрудник'], ['class'=> 'form-control','multiple']) }}
                                                   </div>
                                                   <div class = 'form-group control-panel'>
-                                                              {{ Form:: label('seria_number',  'Serie/N:') }}
+                                                              {{ Form:: label('seria_number',  'Серия/N:') }}
                                                           
                                                               {{ Form:: text('seria_number', null, ['class'=> 'form-control']) }}
                                                   </div>
                                                   <div class = 'form-group control-panel'>
-                                                             {{ Form:: label('thesis_topic',  'Thesis Topic:') }}
+                                                             {{ Form:: label('thesis_topic',  'Тема:') }}
                                                           
                                                              {{ Form:: text('thesis_topic', null, ['class'=> 'form-control']) }}
                                                   </div>
                                                    <div class = 'form-group control-panel'>
-                                                              {{ Form:: label('specialization',  'Specialization:') }}
+                                                              {{ Form:: label('specialization',  'Специальность:') }}
                                                           
                                                               {{ Form:: text('specialization', null, ['class'=> 'form-control']) }}
                                                   </div>
                                                   <div class = 'form-group control-panel'>
-                                                              {{ Form:: label('year',  'year:') }}
+                                                              {{ Form:: label('year',  'Год:') }}
                                                           
                                                               {{ Form:: text('year', null, ['class' => 'form-control year']) }}
                                                   </div>
                                                   <div class = 'form-group control-panel'>
-                                                {{ Form:: label('title_link',  'title_link:') }}
+                                                {{ Form:: label('title_link',  'Ссылка:') }}
                                             
                                                 {{ Form:: text('title_link', null, ['class'=> 'form-control']) }}
                                     </div>

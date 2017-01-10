@@ -3,7 +3,7 @@
     <div class="panel-heading " role="tab" id="headingFour">
       <h4 class="panel-title">
         <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-          <strong>Contact info</strong>
+          <strong>Контактная информация</strong>
         </a>
       </h4>
     </div>
@@ -12,23 +12,23 @@
 
         <table class="table table-hover table-user-information col-md-4">
               <tr>
-                <td>{{ $adress->city }}</td>
+                <td> Город: {{ $adress->city }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->street }}</td>
+                <td> Улица: {{ $adress->street }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->zip }}</td>
+                <td>Почтовый индекс: {{ $adress->zip }}</td>
               </tr>
               <tr>
-                <td>{{ $adress->phone }}</td>
+                <td>Телефон: {{ $adress->phone }}</td>
               </tr>
               <tr>
-                <td>{{ $user->email }}</td>
+                <td>Электронный адрес: {{ $user->email }}</td>
               </tr>
         </table>
           @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
-                  <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/editContact/' .$adress->id) }}">edit Contact</a>
+                  <a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/editContact/' .$adress->id) }}">Редактировать</a>
                 @endif
 
 

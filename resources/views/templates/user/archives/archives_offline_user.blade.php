@@ -1,6 +1,8 @@
-
-<div class="col-md-3 ">
-	<div class="row table-rounded">
+<div class="row">
+<div class="col-md-4"></div>
+<div class="col-md-6">
+	<h2>Архивы</h2>
+<div class="row table-rounded">
 		<table class="table  table-hover">
 
 
@@ -75,6 +77,4 @@
 		</table>
 	</div>
 </div>
-<div class="col-md-1"></div>
-
-<div class="col-md-8"></div>
+</div>

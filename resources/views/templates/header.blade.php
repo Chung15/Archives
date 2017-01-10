@@ -4,7 +4,7 @@
 				<div class="col-md-4">
 					
 					<img src="/images/dnu-logo.png" width="60" height="60" id="logo">
-					<strong id="appName">EOM ARCHIVER</strong>
+					<strong id="appName">ЕОМ АРХИВ</strong>
 				
 				</div>
 				<div class="col-md-4">
@@ -14,12 +14,12 @@
 						@if(Auth::check())
 
 							<li class="topmenu">
-								<strong>Welcome {{ Auth::User()->firstname }}</strong>
+								<strong>Привет {{ Auth::User()->firstname }}</strong>
 							</li>
 							<li>
 								<a class="topmenu" href="{{ url('logout') }}"
 	                                onclick="event.preventDefault();
-	                                     document.getElementById('logout-form').submit();"><strong>|Logout</strong>
+	                                     document.getElementById('logout-form').submit();"><strong>|Выход</strong>
 	                            </a>
 
 	                            <form id="logout-form" action="{{ url('logout') }}" method="POST" class="hidden" ">
@@ -33,14 +33,14 @@
 							
 						@else
 							<li>
-								<a class="topmenu" href="{{ url('login') }}">|Login
+								<a class="topmenu" href="{{ url('login') }}">|Вход
 	                            </a>
 
 	                           
 							</li>
 
 							<li>
-								<a class="topmenu" href="{{ url('register') }}">|Register
+								<a class="topmenu" href="{{ url('register') }}">|Регистрация
 	                            </a>
 							</li>
 							<li>
@@ -54,49 +54,49 @@
 
 			<ul class="nav nav-tabs">
 				<li class="menuli">
-					<a href="{{  url('/') }}">Home</a>
+					<a href="{{  url('/') }}">Главная</a>
 				</li>
 				
 				@if(Auth::check())
 					
-					<li class="menuli"> <a href="{{  url('/profile/'.Auth::user()->id) }}">Profile</a> </li>
+					<li class="menuli"> <a href="{{  url('/profile/'.Auth::user()->id) }}">Профиль</a> </li>
 				
 					<li class="menuli">
-						<a href="{{ url('/profile/'.Auth::user()->id .'/archives') }}">Archives</a>
+						<a href="{{ url('/profile/'.Auth::user()->id .'/archives') }}">Архивы</a>
 					</li>
 					
 					<li class="dropdown pull-right menuli">
-					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Forms<strong class="caret"></strong></a>
+					 <a href="#" data-toggle="dropdown" class="dropdown-toggle">Формы<strong class="caret"></strong></a>
 					<ul class="dropdown-menu">
 						<li>
-							<a href="{{  url('diploma') }}">Diploma</a>
+							<a href="{{  url('diploma') }}">Дипломы</a>
 						</li>
 						<li>
-							<a href="{{  url('academicTitle') }}">Academic title</a>
+							<a href="{{  url('academicTitle') }}">Ученое звание</a>
 						</li>
 						<li>
-							<a href="{{  url('academicDegree') }}">Academic degree</a>
+							<a href="{{  url('academicDegree') }}">Ученая степень</a>
 						</li>
 
 						<li>
-							<a href="{{  url('child') }}">Children</a>
+							<a href="{{  url('child') }}">Дети</a>
 						</li>
 						<li>
-							<a href="{{  url('leave') }}">Leaves</a>
+							<a href="{{  url('leave') }}">Отпуски</a>
 						</li>
 						<li>
-							<a href="{{  url('training') }}">Training</a>
+							<a href="{{  url('training') }}">Повышение квалификауии</a>
 						</li>
 						<li>
-							<a href="{{  url('publications') }}">Publications</a>
+							<a href="{{  url('publications') }}">Публикации</a>
 						</li>
 						<li>
-							<a href="{{  url('topics') }}">Thesis_topics</a>
+							<a href="{{  url('topics') }}">Темы дипломов</a>
 						</li>
 						<li class="divider">
 						</li>
 						<li>
-							<a href="{{  url('other') }}">Other </a>
+							<a href="{{  url('other') }}">Другое </a>
 						</li>
 					</ul>
 				</li>

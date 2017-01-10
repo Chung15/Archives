@@ -5,27 +5,15 @@
 	<div class="row">
 		<div class="col-md-8">
 			<fieldset>
-    		<legend>Register</legend>
+    		<legend>Регистрация</legend>
 
 			
 		<form class="form-horizontal" role="form" method="POST" action="{{ url('store') }}">
 		{{ csrf_field() }}
 						
-						<div class="form-group {{ $errors->has('firstname') ? ' has-error' : '' }}">
-						     <label for="firstname" class="col-md-4 control-label" required>
-						       First Name</label>
-						     <div class="col-md-8">
-						          <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter First Name..." value="{{ old('firstname') }}" required autofocus />
-						          @if ($errors->has('firstname'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('firstname') }}</strong>
-                                    </span>
-                                @endif
-						     </div>
-    					</div>
     					<div class="form-group {{ $errors->has('lastname') ? ' has-error' : '' }}">
 						     <label for="lastname" class="col-md-4 control-label">
-						       Last Name</label>
+						       Фамиля</label>
 						     <div class="col-md-8">
 						          <input type="text" class="form-control" name="lastname" id="lastname" placeholder="Enter Last Name..." value="{{ old('lastname') }}" />
 						           @if ($errors->has('lastname'))
@@ -36,10 +24,22 @@
 
 						     </div>
     					</div>
+						<div class="form-group {{ $errors->has('firstname') ? ' has-error' : '' }}">
+						     <label for="firstname" class="col-md-4 control-label" required>
+						       Имя</label>
+						     <div class="col-md-8">
+						          <input type="text" class="form-control" name="firstname" id="firstname" placeholder="Enter First Name..." value="{{ old('firstname') }}" required autofocus />
+						          @if ($errors->has('firstname'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('firstname') }}</strong>
+                                    </span>
+                                @endif
+						     </div>
+    					</div>
 
     					<div class="form-group {{ $errors->has('patronymic') ? ' has-error' : '' }}">
 						     <label for="patronymic" class="col-md-4 control-label">
-						       Patronymic</label>
+						       Отчество</label>
 						     <div class="col-md-8">
 						          <input type="text" class="form-control" name="patronymic" id="patronymic" placeholder="Enter Patronymic..." value="{{ old('patronymic') }}" />
 						           @if ($errors->has('patronymic'))
@@ -52,7 +52,7 @@
 
     					<div class="form-group {{ $errors->has('INN') ? ' has-error' : '' }}">
 						     <label for="INN" class="col-md-4 control-label">
-						       INN</label>
+						       ИНН</label>
 						     <div class="col-md-8">
 						          <input type="text" class="form-control" name="INN" id="INN" placeholder="Enter your INN..." value="{{ old('INN') }}" />
 						           @if ($errors->has('INN'))
@@ -63,22 +63,46 @@
 						     </div>
 						</div>
 
-						     <div class="form-group {{ $errors->has('passport_number') ? ' has-error' : '' }}">
+					     <div class="form-group {{ $errors->has('passport_number') ? ' has-error' : '' }}">
 						     	<label for="passport_number" class="col-md-4 control-label">
-						       	Passport№</label>
-						     	<div class="col-md-8">
+						       	Паспорт №</label>
+						     	<div class="col-md-2">
 						          <input type="text" class="form-control" name="passport_number" id="passport_number" placeholder="Enter passport_number..." value="{{ old('passport_number') }}" />
 						           @if ($errors->has('passport_number'))
 						          	    <span class="help-block">
 						          	        <strong>{{ $errors->first('passport_number') }}</strong>
 						          	    </span>
 						          @endif
+					     		</div>
+
+					     		<label for="passport_given" class="col-md-1 control-label">
+						       	Кем</label>
+					     		<div class="col-md-2">
+						       <input type="text" class="form-control" name="passport_given" id="passport_given" placeholder="Кем выдан......" value="{{ old('passport_given') }}"></input>
+						        @if ($errors->has('passport_given'))
+						       	    <span class="help-block">
+						       	        <strong>{{ $errors->first('passport_given') }}</strong>
+						       	    </span>
+						       @endif
+
 						     </div>
+						     	<label for="passport_date" class="col-md-1 control-label">
+						       	Когда</label>
+						     <div class="col-md-2">
+						       <input type="text" class="form-control" name="passport_date" id="passport_date" placeholder="Когда выдан......" value="{{ old('passport_date') }}"></input>
+						        @if ($errors->has('passport_date'))
+						       	    <span class="help-block">
+						       	        <strong>{{ $errors->first('passport_date') }}</strong>
+						       	    </span>
+						       @endif
+
+						     </div>
+
     					</div>
 
     					<div class="form-group {{ $errors->has('passport_link') ? ' has-error' : '' }}">
 						     <label for="passport_link" class="col-md-4 control-label">
-						       passport_link</label>
+						       Паспорт-ссылка</label>
 						     <div class="col-md-8">
 						          <input type="text" class="form-control" name="passport_link" id="passport_link" placeholder="Enter passport_link..." value="{{ old('passport_link') }}" data-toggle="tooltip" data-placement="left" title="add a link from your Google Drive"/>
 						           @if ($errors->has('passport_link'))
@@ -92,7 +116,7 @@
     					
     					<div class="form-group  {{ $errors->has('dateOfBirth') ? ' has-error' : '' }}">
 						     <label for="dateOfBirth" class="col-md-4 control-label">
-						       Date of Birth</label>
+						       Дата рождения</label>
 						     <div class="col-md-8">
 						     	<div class="row">
 						        	<div class="col-md-5">
@@ -106,28 +130,28 @@
     					
 						 <div class="form-group {{ $errors->has('gender') ? ' has-error' : '' }}">
 						     <label for="gender" class="col-md-4 control-label">
-						        Gender</label>
+						        Пол</label>
 						     <div class="col-md-8 ">
 						       <label>
 						          <input type="radio" name="gender" value="male" checked="true">
-						             Male
+						             Муж.
 						          </label>
 						       <label>
 						          <input type="radio" name="gender" value="female">
-						          Female
+						          Жен.
 						       </label>
 						     </div>
 						 </div>
 						<div class="form-group {{ $errors->has('maritalStatus') ? ' has-error' : '' }}">
-						    <label for="maritalStatus" class="col-md-4 control-label"> Marital status</label>
+						    <label for="maritalStatus" class="col-md-4 control-label"> Семейное положение</label>
 						    <div class="col-md-8">
 						      <div class="row">
 						        <div class="col-md-5">
 						          <select class="form-control" name="maritalStatus">
-						             <option selected value="single">Single</option>
-						             <option value="married">Married</option>
-						             <option value="divorced">Divorced</option>
-						             <option value="widow">Widow(er)</option>
+						             <option selected value="single">холостой(ая)</option>
+						             <option value="married">в браке</option>
+						             <option value="divorced">разведенный(ая)</option>
+						             <option value="widow">вдова</option>
 						          </select>
 						        </div>
 						        <div class="col-md-3">
@@ -140,11 +164,9 @@
 						   </div>
 						 </div>
 						
-
-						 
 						 <div class="form-group {{ $errors->has('email') ? ' has-error' : '' }}">
 						     <label for="email" class="col-md-4 control-label">
-						        E-mail</label>
+						        Электронный адрес </label>
 						     <div class="col-md-8">
 						          <input type="text" class="form-control" name="email" id="email" placeholder="Enter E-mail......" value="{{ old('email') }}"></input>
 						           @if ($errors->has('email'))
@@ -156,7 +178,7 @@
 						</div>
 						<div class="form-group {{ $errors->has('phone') ? ' has-error' : '' }}">
 						     <label for="phone" class="col-md-4 control-label">
-						         Phone</label>
+						         Телефон</label>
 						     <div class="col-md-8">
 						       <input type="text" class="form-control" name="phone" id="phone" placeholder="Enter Phone......" value="{{ old('phone') }}"></input>
 						        @if ($errors->has('phone'))
@@ -168,7 +190,7 @@
 						</div>
 						<div class="form-group {{ $errors->has('street') ? ' has-error' : '' }}">
 						     <label for="street" class="col-md-4 control-label">
-						         Street/N°</label>
+						         Улица/N°</label>
 						     <div class="col-md-8">
 						       <input type="text" class="form-control" name="street" id="street" placeholder="Enter street......" value="{{ old('street') }}"></input>
 						        @if ($errors->has('street'))
@@ -179,9 +201,10 @@
 						     </div>
 
 						</div>
+
 						<div class="form-group {{ $errors->has('city') ? ' has-error' : '' }}">
 						     <label for="city" class="col-md-4 control-label">
-						         City/Zip code</label>
+						         Город/Почтовый индекс</label>
 						     <div class="col-md-5">
 						       <input type="text" class="form-control" name="city" id="city" placeholder="Enter City......" value="{{ old('city') }}"></input>
 						        @if ($errors->has('city'))
@@ -198,8 +221,6 @@
 						       	        <strong>{{ $errors->first('zip') }}</strong>
 						       	    </span>
 						       @endif
-
-						       
 						     </div>
 						</div>
 						 <!-- <div class="form-group">
@@ -209,7 +230,7 @@
 						  <!-- Password-->
 						<div class="form-group {{ $errors->has('password') ? ' has-error' : '' }}">
 						     <label for="password" class="col-md-4 control-label">
-						        Password</label>
+						        Пароль</label>
 						     <div class="col-md-8">
 						        <input type="password" name="password" class="form-control" id="password" value="{{ old('password') }}" required>
 						         @if ($errors->has('password'))
@@ -220,7 +241,7 @@
 						     </div>
 						</div>
 						<div class="form-group">
-                            <label for="password-confirm" class="col-md-4 control-label">Confirm Password</label>
+                            <label for="password-confirm" class="col-md-4 control-label">Потвердить пароль</label>
 
                             <div class="col-md-8">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>

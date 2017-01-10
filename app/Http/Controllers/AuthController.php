@@ -13,81 +13,7 @@ class AuthController extends Controller
     {
         $this->middleware('guest', ['only' => 'login', 'register']);
     }
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
     /**
     * returns the login form
     */
@@ -95,6 +21,13 @@ class AuthController extends Controller
     {
         return view('templates.login');
     }
+
+     /**
+         * Saves the email and password in the DB.
+         *
+         * @param  \Illuminate\Http\Request  
+         * @return \Illuminate\Http\Response
+         */
 
     public function processLogin(Request $request)
     {
@@ -108,24 +41,28 @@ class AuthController extends Controller
         return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
     }
 
+     /**
+         * Disconnect the user from the application.
+         *
+         * @param  \Illuminate\Http\Request  
+         * @return 
+         */
+
     public function logout(){
         \Auth::logout();
         return redirect()->route('login');
     }
-    // register form methods
+
+     /**
+     * Returns register view.
+     *
+     * @param    
+     * @return 
+     */
 
     public function registerView()
     {
         return view('templates.register');
-    }
-     public function sendLink()
-    {
-        return view('auth.passwords.email');
-    }
-
-     public function resetPassword()
-    {
-        return view('auth.passwords.reset');
     }
 
 
@@ -158,14 +95,19 @@ class AuthController extends Controller
         return back()->withInput()->withErrors(['email' =>'email or password is invalid']);
     }*/
 
+     /**
+         * Verify old password,
+         * update the old on in the DB.
+         *
+         * @param  \Illuminate\Http\Request  
+         * @return 
+         */
+
     public function updatePassword (Request $request, $user_id){
         $user = \Auth::User();
         $passwords = $request->all();
         $newPassword = bcrypt($passwords['newPassword']);
         $oldPassword = $passwords['oldPassword'];
-
-        //return $user->password.'<br>'.$oldPassword;
-        //password_verify ( string $password , string $hash )
 
         if(password_verify( $oldPassword, $user->password)) {
             DB::table('users')
@@ -174,6 +116,7 @@ class AuthController extends Controller
 
             return $this->logout();
         }
+
         else{
             return back()->withInput()->withErrors(['password' =>' invalid old password']);
         }

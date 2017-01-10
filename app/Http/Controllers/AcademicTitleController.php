@@ -91,8 +91,8 @@ class AcademicTitleController extends Controller
     {
         $this->validate($request, AcademicTitle::$validationRules);
 
-        $other = AcademicTitle::findOrFail($id);
-        $other->update($request->all());
+        $title = AcademicTitle::findOrFail($id);
+        $title->update($request->all());
 
         \Session::flash('sucess', 'sucessfully updated');
 

@@ -226,11 +226,34 @@ class UserController extends Controller
         $user->profile_picture = $img_path;
         $user->save();
 
-        return redirect('/profile/' .$user->id);
         }
-
+        return redirect('/profile/' .$user->id);
 
     }
 
-       //return $this->show($user->id);
+     public function cancelImg( Request $request)
+    {
+          $user = \Auth::User();
+         $data =  $request->file('profile_picture');
+
+         if(file_exists('profile_picture')) {
+            $user->delete($data);
+            return redirect()->back();  
+         }
+        
+    }
+
+    /* public function deleteImg( Request $request)
+    {
+          $user = \Auth::User();
+         $data =  $request->file('profile_picture');
+
+         if(file_exists('profile_picture')) {
+            $user->profile_picture->delete();
+            
+         }*/
+        
+   // }
+
+
 }

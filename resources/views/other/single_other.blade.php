@@ -1,13 +1,16 @@
 @extends('master')
 
 	@section('content')
+		@include('templates.user.archives.archives_main_content')
 
+<!-- <div class="col-md-4"></div> -->
+  	<div class="col-md-8 singles">
 		<div class="panel panel-default">
 		  <div class="panel-heading">
 		    <h6 class="panel-title">{{ $other->name }}</h6>
 		  </div>
 		  <div class="panel-body">
-		  	<table>
+		  	<table class="singleView">
 			  	<tr><td>Description: {{ $other->description }}</td></tr>
 			    <tr><td>Link: <a href="{{ $other->other_link }}" target="_blank">{{ $other->other_link }}</a></td></tr>
 		    </table>
@@ -34,5 +37,7 @@
 			@endif
 
 		</div>
+	</div>
+	<!-- <div class="col-md-2"></div> -->
 		
 	@stop

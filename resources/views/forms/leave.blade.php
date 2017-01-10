@@ -1,16 +1,16 @@
 @extends('master')
 
 	@section('content')
+			@if (session('status'))
+			    <div class="alert alert-success">
+			        {{ session('status') }}
+			    </div>
+			@endif
+
 		@if(isset($leave))
 			{{ Form::model($leave, ['method'=>'PATCH', 'action' => ['LeavesController@update', $leave->id]]) }}
-				@if(Session::has('success'))
-			        <div class="alert alert-info">
-			            <a class="close" data-dismiss="alert">×</a>
-			            <strong>Heads Up!</strong> {{Session::get('success')}}
-			        </div>
-    			@endif
 		
-			<div class="formTitles"><strong>Leaves</strong></div>
+			<div class="formTitles"><strong>Отпуск</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -27,11 +27,6 @@
 					        {{ Form:: text('other_leave', null, ['class'=> 'form-control']) }}
 				        </div>
 				        <div class = 'form-group control-panel'>
-					        {{ Form:: label('comment', 'Комментарии:') }}
-					    
-					        {{ Form:: text('comment', null, ['class'=> 'form-control']) }}
-				        </div>
-				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('start_date', 'Начало:') }}
 					    
 					        {{ Form:: text('start_date', null, ['class'=> 'form-control date']) }}
@@ -41,13 +36,18 @@
 					    
 					        {{ Form:: text('end_date', null, ['class'=> 'form-control date']) }}
 				        </div>
+				        <div class = 'form-group control-panel'>
+					        {{ Form:: label('comment', 'Комментарии:') }}
+					    
+					        {{ Form:: textarea('comment', null, ['class'=> 'form-control']) }}
+				        </div>
 
 				         <div class="form-group">
-							{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+							{{ Form::submit('сохранить', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
 				   
 					</div>
 					<div class="form-group">
-							{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
+							{{ Form::submit('отметить', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 					</div>
 					</div>
@@ -76,11 +76,6 @@
 					        {{ Form:: text('other_leave', null, ['class'=> 'form-control']) }}
 				        </div>
 				        <div class = 'form-group control-panel'>
-					        {{ Form:: label('comment', 'Комментарии:') }}
-					    
-					        {{ Form:: text('comment', null, ['class'=> 'form-control']) }}
-				        </div>
-				        <div class = 'form-group control-panel'>
 					        {{ Form:: label('start_date', 'Начало:') }}
 					    
 					        {{ Form:: text('start_date', null, ['class'=> 'form-control date']) }}
@@ -89,6 +84,11 @@
 					        {{ Form:: label('end_date', 'Конец:') }}
 					    
 					        {{ Form:: text('end_date', null, ['class'=> 'form-control date']) }}
+				        </div>
+				        <div class = 'form-group control-panel'>
+					        {{ Form:: label('comment', 'Комментарии:') }}
+					    
+					        {{ Form:: textarea('comment', null, ['class'=> 'form-control']) }}
 				        </div>
 
 				        <div>

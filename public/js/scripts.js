@@ -50,6 +50,12 @@ $(document).ready(function() {
    		$('.menuli').addClass('active');
    });*/
 
+   $('.fa-times').hover(function (){
+   		$('.fa-times').removeClass('hidden'),
+   		 function() {$('.fa-times').addClass('hover')}, 
+   		 function(){$('.fa-times').removeClass('hover')};
+   });
+
 
 
 

@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						Login
+						Вход
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -15,12 +15,12 @@
 					{{ csrf_field() }}
 					
 					  <div class="form-group">
-					    <label for="email">Email address</label>
+					    <label for="email">Электронный адрес</label>
 					    <input type="email" class="form-control" id="email" name="email" placeholder="Email" value="{{ old('email') }}" required>
 
 					  </div>
 					  <div class="form-group">
-					    <label for="password">Password</label>
+					    <label for="password">Пароль</label>
 					    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
 					  </div>
 					<!--   <div class="checkbox">
