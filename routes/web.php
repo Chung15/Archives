@@ -50,7 +50,7 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/academicDegree',['as' =>'academicDegree','uses' => 'AcademicDegreeController@create']);
    Route::get('/publications', ['as' => 'publications', 'uses' => 'PublicationController@create']);
    Route::get('/topics', ['as' => 'topics', 'uses' => 'TopicsController@create']);
-   Route::get('/training', ['as' => 'training', 'uses' => 'trainingController@create']);
+   Route::get('/training', ['as' => 'training', 'uses' => 'TrainingController@create']);
    Route::get('/child', ['as' => 'child','uses' => 'ChildController@create']);
    Route::get('/leave', ['as' => 'leave','uses' => 'LeavesController@create']);
 

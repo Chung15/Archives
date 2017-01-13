@@ -82,7 +82,7 @@ a {
 
 }
 .table-rounded{
-	background-color: LightCyan;
+	background-color: white;
 	border-radius: 5px;
 	padding-left: 20px;
 	position: relative;
@@ -144,5 +144,5 @@ li a{
 	background-color: white;
 }
 .archiveViews{
-	background-color: LightCyan;
+	background-color: white;
 }
