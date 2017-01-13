@@ -20,13 +20,18 @@ $(document).ready(function() {
     });
 
    // $('select[name=leave_type]').change(other());
+    /**
+        * we can implement a function for this: otherField().
+        *
+        * @param  \Illuminate\Http\Request  
+        * @return 
+        */
    $('select[name=leave_type]').change(function() { 
-   	console.log($(this).val());
    	if($(this).val() === 'other') {
-   		$('#otherField').removeClass('hidden');
+   		$('.otherField').removeClass('hidden');
    	} 
    	else{
-   		$('#otherField').addClass('hidden');
+   		$('.otherField').addClass('hidden');
    	}
    });
 
@@ -54,6 +59,15 @@ $(document).ready(function() {
    		$('.fa-times').removeClass('hidden'),
    		 function() {$('.fa-times').addClass('hover')}, 
    		 function(){$('.fa-times').removeClass('hover')};
+   });
+
+   $('select[name=diploma_type]').change(function() { 
+   	if($(this).val() === 'other') {
+   		$('.otherDiploma').removeClass('hidden');
+   	} 
+   	else{
+   		$('.otherDiploma').addClass('hidden');
+   	}
    });
 
 

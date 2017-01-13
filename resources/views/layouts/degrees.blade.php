@@ -9,8 +9,9 @@
     	<div class="col-md-1"></div>
 		<div class="row">
 			<div class="col-md-7">
-				<table class="table table-striped table-hover">
+				<table class="table table-hover archiveViews">
 					<h2>Degrees</h2>
+
 					
 					@foreach($degrees as $degree)
 					
@@ -18,7 +19,7 @@
 				    	<tr>
 				    		<div class="row">
 					    		<td class="col-md-10">{{ $degree->academic_degree }}
-					    			<p><a class="btn" href="{{  action('AcademicDegreeController@show', [$degree->id]) }}">view details »</a></p>
+					    			<p><a class="btn" href="{{  action('AcademicDegreeController@show', [$degree->id]) }}">подробнее »</a></p>
 					    		</td>
 
 					    		 @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))

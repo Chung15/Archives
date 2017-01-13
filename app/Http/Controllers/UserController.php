@@ -69,6 +69,9 @@ class UserController extends Controller
         $dateOfBirth = date_create($data['dateOfBirth']);
         $dateOfBirth = date_format($dateOfBirth,"Y-m-d");
 
+        $passport_date = date_create($data['passport_date']);
+        $passport_date = date_format($passport_date,"Y-m-d");
+
             try {
 
                  $newUser = User::create([
@@ -77,6 +80,8 @@ class UserController extends Controller
                     'patronymic' => $data['patronymic'],
                     'INN' => $data['INN'],
                     'passport_number' => $data['passport_number'],
+                    'passport_given' => $data['passport_given'],
+                    'passport_date' => $passport_date,
                     'passport_link' => $data['passport_link'],
                     'dateOfBirth' => $dateOfBirth,
                     'gender' => $data['gender'],
@@ -141,6 +146,7 @@ class UserController extends Controller
         $others = $user->other()->get();
         //this was added so as to show the user birthday in the format d/m/y in the user profile view
         $user->dateOfBirth= Carbon::createFromFormat('Y-m-d',$user->dateOfBirth)->format('d/m/Y');
+         $user->passport_date= Carbon::createFromFormat('Y-m-d',$user->passport_date)->format('d/m/Y');
 
         return view('templates.user.userProfile', compact('user', 'adress', 'topics','trainings','publications','children','diplomas','leaves','titles','degrees','others'));
     }
@@ -161,6 +167,7 @@ class UserController extends Controller
         $user = User::findOrFail($id);  
 
        $user->dateOfBirth= Carbon::createFromFormat('Y-m-d',$user->dateOfBirth)->format('d/m/Y');
+        $user->passport_date= Carbon::createFromFormat('Y-m-d',$user->passport_date)->format('d/m/Y');
 
         return view('templates.user.edit_user_profile', compact('user'));
     }
@@ -186,6 +193,7 @@ class UserController extends Controller
         $data = $request->all();
 
         $data['dateOfBirth'] = Carbon::createFromFormat('d/m/Y',$data['dateOfBirth'])->format('Y-m-d');
+        $data['passport_date'] = Carbon::createFromFormat('d/m/Y',$data['passport_date'])->format('Y-m-d');
 
         $user->update($data);
 

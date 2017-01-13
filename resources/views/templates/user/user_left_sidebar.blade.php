@@ -12,19 +12,19 @@
 
         <table class="table table-hover table-user-information col-md-4">
               <tr>
-                <td> Город: {{ $adress->city }}</td>
+                <td><label>Город:</label> {{ $adress->city }}</td>
               </tr>
               <tr>
-                <td> Улица: {{ $adress->street }}</td>
+                <td> <label>Улица:</label> {{ $adress->street }}</td>
               </tr>
               <tr>
-                <td>Почтовый индекс: {{ $adress->zip }}</td>
+                <td><label>Почтовый индекс:</label> {{ $adress->zip }}</td>
               </tr>
               <tr>
-                <td>Телефон: {{ $adress->phone }}</td>
+                <td><label>Телефон:</label> {{ $adress->phone }}</td>
               </tr>
               <tr>
-                <td>Электронный адрес: {{ $user->email }}</td>
+                <td><label>Электронный адрес:</label> {{ $user->email }}</td>
               </tr>
         </table>
           @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))

@@ -10,15 +10,15 @@
     	
 		<div class="row">
 			<div class="col-md-7">
-				<table class="table table-striped table-hover">
-					<h2>Thesis Topics</h2>
+				<table class="table table-hover archiveViews">
+					<h2>Темы дипломов</h2>
 
 					@foreach($topics as $topic)
 
 				    	<tr>
 				    		<div class="row">
 					    		<td class="col-md-10">{{ $topic->title }}
-					    			<p><a class="btn" href="{{  action('TopicsController@show', [$topic->id]) }}">view details »</a></p>
+					    			<p><a class="btn" href="{{  action('TopicsController@show', [$topic->id]) }}">подробнее »</a></p>
 					    		</td>
 
 					    		 @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))

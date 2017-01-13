@@ -17,6 +17,7 @@
         <link href="/css/jquery-ui.theme.css" rel="stylesheet">
         <link href="/css/jquery-ui.structure.css" rel="stylesheet">
         <link href="/font-awesome/css/font-awesome.css" rel="stylesheet">
+        <link href="/css/ambiance.css" type="text/css" rel="stylesheet">
         <link href="/css/style.css" type="text/css" rel="stylesheet">
 
         <!-- Styles -->
@@ -50,6 +51,7 @@
         <script src="/js/jquery.min.js"></script>
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/bootstrap.min.js"></script>
+        <script src="/js/ambiance.js"></script>
         <script src="/js/scripts.js"></script>
     </body>
 </html>

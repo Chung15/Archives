@@ -12,7 +12,7 @@
 
 			    		<td>
 				   			 <a href="{{ action('UserController@show', [$user->id]) }}">
-					    			{{ $user->lastname }} {{ $user->patronymic }} {{ $user->firstname }}
+					    			{{ $user->lastname }} {{ $user->firstname }} {{ $user->patronymic }} 
 	    		 			</a>
 			    		 </td>
 			    	</tr>

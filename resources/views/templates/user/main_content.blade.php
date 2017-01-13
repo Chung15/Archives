@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="profile_picture col-md-4">
 					<div class="row">
-					@if(isset($user->profile_picture))
+					@if($user->profile_picture)
 						<img class="img-circle" src="{{ $user->profile_picture }}" height="200" width="200"/>
 					@else
 						<img class="img-circle" src="/images/user-logo.png" height="200" width="200">
@@ -32,7 +32,7 @@
 				</div>
 				<div class="col-md-8">
 					<div class="panel ">
-	            <div class="panel-heading">
+	            <div class="panel-heading panel-default">
 	            <strong><h4>Общая информация</h4></strong>	
 				</div>
 	            	  <div class="panel-body" id="userProfileInfo">
@@ -40,17 +40,20 @@
 	            	  
 							<table class="table table-striped table-user-information">
 								<tbody>
-									<tr><td> Имя: {{ $user->firstname }} </td></tr>
-									<tr><td> Фаимлия: {{ $user->lastname }} </td></tr>
-									<tr><td> Очества: {{ $user->patronymic }} </td></tr>
-									<tr><td> ИНН: {{ $user->INN }} </td></tr>
-									<tr><td> Паспорт №: {{ $user->passport_number }} </td></tr>
-									<tr><td> Паспорт-ссылка: <a href="{{ $user->passport_link }}" target="_blank">{{ $user->passport_link }}</a> </td></tr>
-									<tr><td> Дата рождения: {{ $user->dateOfBirth }} </td></tr>
-									<tr><td> Семеное положение: {{ $user->maritalStatus}} </td></tr>
+									<tr><td> <label>Фаимлия:</label> {{ $user->lastname }} </td></tr>
+									<tr><td> <label>Имя:</label> {{ $user->firstname }} </td></tr>
+									<tr><td> <label>Очества:</label> {{ $user->patronymic }} </td></tr>
+									<tr><td> <label>ИНН:</label> {{ $user->INN }} </td></tr>
+									<tr><td> <label>Паспорт №:</label> {{ $user->passport_number }} </td></tr>
+									<tr><td> <label>Кем выдан:</label> {{ $user->passport_given }} </td></tr>
+									<tr><td> <label>Когда выдан:</label> {{ $user->passport_date }} </td></tr>
+									<tr><td> <label>Паспорт-ссылка:</label> <a href="{{ $user->passport_link }}" target="_blank">{{ $user->passport_link }}</a> </td></tr>
+									<tr><td> <label>Дата рождения:</label> {{ $user->dateOfBirth }} </td></tr>
+									<tr><td> <label>Семеное положение:</label> {{ $user->maritalStatus}} </td></tr>
 										
 								</tbody>
 							</table>
+
 								  @if( (Auth::check() AND (Auth::User()->id === $user->id)) OR (Auth::check() AND (Auth::User()->isAdmin === 1) ))
 									<a class="btn btn-primary pull-right btn-xs" href="{{ URL::to('/profile/' . $user->id . '/edit') }}" id="editProfile">редактировать</a>
 								  @endif

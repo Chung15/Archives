@@ -8,7 +8,7 @@
 		  </div>
 		  <div class="panel-body">
 		  <table class="table table-striped table-user-information">
-
+		  		<tr><td>Другое: {{ $diploma->other_diploma }}</td></tr>
 			    <tr><td>Seria №: {{ $diploma->seria_number }}</td></tr>
 			    <tr><td>Thesis topic: {{ $diploma->thesis_topic }}</td></tr>
 			    <tr><td> Specialisation: {{ $diploma->specialization }}</td></tr>

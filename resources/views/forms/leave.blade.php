@@ -21,7 +21,7 @@
 						    {{ Form:: select('leave_type', ['уход за ребенком' => 'уход за ребенком', 'отпуск' => 'отпуск', 'отпуск по болезни' => 'отпуск по болезни', 'other' => 'Другое'], [ 'class' => 'form-control', 'id' => 'selectField', 'multiple']) }}
 				    	</div>
 
-				   		<div class = 'form-group control-panel hidden' id= 'otherField'>
+				   		<div class = 'form-group control-panel hidden otherField'>
 					        {{ Form:: label('other_leave', 'другое:') }}
 					    
 					        {{ Form:: text('other_leave', null, ['class'=> 'form-control']) }}
@@ -70,7 +70,7 @@
 						    {{ Form:: select('leave_type', ['уход за ребенком' => 'уход за ребенком', 'отпуск' => 'отпуск', 'отпуск по болезни' => 'отпуск по болезни', 'other' => 'Другое'], [ 'class' => 'form-control', 'multiple','id' => 'selectInput']) }}
 				    	</div>
 
-				   		<div class = 'form-group control-panel  hidden' id= 'otherField'>
+				   		<div class = 'form-group control-panel  hidden otherField'>
 					        {{ Form:: label('other_leave', 'другое:') }}
 					    
 					        {{ Form:: text('other_leave', null, ['class'=> 'form-control']) }}

@@ -4,7 +4,7 @@
 				<div class="col-md-4">
 					
 					<img src="/images/dnu-logo.png" width="60" height="60" id="logo">
-					<strong id="appName">ЕОМ АРХИВ</strong>
+					<strong id="appName">ЭВМ АРХИВ</strong>
 				
 				</div>
 				<div class="col-md-4">
@@ -53,7 +53,7 @@
 			</div>
 
 			<ul class="nav nav-tabs">
-				<li class="menuli">
+				<li class="menuli active">
 					<a href="{{  url('/') }}">Главная</a>
 				</li>
 				
@@ -85,7 +85,7 @@
 							<a href="{{  url('leave') }}">Отпуски</a>
 						</li>
 						<li>
-							<a href="{{  url('training') }}">Повышение квалификауии</a>
+							<a href="{{  url('training') }}">Повышение квалификации</a>
 						</li>
 						<li>
 							<a href="{{  url('publications') }}">Публикации</a>

@@ -12,7 +12,7 @@
 						<div class = "form-group control-label">
 						    {{ Form:: label('type', 'Тип:') }}
 
-						    {{ Form:: select('type', ['Bachelor' => 'Bachelor', 'Master' => 'Master', 'Doctorat' => 'Doctorat'], [ 'class' => 'form-control', 'multiple']) }}
+						    {{ Form:: select('type', ['Bachelor' => 'Бакалавр', 'Master' => 'Магитратура', 'Doctorat' => 'Аспирантура'], [ 'class' => 'form-control', 'multiple']) }}
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>
@@ -59,7 +59,7 @@
 						<div class = "form-group control-label">
 						    {{ Form:: label('type', 'Тип:') }}
 
-						    {{ Form:: select('type', ['Бакалавр' => 'Bachelor', 'Магистратура' => 'Master', 'Аспирантура' => 'Doctorat'], [ 'class' => 'form-control', 'multiple']) }}
+						   {{ Form:: select('type', ['Бакалавр' => 'Бакалавр', 'Магистратура' => 'Магистратура', 'Аспирантура' => 'Аспирантура'], [ 'class' => 'form-control', 'multiple']) }}
 				    	</div>
 
 				   		<div class = 'form-group control-panel'>

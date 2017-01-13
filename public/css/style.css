@@ -21,25 +21,36 @@ body{
 	margin-top: 20px;
 
 }
-.nav-tabs {
 
+.fa-cloud{
+	color:SteelBlue;
 }
-.fa-times {
 
+.lb{
+	color:CadetBlue;
 }
+
+
 .nav nav-tabs{
 	margin-bottom: 50px;
 }
+
 .singles{
 	margin-top: 50px;
 
 }
-.table-hover{
+
+/*.table-hover{
 	color: SteelBlue;
-}
+}*/
+
 #imgUploadBtn{
 	padding-left: 20px;
 }
+.p{
+	text-align: center;
+}
+
 div h4 a{
 	color: SteelBlue;
 }
@@ -47,7 +58,7 @@ h4{
 	color: SteelBlue;
 
 }
-h4 a strong{
+div h4 a strong{
 	color: SteelBlue;
 }
 h2{
@@ -71,7 +82,7 @@ a {
 
 }
 .table-rounded{
-	background-color: AliceBlue;
+	background-color: LightCyan;
 	border-radius: 5px;
 	padding-left: 20px;
 	position: relative;
@@ -131,4 +142,7 @@ li a{
 }
 #teacherList{
 	background-color: white;
+}
+.archiveViews{
+	background-color: LightCyan;
 }

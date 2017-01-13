@@ -40,14 +40,13 @@ class DiplomaController extends Controller
     public function store(Request $request)
     {
          $this->validate($request, Diploma::$validationRules);
-        $data = $request->only('diploma_type', 'seria_number', 'thesis_topic','specialization','department','university','year', 'diploma_link');
-        //$data = $request->all();
+        $data = $request->only('diploma_type','other_diploma','seria_number', 'thesis_topic','specialization','department','university','year', 'diploma_link');
         $year = Carbon::createFromFormat('Y', $data['year'])->format('Y');
          
-      // dd($data);
         $user = \Auth::User();
         $newDiploma= $user->diploma()->create( [
                     'diploma_type' => $data['diploma_type'],
+                    'other_diploma' => $data['other_diploma'],
                     'seria_number' => $data['seria_number'],
                     'thesis_topic' => $data['thesis_topic'],
                     'specialization' => $data['specialization'],
