@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<table class="table table-hover archiveViews">
-					<h2>Diplomas</h2>
+					<h2>Дипломы</h2>
 
 					@foreach($diplomas as $diploma)
 

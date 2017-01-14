@@ -13,7 +13,7 @@
 				     <table class="table table-striped table-user-information">
 
 					    <tr>
-					    	<p>	Преподаватель по именни {{$user->firstname}} {{$user->lastname}} , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
+					    	<p>	Преподаватель по именни {{$user->lastname}} {{$user->firstname}}  , находится в {{ $leave->leave_type }} c {{ $leave->start_date }} до {{ $leave->end_date }}
 					    	 
 					    	</p>
 					    	<p> C таким комметариям: {{ $leave->comment }}.</p>
@@ -29,13 +29,13 @@
 					   		{{ Form::model( $leave,['method'=>'DELETE', 'action' => ['LeavesController@destroy', $leave->id]]) }}
 					            {{ Form::hidden('_method', 'DELETE') }}
 					           
-					            {{ Form::submit('delete', array('class' => 'btn btn-small btn-danger')) }}
+					            {{ Form::submit('удалить', array('class' => 'btn btn-small btn-danger')) }}
 					        {{ Form::close() }}
 					        </div>
 					  		<div class="col-md-8"></div>
 					  		<div class="col-md-2">
 					   			
-					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/leave/' . $leave->id . '/edit') }}">Edit</a>
+					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/leave/' . $leave->id . '/edit') }}">редактировать</a>
 					   		</div>
 					   	</div>
 					  </div>

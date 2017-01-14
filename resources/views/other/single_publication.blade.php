@@ -6,12 +6,12 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>{{ $publication->type }}</td></tr>
-					    <tr><td>{{ $publication->title }}</td></tr>
-					    <tr><td>{{ $publication->specialisation }}</td></tr>
-					     <tr><td>{{ $publication->description }}</td></tr>
-					     <tr><td>{{ $publication->journal }}</td></tr>
-					     <tr><td>{{ $publication->published_on }}</td></tr>
+					    <tr><td><label>Тип:</label> {{ $publication->type }}</td></tr>
+					    <tr><td><label>Название:</label> {{ $publication->title }}</td></tr>
+					    <tr><td><label>Спецификация:</label> {{ $publication->specialisation }}</td></tr>
+					     <tr><td><label>Описание:</label> {{ $publication->description }}</td></tr>
+					     <tr><td><label>Журнал:</label>  {{ $publication->journal }}</td></tr>
+					     <tr><td><label>Опубликовано в:</label> {{ $publication->published_on }}</td></tr>
 					     <tr><td><a href="{{ $publication->publication_file }}" target="_blank">View pdf</a></td></tr>
 					    
 			    	
@@ -24,13 +24,13 @@
 					   		{{ Form::model($publication,['method'=>'DELETE', 'action' => ['PublicationController@destroy', $publication->id]]) }}
 					            {{ Form::hidden('_method', 'DELETE') }}
 					           
-					            {{ Form::submit('delete', array('class' => 'btn btn-small btn-danger')) }}
+					            {{ Form::submit('удалить', array('class' => 'btn btn-small btn-danger')) }}
 					        {{ Form::close() }}
 					        </div>
 					  		<div class="col-md-8"></div>
 					  		<div class="col-md-2">
 					   			
-					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/publication/' . $publication->id . '/edit') }}">Edit</a>
+					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/publication/' . $publication->id . '/edit') }}">редактировать</a>
 					   		</div>
 					   	</div>
 					  </div>

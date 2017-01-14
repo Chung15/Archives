@@ -11,10 +11,10 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>Description: {{ $training->description }}</td></tr>
-					    <tr><td>Start: {{ $training->start_date }}</td></tr>
-					    <tr><td>End: {{ $training->end_date }}</td></tr>
-					    <tr><td>Link: <a href="{{ $training->training_link }}" target="_blank">{{ $training->training_link }}</a></td></tr>
+					    <tr><td><label>Описание:</label> {{ $training->description }}</td></tr>
+					    <tr><td><label>Начало:</label> {{ $training->start_date }}</td></tr>
+					    <tr><td><label>Конец:</label> {{ $training->end_date }}</td></tr>
+					    <tr><td><label>Ссылка:</label> <a href="{{ $training->training_link }}" target="_blank">{{ $training->training_link }}</a></td></tr>
 			    	
 				   </table>
 				  </div>
@@ -25,13 +25,13 @@
 					   		{{ Form::model($training,['method'=>'DELETE', 'action' => ['TrainingController@destroy', $training->id]]) }}
 					            {{ Form::hidden('_method', 'DELETE') }}
 					           
-					            {{ Form::submit('delete', array('class' => 'btn btn-small btn-danger')) }}
+					            {{ Form::submit('удалить', array('class' => 'btn btn-small btn-danger')) }}
 					        {{ Form::close() }}
 					        </div>
 					  		<div class="col-md-8"></div>
 					  		<div class="col-md-2">
 					   			
-					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/training/' . $training->id . '/edit') }}">Edit</a>
+					   			<a class="btn btn-small btn-info pull-right" href="{{ URL::to('/training/' . $training->id . '/edit') }}">редактировать</a>
 					   		</div>
 					   	</div>
 					  </div>

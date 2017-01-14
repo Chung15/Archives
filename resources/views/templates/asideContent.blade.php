@@ -2,7 +2,7 @@
 <div class="col-md-3">
 <div class="row">
 			<h2>
-				Преподователи
+				Преподаватели
 			</h2>
 			<table class="table table-user-information table-hover" id="teacherList">
 

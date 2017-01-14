@@ -52,7 +52,7 @@
         <script src="/js/jquery.min.js"></script>
         <script src="/js/jquery-ui.js"></script>
         <script src="/js/bootstrap.min.js"></script>
-        <script src="/js/ambiance.js"></script>
+        <script src="/js/notify.js"></script>
         <script src="/js/scripts.js"></script>
     </body>
 </html>

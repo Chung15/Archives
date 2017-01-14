@@ -11,7 +11,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<table class="table table-hover archiveViews">
-					<h2>Other</h2>
+					<h2>Другие информации</h2>
 
 					@foreach($others as $other)
 

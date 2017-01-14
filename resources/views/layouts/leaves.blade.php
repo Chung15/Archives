@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<table class="table table-hover archiveViews">
-					<h2>Leaves</h2>
+					<h2>Отпуски</h2>
 					
 					@foreach($leaves as $leave)
 					

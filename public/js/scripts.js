@@ -39,6 +39,9 @@ $(document).ready(function() {
    $('#updatePassword').on('click', function () {
   $('#myModal').focus();
    });
+   $('#passport_number').click(function() {
+	$('#passport_number').notify('добавьте серия и номер паспорта', 'info', {position: 'top'});
+});
 
    $("#uploadImg").click(function() {
     $("input[type='file']").click();
@@ -69,6 +72,11 @@ $(document).ready(function() {
    		$('.otherDiploma').addClass('hidden');
    	}
    });
+$('#passport_link').click(function() {
+	$('#passport_link').notify('добавьте ссылку из Google Disc', 'info', {position: 'right top'});
+});
+
+   
 
 
 

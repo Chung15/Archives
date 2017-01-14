@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="profile_picture col-md-4">
 					<div class="row">
-					@if($user->profile_picture)
+					@if(file_exists($user->profile_picture))
 						<img class="img-circle" src="{{ $user->profile_picture }}" height="200" width="200"/>
 					@else
 						<img class="img-circle" src="/images/user-logo.png" height="200" width="200">
@@ -12,13 +12,12 @@
 						  
 						  {{ Form::open(['url' => '/profile/' .$user->id. '/profile_picture' , 'enctype' => 'multipart/form-data']) }}
 			
-						  
 						 @if((Auth::check()) AND (Auth::User()->id === $user->id))
 							  <i class="pull-right fa fa-camera fa-2x" id="uploadImg" data-toggle="tooltip" data-placement="left" title="Change picture"></i>
 							  	<input type="file" name="profile_picture" class="hidden" id="inputUploadImg">
 							  	<div class="form-group hidden" id="imgUploadBtn">
 							  		<a class="btn btn-primary btn-sm" type="submit" id="cancelbtn" name="cancel" value="cancel" href=" {{ action('UserController@cancelImg', [$user->id]) }}">Отмета</a>
-							  		<button href="" class="btn btn-primary btn-sm" type="submit" name="submit" value="submit">Submit</button>
+							  		<button href="" class="btn btn-primary btn-sm" type="submit" name="submit" value="submit">Отправить</button>
 							  	</div>
 						 @endif
 						  {{ Form::close() }}

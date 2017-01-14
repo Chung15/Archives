@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-7">
 				<table class="table table-hover archiveViews">
-					<h2>Degrees</h2>
+					<h2>Ученая степень</h2>
 
 					
 					@foreach($degrees as $degree)

@@ -49,7 +49,6 @@ class UserController extends Controller
 
      public function showHelp() 
     {   
-        //$user = User::findOrFail($id);
         return view('templates.user.help');
 
     }
@@ -199,9 +198,6 @@ class UserController extends Controller
 
         return redirect('/profile/' .$user->id);
 
-        //return redirect('/');
-        //return Redirect::to('/Authprofile');
-        //return $this->show($id);
     }
 
     /**
