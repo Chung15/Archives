@@ -50,7 +50,7 @@ class UserController extends Controller
      public function showHelp() 
     {   
 
-        return view('help');
+        return view('help.instructions');
 
     }
 

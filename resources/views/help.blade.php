@@ -1,10 +1,11 @@
 
-				<div class="col-md-2 formTitles">
-					<div class="row">
-					
+
 						<h3 class="text-info formTitles">
 							help
 						</h3>
+				<div class="col-md-2 formTitles">
+					<div class="row">
+					
 								<table class="table table-hover table-bordered table-rounded">
 									<tbody>
 										<tr>

@@ -7,7 +7,7 @@
 				<div class="col-md-1"></div>
 
 				<div class="col-md-8">
-					<h4 class="formTitles">Instructions</h4>
+					<h4 class="formTitles active">Instructions</h4>
 
 						<div class="panel-group" id="accordionCollapse" role="tablist" aria-multiselectable="true">
 						  <div class="panel panel-default">
