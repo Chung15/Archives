@@ -1,6 +1,6 @@
 <?php 
   /**
-  *@params path to images
+  *@params path to images on the server
   */
   function getCarousselImages($dir) {
         $images = array();
@@ -17,7 +17,7 @@
     }
    
    
-
+// Create a template for the carousel view
     function getCarousel() {
         $images = getCarousselImages("images/carousel_images");
         $result = '<div class="col-md-6" id="carousel">';

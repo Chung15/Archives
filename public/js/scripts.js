@@ -1,5 +1,8 @@
 
 $(document).ready(function() {
+	 /**
+	     * show different date formats
+	     */
 
     $( ".date" ).datepicker({
       changeMonth: true,
@@ -19,50 +22,51 @@ $(document).ready(function() {
       dateFormat: "mm/yy"
     });
 
-   // $('select[name=leave_type]').change(other());
     /**
         * we can implement a function for this: otherField().
         *
         * @param  \Illuminate\Http\Request  
         * @return 
         */
-   $('select[name=leave_type]').change(function() { 
-   	if($(this).val() === 'other') {
-   		$('.otherField').removeClass('hidden');
-   	} 
-   	else{
-   		$('.otherField').addClass('hidden');
-   	}
+   	$('select[name=leave_type]').change(function() { 
+   		if($(this).val() === 'other') {
+   			$('.otherField').removeClass('hidden');
+   		} 
+   		else{
+   			$('.otherField').addClass('hidden');
+   			}
    });
 
-   //editUserProfile();
-   $('#updatePassword').on('click', function () {
-  $('#myModal').focus();
-   });
-   $('#passport_number').click(function() {
+   //edit user password;
+   	$('#updatePassword').on('click', function () {
+  	$('#myModal').focus();
+   	});
+
+    $('#passport_number').click(function() {
 	$('#passport_number').notify('добавьте серия и номер паспорта', 'info', {position: 'top'});
-});
+	});
 
-   $("#uploadImg").click(function() {
+    // uploaad img by click on camera icon
+   	$("#uploadImg").click(function() {
     $("input[type='file']").click();
 	});
 
-   $("input[type='file']").click(function(){
+	// Show form form upload image
+   	$("input[type='file']").click(function(){
     	$('#imgUploadBtn').removeClass('hidden');
 
 	   var img = $("input[type='file']").val();
-	   console.log('uploaded file as', img);
     });
 
-   /*$('.menuli').on('mousedown', function() {
-   		$('.menuli').addClass('active');
-   });*/
 
    $('.fa-times').hover(function (){
    		$('.fa-times').removeClass('hidden'),
    		 function() {$('.fa-times').addClass('hover')}, 
    		 function(){$('.fa-times').removeClass('hover')};
    });
+
+
+	// Add other field when other option selected
 
    $('select[name=diploma_type]').change(function() { 
    	if($(this).val() === 'other') {
@@ -72,33 +76,8 @@ $(document).ready(function() {
    		$('.otherDiploma').addClass('hidden');
    	}
    });
-$('#passport_link').click(function() {
-	$('#passport_link').notify('добавьте ссылку из Google Disc', 'info', {position: 'right top'});
-});
-
-   
-
-
-
-
-
-
-   
-
- 
 
 	var gender = $('input[name=gender]:checked').val();
-	console.log("GENDER = ", gender);
-
-	/*$('#lastname').blur(validateFields());
-    $('#email').blur(validateFields());
-
-    $('#password').keyup(validateFields());
-    $('#password-confirm').keyup(validateFields());*/
-   // $('#terms').change(validateFields());
-
-
-
 
 	isChecked = function(){
 		if($("#terms").is(':checked')){
@@ -107,41 +86,14 @@ $('#passport_link').click(function() {
 			console.log("CHECKED");
 		}else{
 			$("#terms").val('0');
-			//alert("please accept terms of use");
+			
 		}
-	 //console.log("Terms checked = ", checked);
 		
 	}
-	//$( "input[type=checkbox]" ).on( "click", isChecked );
-	//isChecked();
-
-	/*addInputField = function () {
-	console.log('i am there');
-	var input ='<div class="row" id="author_data">\
-						<div  class="col-md-10">\
-							<div class = "form-group control-panel">\
- 								{{ Form:: text("name", null, ["class"=> "form-control"]) }} \
-							 </div>\
-						 </div>\
-						<div  class="col-md-2">\
-						      <button type="button" class="btn btn-primary fa fa-minus-circle pull-right" onclick="removeInputField()"> </button>\						        			 
-						</div>\
-					</div>';
-
-
-
-	$(input).insertAfter('.author_data');*/
-//}
-	
-	//$("#addBtn").on('click', addInputField());
-
-
-	 //$('.removebtn').click(function () {
-       // $(this).remove();   
- 	//});
 
 });
 
+// Validation for email and password
 function validateFields(){
 	var isValid = true,
 
@@ -161,22 +113,6 @@ function validateFields(){
 	if (lastname === '' || email === '' || password === '' || password_confirm === '') {
             isValid = false;
     }
-
-	/*else if(password !== password_confirm) {
-		isValid = false;
-	}
-	else {
-		isValid= true;
-	}*/
-
-/*
-	if(!(isInArray(status, selected_status))){
-		isValid = false;
-	}
-
-	if(!($('#terms').is(':checked'))) {
-		isValid = false;
-	}*/
 
 	if (isValid) {
          $('#reg_submit[type="submit"]').prop('disabled', false);
@@ -201,8 +137,15 @@ isInArray = function (itemList, item){
 	return found;
 }
 
+
+/*-----------------------------------------Further implementation------------------------------------------------------------------------------*/
 var counter = 0;
 
+ /**
+     * add a new input field on click on the button +.
+     *
+     
+     */
 function addInputField() {
 	console.log('i am there');
 	var button_id ="removebtn"+counter; 
@@ -230,7 +173,11 @@ function addInputField() {
 	 counter++;
 }
 
-//
+ /**
+     * remove field on click on btn - .
+     *
+     */
+
 function removeInputField(element) {
 
 	var button_id = $(element).attr("id");
@@ -243,16 +190,8 @@ function removeInputField(element) {
 		counter--;
     
 }
- function other() {
 
-	var selected_value = $('#selectInput option:selected').text();
-	//$('select[name=selector]').change(function() { alert($(this).val()); });
- 	console.log('value is:', selected_value);
- 	if (selected_value === 'other') {
- 		$('#otherField').removeClass('hidden');
- 	}
- }
-
+// hide and show edit view on click on editbtn.using the same view 
  function editUserProfile() {
  	var editBtn = $('#editProfile'),
  		contentView = $('#userProfileInfo'),
@@ -261,7 +200,7 @@ function removeInputField(element) {
  		
  		contentView.addClass('hidden');
  		editView.removeClass('hidden');
- 	})
+ 	});
  }
-
+/*----------------------------------------------------------------------------------------------------------------------------------------------*/
 

@@ -11,6 +11,7 @@ class TrainingController extends Controller
     /**
      * Display a listing of the resource.
      *
+     * @param  int  $user_id
      * @return \Illuminate\Http\Response
      */
     public function index($user_id)
@@ -74,13 +75,6 @@ class TrainingController extends Controller
         return view('other.single_training', compact('training','user'));
     }
 
-   /*  public function show($id)
-    {   
-       $training = Training::findOrFail($id); 
-       
-        return view('other.single_training', compact('training'));
-    }
-*/
     /**
      * Show the form for editing the specified resource.
      *

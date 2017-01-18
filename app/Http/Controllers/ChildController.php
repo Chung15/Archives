@@ -45,9 +45,6 @@ class ChildController extends Controller
         $data = $request->all();
         $dateOfBirth= Carbon::createFromFormat('d/m/Y',$data['dateOfBirth'])->format('Y-m-d');
 
-        //$dateOfBirth = date_create($data['dateOfBirth']);
-        //$dateOfBirth = date_format($dateOfBirth,"Y-m-d");
-
         $parent = \Auth::User();
         $newChild = $parent->child()->create( [
                     'firstname' => $data['firstname'],

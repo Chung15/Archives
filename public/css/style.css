@@ -1,6 +1,5 @@
 body{
 	background-image: url('/images/background.jpg');
-	/*background-color:LightSteelBlue;*/
 	background-position: fixed;
 	background-repeat: initial;
 
@@ -46,7 +45,9 @@ body{
 
 #imgUploadBtn{
 	padding-left: 20px;
+	padding-right: auto;
 }
+
 .p{
 	text-align: center;
 }
@@ -54,39 +55,48 @@ body{
 div h4 a{
 	color: SteelBlue;
 }
+
 h4{
 	color: SteelBlue;
 
 }
+
 div h4 a strong{
 	color: SteelBlue;
 }
+
 h2{
 	padding-left: 10px;
 	color: SteelBlue;
 }
+
 a {
 	text-decoration: none;
 	text-align:justify;
 }
+
 #appName{
 	color:CadetBlue;
 }
+
 .topmenu{
 	color:CadetBlue;
 
 }
+
 #carousel{
 	padding-left: 20px;
 	border-radius: 5px;
 
 }
+
 .table-rounded{
 	background-color: white;
 	border-radius: 5px;
 	padding-left: 20px;
 	position: relative;
 }
+
 tr td a{
 	font-weight: bold;
 }
@@ -95,31 +105,38 @@ tr td a{
 	padding-left: 5px;
 	padding-top: 5px;
 }
+
 .row header {
 	background-color: LightSteelBlue;
 	margin: 10px;
 	padding: 10px;
 }
+
 ul li a {
 	color:MidnightBlue;
 	font-weight: bold;
 	text-decoration: none;
 }
+
 li a{
 }
+
 .footer {
 	background-color: SteelBlue;
 	margin-top: 100px;
 
 }
+
 .simple{
 	background-color: Gainsboro;
 	margin-top: 40px;
 
 }
+
 .formTitles {
 	padding-left: 20px;
 }
+
 .img-circle{
 	margin-left: auto;
 	margin-right:5px;
@@ -127,22 +144,28 @@ li a{
 	position: relative;
 	float: left;
 }
+
 .row footer {
 	position: fixed;
 	margin-top:30px;
 }
+
 #accordion {
 	padding-left:20px;
 }
+
 #accordionCollapse{
 	padding-right: 20px;
 }
+
 #table-rounded {
 	border-radius:3px;
 }
+
 #teacherList{
 	background-color: white;
 }
+
 .archiveViews{
 	background-color: white;
 }

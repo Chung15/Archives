@@ -4,7 +4,7 @@
         @if(isset($degree))
           <div class="row">
                         {{ Form::model($degree,['method'=>'PATCH', 'action' => ['AcademicDegreeController@update', $degree->id]]) }}
-                              <div class="formTitles"><strong>Degree</strong></div>
+                              <div class="formTitles"><strong>Редактировать ученую степени</strong></div>
                               <hr/>
                                           <div class = "col-md-2"></div>
                                               <div class="col-md-4">
@@ -50,15 +50,15 @@
                                         </div>
 
                                            <div class = "col-md-2"></div>
-                  </div>
-                  {{ Form:: close() }}
+          </div>
+                        {{ Form:: close() }}
 
-                  @else
+        @else
 
                       
                     <div class="row">
                         {{ Form::open(['url' => 'saveDegree']) }}
-                              <div class="formTitles"><strong>Degree</strong></div>
+                              <div class="formTitles"><strong>Ученая степень</strong></div>
                               <hr/>
                                           <div class = "col-md-2"></div>
                                               <div class="col-md-4">
@@ -100,9 +100,9 @@
                                         </div>
 
                                            <div class = "col-md-2"></div>
+                      {{ Form:: close() }}
                   </div>
-                  {{ Form:: close() }}
-                @endif
+        @endif
                          
 
                  @endsection

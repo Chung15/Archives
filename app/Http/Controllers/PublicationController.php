@@ -21,8 +21,7 @@ class PublicationController extends Controller
     public function index($user_id)
     {
         $user = User::findOrFail($user_id);
-        $publications = $user->publication()->latest('created_at')->get();
-        // $latest = Publication::latest()->first();
+        $publications = $user->publication()->latest('updated_at')->get();
         return view('layouts.newPublication', compact('publications','user'));
     }
 

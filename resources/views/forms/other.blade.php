@@ -8,7 +8,7 @@
     <h2 style="color: green"><i class="fa fa-star"></i>{{Session::get('message')}}</h2>
 @endif
 
-		<div class="formTitles"><strong>Редактировать другое</strong></div>			
+		<div class="formTitles"><strong>Редактировать информацию</strong></div>			
 				<div class = "row">
 					<div class = "col-md-3"></div>
 					<div class = "col-md-6">
@@ -43,7 +43,7 @@
 		
 			{{ Form::open(['url' => 'saveOther']) }}
 
-				<div class="formTitles"><strong>Другое</strong></div>
+				<div class="formTitles"><strong>Другая информация</strong></div>
 					<hr/>
 					<div class = "row">
 						<div class = "col-md-3"></div>

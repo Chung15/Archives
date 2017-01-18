@@ -129,7 +129,11 @@ Route::group(['middleware' => ['web']], function () {
    Route::get('/profile/{id}', ['as' => 'profile', 'uses' =>'UserController@show']);
 
 
-   
+/*-----------------------------------------------WEB ROUTES------------------------------------------------------------------------*/
+  Route::get('/help/instructions', ['uses' => 'HelpController@instructions']);
+  Route::get('/help/about', ['uses' => 'HelpController@about']);
+  Route::get('/help/terms', ['uses' => 'HelpController@terms']);
+  Route::get('/help/feedbacks', ['uses' => 'HelpController@feedbacks']);
 
 });
 

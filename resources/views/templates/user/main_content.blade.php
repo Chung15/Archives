@@ -3,7 +3,7 @@
 			<div class="row">
 				<div class="profile_picture col-md-4">
 					<div class="row">
-					@if(file_exists($user->profile_picture))
+					@if($user->profile_picture)
 						<img class="img-circle" src="{{ $user->profile_picture }}" height="200" width="200"/>
 					@else
 						<img class="img-circle" src="/images/user-logo.png" height="200" width="200">

@@ -49,7 +49,8 @@ class UserController extends Controller
 
      public function showHelp() 
     {   
-        return view('templates.user.help');
+
+        return view('help');
 
     }
 
@@ -246,18 +247,6 @@ class UserController extends Controller
          }
         
     }
-
-    /* public function deleteImg( Request $request)
-    {
-          $user = \Auth::User();
-         $data =  $request->file('profile_picture');
-
-         if(file_exists('profile_picture')) {
-            $user->profile_picture->delete();
-            
-         }*/
-        
-   // }
 
 
 }

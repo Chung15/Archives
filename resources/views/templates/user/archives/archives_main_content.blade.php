@@ -75,7 +75,7 @@
 			    	<tr>
 
 			    		<td>
-				   			 <a href="{{ action('OtherController@index', [$user->id]) }}"> Другое </a>
+				   			 <a href="{{ action('OtherController@index', [$user->id]) }}"> Другие </a>
 					    		
 	    		 			
 			    		 </td>

@@ -73,10 +73,8 @@ class LeavesController extends Controller
      */
     public function show($id)
     {
-        //this function should know Child
          $leave = Leave::findOrFail($id); 
-         //$user = User::findOrFail($leave->user_id);
-        $user = $leave->user()->get()->first();
+         $user = $leave->user()->get()->first();
 
          $leave->start_date= Carbon::createFromFormat('Y-m-d',$leave->start_date)->format('d/m/Y');
 

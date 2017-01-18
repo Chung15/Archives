@@ -10,7 +10,7 @@
 		@if(isset($leave))
 			{{ Form::model($leave, ['method'=>'PATCH', 'action' => ['LeavesController@update', $leave->id]]) }}
 		
-			<div class="formTitles"><strong>Отпуск</strong></div>
+			<div class="formTitles"><strong>Редактировать отпуск</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -59,7 +59,7 @@
 
 		{{ Form::open(['url' => 'saveLeave']) }}
 		
-			<div class="formTitles"><strong>Leaves</strong></div>
+			<div class="formTitles"><strong>Отпуск</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>

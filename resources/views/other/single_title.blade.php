@@ -3,7 +3,7 @@
 	@section('content')
 		<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h6 class="panel-title">{{ $title->academic_title }}</h6>
+				    <h6 class="panel-title"><label>Ученое звание:</label> {{ $title->academic_title }}</h6>
 				  </div>
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">

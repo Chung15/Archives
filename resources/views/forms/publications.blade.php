@@ -15,7 +15,7 @@
 		@if(isset($publication))
 			{{ Form::model($publication,['method'=>'PATCH', 'action' => ['PublicationController@update', $publication->id], 'enctype' => 'multipart/form-data']) }}
 			
-				<div class="formTitles"><strong> Редактировать публикации</strong></div>
+				<div class="formTitles"><strong> Редактировать публикацию</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>
@@ -127,7 +127,7 @@
 
 						<div class = 'form-group control-panel'>
 						    {{ Form:: label('publication_file', 'Скачать файл:') }}
-							<!-- <input type="file" name="publication_file" class ="form-group control" > -->
+						
 							{{ Form:: file('publication_file', null, ['class'=> 'form-control']) }}
 				    	</div>
 				        <div>

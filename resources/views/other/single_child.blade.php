@@ -6,11 +6,11 @@
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>Фамилия: {{ $child->lastname }}</td></tr>
-					    <tr><td>Имя: {{ $child->firstname }}</td></tr>
-					    <tr><td>Отчество: {{ $child->patronymic }}</td></tr>
-					    <tr><td>Дата рождения: {{ $child->dateOfBirth }}</td></tr>
-					     <tr><td>Ссылка: <a href="{{ $child->child_link }}" target="_blank">{{ $child->child_link }}</a></td></tr>
+					    <tr><td><label>Фамилия:</label> {{ $child->lastname }}</td></tr>
+					    <tr><td><label>Имя:</label> {{ $child->firstname }}</td></tr>
+					    <tr><td><label>Отчество:</label> {{ $child->patronymic }}</td></tr>
+					    <tr><td><label>Дата рождения:</label> {{ $child->dateOfBirth }}</td></tr>
+					     <tr><td><label>Ссылка:</label> <a href="{{ $child->child_link }}" target="_blank">{{ $child->child_link }}</a></td></tr>
 					    
 			    	
 				   </table>

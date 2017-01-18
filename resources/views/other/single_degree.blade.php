@@ -3,16 +3,16 @@
 	@section('content')
 		<div class="panel panel-default">
 				  <div class="panel-heading">
-				    <h6 class="panel-title">{{ $degree->academic_degree }}</h6>
+				    <h6 class="panel-title"><label>Ученая степень:</label> {{ $degree->academic_degree }}</h6>
 				  </div>
 				  <div class="panel-body">
 				     <table class="table table-striped table-user-information">
 
-					    <tr><td>Серия №: {{ $degree->seria_number }}</td></tr>
-					    <tr><td>Тема: {{ $degree->thesis_topic }}</td></tr>
-					    <tr><td>Специальность: {{ $degree->specialization }}</td></tr>
-					    <tr><td>Год: {{ $degree->year }}</td></tr>
-					    <tr><td>Ссылка: <a href="{{ $degree->degree_link }}" target="_blank">{{ $degree->degree_link }}</a></td></tr>
+					    <tr><td><label>Серия №:</label> {{ $degree->seria_number }}</td></tr>
+					    <tr><td><label>Тема:</label> {{ $degree->thesis_topic }}</td></tr>
+					    <tr><td><label>Специальность:</label> {{ $degree->specialization }}</td></tr>
+					    <tr><td><label>Год:</label> {{ $degree->year }}</td></tr>
+					    <tr><td><label>Ссылка:</label> <a href="{{ $degree->degree_link }}" target="_blank">{{ $degree->degree_link }}</a></td></tr>
 			    	
 				   </table>
 				  </div>

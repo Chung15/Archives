@@ -4,31 +4,31 @@
 
 		{{ Form::model($adress,['method'=>'PATCH', 'action' => ['AdressController@update', $adress->id, $user->id]]) }}
 			<div class = 'form-group'>
-					    {{ Form:: label('city', 'City:') }}
+					    {{ Form:: label('city', 'Город:') }}
 
 					    {{ Form:: text('city', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	<div class = 'form-group'>
-					    {{ Form:: label('street', 'street:') }}
+					    {{ Form:: label('street', 'Улица:') }}
 
 					    {{ Form:: text('street', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	<div class = 'form-group'>
-					    {{ Form:: label('zip', 'Zip:') }}
+					    {{ Form:: label('zip', 'Почтовый индекс:') }}
 
 					    {{ Form:: text('zip', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	<div class = 'form-group'>
-					    {{ Form:: label('phone', 'phone:') }}
+					    {{ Form:: label('phone', 'Телефон:') }}
 
 					    {{ Form:: text('phone', null, ['class'=> 'form-control']) }}
 			    	</div>
 			    	 <div class="form-group">
-							{{ Form::submit('save', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
+							{{ Form::submit('сохранить', ['class' => 'btn btn-primary btn-sm pull-right btn-success form_control']) }}
 				   
 					</div>
 					<div class="form-group">
-							{{ Form::submit('cancel', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
+							{{ Form::submit('отметить', ['class' => 'btn btn-primary btn-sm btn-danger form_control']) }}
 				   
 					</div>
 		{{ Form::close() }}

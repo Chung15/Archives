@@ -17,10 +17,16 @@ class TopicsController extends Controller
     public function index($user_id)
     {
        $user = User::findOrFail($user_id);
-        $topics = $user->thesisTopic()->get();
+        $topics = $user->thesisTopic()->latest('updated_at')->get();
         return view('layouts.newTopic', compact('topics','user'));
     }
 
+ /**
+     * Display collapse bar.
+     *
+     * @param  \Illuminate\Http\Request  
+     * @return 
+     */
      public function indexCollapse($id)
     {
         $user = User::findOrFail($id);

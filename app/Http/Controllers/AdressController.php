@@ -22,11 +22,6 @@ class AdressController extends Controller
 
     	return view('templates.user.edit_user_contact', compact('adress','user'));
     }
-     /*public function edit($id) {
-        $adress = \Auth::User()->adress()->findOrFail($id);
-
-        return view('templates.user.edit_user_contact', compact('adress'));
-    }*/
 
     public function update (Request $request, $id, $user_id) {
 
@@ -38,29 +33,11 @@ class AdressController extends Controller
 
         $data = $request->all();
 
-       $adress->update($data);
+        $adress->update($data);
 
-        //return view('templates.user.userProfile',compact('user'));
         return redirect('/profile/'.$user->id);
     	
 
     }
-   /* public function update (Request $request, $id) {
-
-         $this->validate($request, Adress::$validationRules);
-
-        $user = \Auth::User();
-        $adress = $user->adress()->findOrFail($id);
-
-
-        $data = $request->all();
-
-       $adress->update($data);
-
-        //return view('templates.user.userProfile',compact('user'));
-        return redirect('/profile/'.$user->id);
-        
-
-    }*/
 
 }

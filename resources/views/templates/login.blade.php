@@ -7,7 +7,7 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					<h3 class="panel-title">
-						<label>Вход</label>
+						<label class="lb">Вход</label>
 					</h3>
 				</div>
 				<div class="panel-body">
@@ -23,7 +23,7 @@
 					    <label for="password" class="lb">Пароль</label>
 					    <input type="password" class="form-control" id="password" name="password" placeholder="Password" value="{{ old('password') }}" required>
 					  </div>
-  						<button type="submit" class="btn btn-primary">Submit</button>
+  						<button type="submit" class="btn btn-primary">Отправить</button>
 
   						@if (count($errors))
 						<div class="alert alert-danger">
@@ -41,6 +41,7 @@
 
 		
 				</div>
+				<!-- for further implentation-->
 				<!-- <div class="panel-footer">
 					<div class="">
 					    <label> <a href="{{ url('/email') }}"> Forgot my password  </a>

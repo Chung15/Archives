@@ -3,7 +3,7 @@
 	@section('content')
 		@if(isset($training))
 			{{ Form::model($training, ['method'=>'PATCH', 'action' => ['TrainingController@update', $training->id]]) }}
-				<div class="formTitles"> <strong>Редактировать повышение информации</strong></div>
+				<div class="formTitles"> <strong>Редактировать: повышение квалификации</strong></div>
 				<hr/>
 				<div class = "row">
 					<div class = "col-md-3"></div>

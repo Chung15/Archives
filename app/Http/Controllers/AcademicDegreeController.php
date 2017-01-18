@@ -19,10 +19,6 @@ class AcademicDegreeController extends Controller
     public function index($user_id)
     {
         $user = User::findOrFail($user_id);
-       /* $degrees = DB::table('academic_degrees')
-                ->where('user_id', $user->id)
-                ->get();
-    */
         $degrees = $user->degree()->get();
 
         return view('layouts.degrees', compact('degrees','user'));

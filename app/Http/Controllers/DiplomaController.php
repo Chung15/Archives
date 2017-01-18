@@ -17,7 +17,6 @@ class DiplomaController extends Controller
     {
         $user = User::findOrFail($user_id);
         $diplomas = $user->diploma()->get();
-       // $options = Options::pluck('name','id');
         return view('layouts.diplomas', compact('diplomas','user'));
     }
 
